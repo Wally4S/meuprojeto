@@ -1,232 +1,210 @@
-/* Reset de estilo */
-* {
+/* GLOBAL */
+body {
     margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    padding-top: 90px;
+    background: url('background.png') no-repeat center center fixed; /* Apliquei o background para a página inteira */
+    background-size: cover; /* Garantindo que a imagem cubra toda a área */
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(253, 252, 252, 0);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px; /* Aumentando o espaçamento interno para mais equilíbrio */
     box-sizing: border-box;
 }
 
-/* Estilos globais */
-body {
-    font-family: 'Gravitas One', sans-serif;
-    background-color: #121212;
-    color: white;
-    overflow-x: hidden; /* Impede scroll horizontal */
-    background: url('background.png') no-repeat center center fixed; /* Aplica o fundo de papel em toda a página */
-    background-size: cover;
+/* LOGO */
+.logo img {
+    height: 45px;
 }
 
-/* Cabeçalho */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    background-color: rgba(1, 82, 155, 0.7);
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    transition: background-color 0.3s ease;
-}
-
-header .logo img {
-    width: auto;
-    height: 50px;
-}
-
-/* Menu de Navegação */
-header nav ul {
+/* NAV */
+nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 40px;  /* Aumentando a distância entre os itens */
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end; /* Colocando os botões à direita */
+    flex-grow: 1;
+}
+nav a {
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+nav a:hover {
+    color: #00f7ff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Efeito glow */
+    transform: scale(1.1); /* Efeito de pulsação */
 }
 
-header nav ul li {
-    display: inline-block;
+/* BUTTONS & CATEGORIES */
+.btn, .produto-card {
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover, .produto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); /* Efeito de glow nos botões e categorias */
 }
 
-header nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-family: 'Gravitas One', sans-serif;
-    transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #01529b;
-}
-
-/* Seção Hero */
-.hero {
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 80px;
+/* HERO */
+#inicio {
+    height: 100vh; /* Alterado para ocupar 100% da altura da página */
     position: relative;
-    z-index: 1;
-}
-
-.hero-text {
-    z-index: 2;
-    color: white;
-    padding: 30px;
-    text-shadow: 0px 0px 10px #01529b;
-}
-
-.hero h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 24px;
-    margin-bottom: 30px;
-}
-
-/* Seção Criadores de Conteúdo */
-.criadores {
-    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 150px; /* Ajuste para garantir que as promoções não sejam cortadas */
+}
+#inicio video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    color: #00f7ff;
+}
+.hero-text p {
+    font-size: 1.3rem;
+}
+.btn {
+    padding: 12px 30px;
+    background: #00f7ff;
+    color: #000;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    box-shadow: 0 0 20px #00f7ff;
+    transform: scale(1.1); /* Efeito de pulsação */
 }
 
-.criadores h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: white;
+/* STREAMERS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    background: transparent; /* Removi o fundo preto aqui */
 }
-
 .cards {
     display: flex;
+    gap: 15px;
     justify-content: center;
-    gap: 20px; /* Aumentando o espaçamento entre os cards */
     flex-wrap: wrap;
 }
-
-/* Estilo dos Cards - Ajustados para menores */
-.card {
-    background-color: rgba(255, 255, 255, 0);
-    padding: 15px; /* Menos padding */
+.produto-card {
+    width: 140px;
+    height: 200px;
     border-radius: 10px;
-    width: px; /* Diminuindo o tamanho */
-    height: 280px; /* Ajustando a altura */
-    text-align: center;
-    box-shadow: 0 0 15px rgba(1, 82, 155, 0.3);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: 0.3s;
 }
-
-.card:hover {
-    box-shadow: 0 0 25px rgba(1, 82, 155, 0.7);
-    transform: translateY(-10px);
+.produto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
-
-.card-image img {
+.produto-card img {
     width: 100%;
-    height: 150px; /* Ajustando o tamanho da imagem */
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
 }
-
-.card-content h3 {
-    font-size: 18px;
-    margin-top: 10px;
-    color: white;
+.produto-card .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px;
 }
-
+.produto-card .card-content h3 {
+    font-size: 0.9rem;
+}
 .social-links a {
-    color: white;
-    font-size: 20px; /* Ajustando o tamanho dos ícones */
-    margin: 10px;
-    text-decoration: none;
+    color: #00f7ff;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
-
 .social-links a:hover {
-    color: #01529b;
+    color: #00ff88;
+    transform: scale(1.1); /* Efeito de pulsação nos ícones sociais */
 }
 
-/* Seção Promoções */
-.promocoes {
-    padding: 50px 20px;
-    text-align: center;
-    background: transparent;
-    margin-top: 150px; /* Aumentei para garantir que a seção Promoções apareça abaixo */
-}
-
-.promocoes-title {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: white;
-    animation: glowPulse 2s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-    0% {
-        text-shadow: 0 0 5px #01529b, 0 0 10px #01529b, 0 0 15px #01529b;
-    }
-    50% {
-        text-shadow: 0 0 20px #01529b, 0 0 30px #01529b, 0 0 40px #01529b;
-    }
-    100% {
-        text-shadow: 0 0 5px #01529b, 0 0 10px #01529b, 0 0 15px #01529b;
-    }
-}
-
-.promocoes .cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.promocoes .card {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    width: 380px;
-    height: 250px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(1, 82, 155, 0.3);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: pulse 2s infinite;
-}
-
-.promocoes .card:hover {
-    box-shadow: 0 0 25px rgba(1, 82, 155, 0.7);
-    transform: translateY(-10px);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.promocoes .card-content {
-    color: white;
-}
-
-/* Rodapé */
+/* FOOTER */
 footer {
-    background-color: #ffffff00;
     text-align: center;
     padding: 20px;
-    font-size: 16px;
-    color: #fff;
+    color: #555;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 25px; /* Aumentei o padding para um tamanho mais adequado */
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    font-size: 18px; /* Ajustei o tamanho da fonte */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Distância entre o ícone e o texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold; /* Deixei o texto mais chamativo */
+}
+
+.whatsapp-button i {
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+.whatsapp-button span {
+    font-size: 16px; /* Ajuste do tamanho do texto */
+}
+
+/* Efeito de hover */
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho no hover */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Efeito de brilho */
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search input, .search button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+    }
 }
