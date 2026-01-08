@@ -1,314 +1,310 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Loja 4S Store - Produtos rápidos e baratos. Compre produtos de qualidade agora.">
-    <meta name="keywords" content="loja, comprar, rápido, barato, 4S Store">
-    <meta name="robots" content="index, follow">
-    <title>4S Store | Rápido e Barato</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4S Store | Rápido e Barato</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+color:#fff;
+padding-top:90px;
+background:url('background.png') no-repeat center center fixed;
+background-size:cover;
+}
 
-    <style>
-        /* GLOBAL */
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-            padding-top: 90px;
-            background: url('background.png') no-repeat center center fixed; /* Apliquei o background para a página inteira */
-            background-size: cover; /* Garantindo que a imagem cubra toda a área */
-            height: 100%;
-        }
-        a {
-            text-decoration: none;
-        }
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:12px 60px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+backdrop-filter:blur(10px);
+z-index:999;
+box-sizing:border-box;
+}
 
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(253, 252, 252, 0);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 40px; /* Aumentando o espaçamento interno para mais equilíbrio */
-            box-sizing: border-box;
-        }
+.logo img{height:45px}
 
-        /* LOGO */
-        .logo img {
-            height: 45px;
-        }
+/* MENU */
+nav ul{
+list-style:none;
+display:flex;
+gap:22px;
+margin:0;
+padding:0;
+}
 
-        /* NAV */
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 40px;  /* Aumentando a distância entre os itens */
-            margin: 0;
-            padding: 0;
-            justify-content: flex-end; /* Colocando os botões à direita */
-            flex-grow: 1;
-        }
-        nav a {
-            color: #fff;
-            font-size: 1rem;
-            transition: all 0.3s ease-in-out;
-        }
-        nav a:hover {
-            color: #00f7ff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Efeito glow */
-            transform: scale(1.1); /* Efeito de pulsação */
-        }
+nav a{
+text-decoration:none;
+color:#000;
+font-weight:bold;
+padding:10px 24px;
+border-radius:30px;
+background:#00f7ff;
+display:flex;
+align-items:center;
+gap:8px;
+box-shadow:0 0 12px rgba(0,247,255,.6);
+transition:.3s;
+}
 
-        /* BUTTONS & CATEGORIES */
-        .btn, .produto-card {
-            transition: all 0.3s ease-in-out;
-        }
-        .btn:hover, .produto-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); /* Efeito de glow nos botões e categorias */
-        }
+nav a:hover{
+transform:scale(1.1);
+box-shadow:0 0 28px rgba(0,247,255,.9);
+}
 
-        /* HERO */
-        #inicio {
-            height: 100vh; /* Alterado para ocupar 100% da altura da página */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        #inicio video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .hero-text h1 {
-            font-size: 3rem;
-            color: #00f7ff;
-        }
-        .hero-text p {
-            font-size: 1.3rem;
-        }
-        .btn {
-            padding: 12px 30px;
-            background: #00f7ff;
-            color: #000;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            box-shadow: 0 0 20px #00f7ff;
-            transform: scale(1.1); /* Efeito de pulsação */
-        }
+/* HERO */
+#inicio{
+height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin-top:-20px;
+}
 
-        /* STREAMERS */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-            background: transparent; /* Removi o fundo preto aqui */
-        }
-        .cards {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .produto-card {
-            width: 140px;
-            height: 200px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            transition: 0.3s;
-        }
-        .produto-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
-        .produto-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .produto-card .card-content {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 8px;
-        }
-        .produto-card .card-content h3 {
-            font-size: 0.9rem;
-        }
-        .social-links a {
-            color: #00f7ff;
-            margin: 0 5px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #00ff88;
-            transform: scale(1.1); /* Efeito de pulsação nos ícones sociais */
-        }
+.hero-text h1{
+font-family:'Gravitas One',cursive;
+font-size:3.2rem;
+color:#00f7ff;
+margin-bottom:10px;
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #555;
-        }
+.hero-text p{
+font-size:1.3rem;
+margin-bottom:25px;
+}
 
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            padding: 15px 25px; /* Aumentei o padding para um tamanho mais adequado */
-            border-radius: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            font-size: 18px; /* Ajustei o tamanho da fonte */
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Distância entre o ícone e o texto */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-weight: bold; /* Deixei o texto mais chamativo */
-        }
+.btn{
+padding:12px 32px;
+background:#00f7ff;
+color:#000;
+border-radius:30px;
+font-weight:bold;
+box-shadow:0 0 15px rgba(0,247,255,.7);
+transition:.3s;
+}
 
-        .whatsapp-button i {
-            font-size: 24px; /* Tamanho do ícone */
-        }
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px rgba(0,247,255,1);
+}
 
-        .whatsapp-button span {
-            font-size: 16px; /* Ajuste do tamanho do texto */
-        }
+/* PROMOÇÕES */
+.promo-section{
+margin-top:-30px;
+padding:30px 20px;
+text-align:center;
+}
 
-        /* Efeito de hover */
-        .whatsapp-button:hover {
-            transform: scale(1.1); /* Aumenta o tamanho no hover */
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Efeito de brilho */
-        }
+.promo-cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
 
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            header nav ul {
-                flex-direction: column;
-                gap: 15px;
-            }
+.promo-card{
+width:320px;
+height:150px;          /* AJUSTEI PARA FICAR MELHOR VISÍVEL */
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 18px rgba(0,247,255,.55);
+transition:.3s;
+}
 
-            .search {
-                width: 100%;
-                margin-top: 10px;
-            }
+.promo-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-            .search input, .search button {
-                width: 100%;
-                padding: 12px;
-                margin-bottom: 10px;
-            }
-        }
-    </style>
+.promo-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 28px rgba(0,247,255,.7);
+}
+
+/* STREAMERS */
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+justify-content:space-between;
+max-width:1100px;
+margin:auto;
+gap:60px;
+}
+
+.produto-card{
+width:220px;
+height:280px;
+border-radius:16px;
+overflow:hidden;
+position:relative;
+box-shadow:0 0 18px rgba(0,247,255,.55);
+transition:.3s;
+}
+
+.produto-card:hover{transform:scale(1.05)}
+
+.produto-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.card-content{
+position:absolute;
+bottom:0;
+width:100%;
+background:rgba(0,0,0,.75);
+padding:12px;
+}
+
+.social-links{
+margin-top:8px;
+}
+
+.social-links a{
+margin:0 8px;
+font-size:1.4rem;
+transition:.3s;
+}
+
+/* CORES DAS PLATAFORMAS */
+.social-links .twitch{color:#9146FF;}
+.social-links .youtube{color:#FF0000;}
+.social-links .kick{color:#53FC18;}
+
+.social-links a:hover{
+transform:scale(1.2);
+filter:brightness(1.2);
+}
+
+/* WHATSAPP */
+.whatsapp-button{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+padding:14px 24px;
+border-radius:30px;
+font-weight:bold;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+transition:.3s;
+}
+
+.whatsapp-button:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px rgba(0,247,255,.7);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+color:#aaa;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="logo">
-        <img src="logo.png" alt="4S Store">
-    </div>
+<div class="logo">
+<img src="logo.png" alt="4S Store">
+</div>
 
-    <nav>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="./produtos/index.html">Loja</a></li>
-        </ul>
-    </nav>
+<nav>
+<ul>
+<li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
+<li><a href="./produtos/index.html"><i class="fas fa-shopping-cart"></i> Loja</a></li>
+</ul>
+</nav>
 </header>
 
 <section id="inicio">
-    <video autoplay loop muted>
-        <source src="background.png" type="imagens/png">
-    </video>
-
-    <div class="hero-text">
-        <h1>4S STORE</h1>
-        <p>Rápido • Seguro • Barato test</p>
-        <a href="./produtos/index.html" class="btn">Comprar Agora</a>
-    </div>
+<div class="hero-text">
+<h1>4S STORE</h1>
+<p>Rápido • Seguro • Barato</p>
+<a href="./produtos/index.html" class="btn">Comprar Agora</a>
+</div>
 </section>
 
-<!-- STREAMERS RECOMENDADOS -->
+<!-- PROMOÇÕES -->
+<section class="promo-section">
+<div class="promo-cards">
+<div class="promo-card"><img src="promo1.jpg"></div>
+<div class="promo-card"><img src="promo2.jpg"></div>
+<div class="promo-card"><img src="promo3.jpg"></div>
+</div>
+</section>
+
+<!-- STREAMERS -->
 <section>
-    <h2>Streamers Recomendados</h2>
-    <div class="cards" id="cards">
+<h2>Streamers Recomendados</h2>
+<div class="cards">
 
-        <!-- EXEMPLO DE STREAMER -->
-        <div class="produto-card">
-            <img src="creator1.jpg" alt="Streamer 1">
-            <div class="card-content">
-                <h3>Noturnolll</h3>
-                <div class="social-links">
-                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.kick.com" target="_blank"><i class="fab fa-kickstarter"></i></a> <!-- Ícone Kick -->
-                </div>
-            </div>
-        </div>
+<div class="produto-card">
+<img src="creator1.jpg">
+<div class="card-content">
+<h3>Noturnolll</h3>
+<div class="social-links">
+<a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
+<a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+<a href="#" class="kick"><i class="fab fa-kickstarter"></i></a>
+</div>
+</div>
+</div>
 
-        <div class="produto-card">
-            <img src="creator2.jpg" alt="Streamer 2">
-            <div class="card-content">
-                <h3>YuukiiBr</h3>
-                <div class="social-links">
-                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.kick.com" target="_blank"><i class="fab fa-kickstarter"></i></a> <!-- Ícone Kick -->
-                </div>
-            </div>
-        </div>
+<div class="produto-card">
+<img src="creator2.jpg">
+<div class="card-content">
+<h3>YuukiiBr</h3>
+<div class="social-links">
+<a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
+<a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+<a href="#" class="kick"><i class="fab fa-kickstarter"></i></a>
+</div>
+</div>
+</div>
 
-        <div class="produto-card">
-            <img src="creator3.jpg" alt="Streamer 3">
-            <div class="card-content">
-                <h3>Julliezinha</h3>
-                <div class="social-links">
-                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.kick.com" target="_blank"><i class="fab fa-kickstarter"></i></a> <!-- Ícone Kick -->
-                </div>
-            </div>
-        </div>
+<div class="produto-card">
+<img src="creator3.jpg">
+<div class="card-content">
+<h3>Julliezinha</h3>
+<div class="social-links">
+<a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
+<a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+<a href="#" class="kick"><i class="fab fa-kickstarter"></i></a>
+</div>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/5599999999999" class="whatsapp-button" target="_blank">
-    <span>WhatsApp</span> <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/5599999999999" class="whatsapp-button">
+<i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 
-<footer>
-    © 2026 4S Store • Todos os direitos reservados
-</footer>
+<footer>© 2026 4S Store • Todos os direitos reservados</footer>
 
 </body>
 </html>

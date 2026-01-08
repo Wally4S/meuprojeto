@@ -17,22 +17,87 @@ body{
 
 /* HEADER */
 header{
-    text-align:center;
-    padding:15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 30px;
+    box-shadow:0 0 15px rgba(0,255,255,.15); /* Sombrinha suave */
 }
 
 header h1{
     color:#00f7ff;
-    font-size:1.4rem;
+    font-size:1.6rem;
+    font-weight:600;
 }
 
 header a{
     color:#00f7ff;
-    font-size:.8rem;
+    font-size:.9rem;
     text-decoration:none;
 }
 
-header a:hover{color:#00ff88}
+header a:hover{
+    color:#00ff88;
+}
+
+/* CATEGORIAS (BOTÕES NO TOPO) */
+.categorias{
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px; /* Ajusta o espaço entre os botões */
+    padding: 10px 30px; /* Aumenta o espaçamento à esquerda e à direita para não ficar grudado */
+}
+
+.cat-btn{
+    background:#00f7ff;
+    color:#000;
+    font-size:.85rem; /* Menor que os botões da tela inicial */
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    border:none;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+}
+
+.cat-btn:hover{
+    background:#00ff88;
+    color:#000;
+    box-shadow:0 0 18px rgba(0,247,255,.6);
+}
+
+/* BARRA DE PESQUISA */
+.search-bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30px;  /* Ajuste para afastar do canto esquerdo */
+    margin-right: 30px; /* Ajuste para afastar do canto direito */
+}
+
+.search-bar input{
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    width: 250px;  /* Aumentei um pouco a largura */
+}
+
+.search-bar button{
+    background:#00f7ff;
+    color:#000;
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover{
+    background:#00ff88;
+    color:#000;
+}
 
 /* GRID */
 .loja{
@@ -41,74 +106,95 @@ header a:hover{color:#00ff88}
     padding:10px;
 }
 
+/* PRODUTOS */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta o tamanho dos cards */
-    gap:10px;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); /* Ajusta o tamanho dos cards */
+    gap:20px;
 }
 
 /* CARD */
 .card{
     background:#111;
-    border-radius:10px;
-    padding:8px;
+    border-radius:12px;
+    padding:15px;
     text-align:center;
-    box-shadow:0 0 8px rgba(0,255,255,.15);
+    box-shadow:0 0 10px rgba(0,255,255,.2);
     transition:.25s;
-    height: auto; /* Remove altura fixa */
+    height: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    max-width: 260px; /* Largura do card ajustada para ser menos larga */
+    margin: 0 auto; /* Centraliza os cards */
 }
 
 .card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 14px rgba(0,255,255,.35);
+    transform:translateY(-5px) scale(1.02); /* Sutil aumento de escala */
+    box-shadow:0 0 18px rgba(0,255,255,.3);
 }
 
 .card img{
     width: 100%;
-    height: 180px; /* Ajusta a altura da imagem para se adaptar melhor */
-    object-fit: cover; /* Faz a imagem cobrir toda a área do card */
-    border-radius: 8px;
+    height: 200px; /* Ajustei a altura da imagem */
+    object-fit:cover; /* A imagem vai cobrir o espaço do card sem distorcer */
+    border-radius:12px; /* Bordas arredondadas para as imagens */
+    transition:transform .3s ease;
 }
 
 .card h3{
-    font-size:.75rem;
-    margin:5px 0;
+    font-size:1rem;
+    margin:10px 0;
     color:#00f7ff;
 }
 
 .preco{
-    font-size:.7rem;
+    font-size:.9rem;
     color:#00ff88;
     font-weight:600;
+    margin-bottom:15px;
 }
 
 /* BOTÕES */
 .botoes{
     display:flex;
     flex-direction:column;
-    gap:5px;
-    margin-top:6px;
+    gap:8px;
+    margin-top:10px;
 }
 
 .botao{
-    padding:6px;
-    font-size:.65rem;
+    padding:10px;
+    font-size:.85rem;
     border:none;
-    border-radius:14px;
+    border-radius:20px;
     cursor:pointer;
     font-weight:600;
+    transition:.3s ease;
 }
 
 .btn-detalhes{
     background:#1a1a1a;
     color:#00f7ff;
+    transition: all 0.3s ease;
+}
+
+.btn-detalhes:hover{
+    background:#00f7ff;
+    color:#000;
+    box-shadow:0 0 12px rgba(0,255,255,.4);
 }
 
 .btn-comprar{
     background:#00ff88;
     color:#000;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar:hover{
+    background:#00f7ff;
+    color:#000;
+    box-shadow:0 0 12px rgba(0,255,255,.4);
 }
 
 /* MODAL */
@@ -124,32 +210,35 @@ header a:hover{color:#00ff88}
 
 .modal-box{
     background:#0f0f0f;
-    padding:18px;
+    padding:20px;
     border-radius:15px;
-    max-width:320px;
+    max-width:350px;
     text-align:center;
-    box-shadow:0 0 25px rgba(0,255,255,.4);
+    box-shadow:0 0 30px rgba(0,255,255,.4);
 }
 
 .modal-box h2{
     color:#00f7ff;
+    font-size:1.3rem;
 }
 
 .modal-box p{
-    font-size:.75rem;
-    line-height:1.4;
+    font-size:.85rem;
+    line-height:1.5;
 }
 
 .fechar{
     background:#ff4d4d;
     color:#000;
     margin-top:10px;
+    padding:10px 20px;
+    border-radius:25px;
 }
 
 /* FOOTER */
 footer{
     text-align:center;
-    font-size:.7rem;
+    font-size:.8rem;
     padding:15px;
     color:#777;
 }
@@ -159,18 +248,31 @@ footer{
 <body>
 
 <header>
-    <h1>🛒 Loja 4S Store</h1>
+    <h1>🛒 LOJA 4S STORE</h1>
     <a href="../index.html">🏠 Voltar ao Início</a>
 </header>
 
+<!-- Barra de Categorias e Pesquisa no topo -->
+<div class="categorias">
+    <button class="cat-btn" onclick="filterByCategory('topo')">Topo</button>
+    <button class="cat-btn" onclick="filterByCategory('meio')">Meio</button>
+    <button class="cat-btn" onclick="filterByCategory('baixo')">Baixo</button>
+    <button class="cat-btn" onclick="filterByCategory('capa')">Capa</button>
+    <button class="cat-btn" onclick="filterByCategory('equipamento')">Equipamento</button>
+    <button class="cat-btn" onclick="filterByCategory('consumivel')">Consumível</button>
+</div>
+
+<!-- Barra de Pesquisa -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Pesquisar produto...">
+    <button onclick="searchProduct()">🔍 Buscar</button>
+</div>
+
 <section class="loja">
-<div class="grid">
+<div class="grid" id="productGrid">
 
 <!-- PRODUTO MODELO -->
-<div class="card"
-     data-produto="Cachecol Preto do Eremes"
-     data-preco="4,99">
-
+<div class="card" data-categoria="baixo" data-produto="Cachecol Preto do Eremes" data-preco="4,99" data-equipa="baixo">
     <img src="../imagens/eremes-preto.png">
     <h3>Cachecol Preto do Eremes</h3>
     <div class="preco">R$ 4,99</div>
@@ -179,42 +281,3015 @@ footer{
         <button class="botao btn-detalhes"
             onclick="abrirModal(
             'Cachecol Preto do Eremes',
-            'Tipo: Visual<br>Equipa em: Baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
             )">
             🔍 Detalhes
         </button>
 
-        <button class="botao btn-comprar"
-            onclick="comprar(this)">
+        <button class="botao btn-comprar" onclick="comprar(this)">
             💰 Comprar
         </button>
     </div>
 </div>
-<!-- PRODUTO MODELO -->
-<div class="card"
-     data-produto="Cachecol Azul do Eremes"
-     data-preco="4,99">
 
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cachecol Azul do Eremes" data-preco="4,99" data-equipa="baixo">
     <img src="../imagens/eremes azul.png">
     <h3>Cachecol Azul do Eremes</h3>
-    <div class="preco">R$ 4,99</div>
+    <div class="preco">R$ 3,99</div>
 
     <div class="botoes">
         <button class="botao btn-detalhes"
             onclick="abrirModal(
             'Cachecol Azul do Eremes',
-            'Tipo: Visual<br>Equipa em: Baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
             )">
             🔍 Detalhes
         </button>
 
-        <button class="botao btn-comprar"
-            onclick="comprar(this)">
+        <button class="botao btn-comprar" onclick="comprar(this)">
             💰 Comprar
         </button>
     </div>
 </div>
-<!-- DUPLIQUE ESSE CARD PARA MAIS PRODUTOS -->
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="topo" data-produto="Chapéu de Tarlock" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu de Tarlock.png">
+    <h3>Chapéu de Tarlock</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu de Tarlock',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu do Timoneiro" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu do Timoneiro.png">
+    <h3>Chapéu do Timoneiro</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu do Timoneiro',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cachecol Celestial" data-preco="4,99" data-equipa="baixo">
+    <img src="../imagens/Cachecol Celestial.png">
+    <h3>Cachecol Celestial</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol Celestial',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cachecol dos Corajosos" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Cachecol dos Corajosos.png">
+    <h3>Cachecol dos Corajosos</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol dos Corajosos',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cachecol Marrom com Laço" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Cachecol Marrom com Laço.png">
+    <h3>Cachecol Marrom com Laço</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol Marrom com Laço',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cachecol Glorioso" data-preco="4,99" data-equipa="baixo">
+    <img src="../imagens/Cachecol Glorioso.png">
+    <h3>Cachecol Glorioso</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol Glorioso',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Trevo Visual de Quatro Folhas" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Trevo Visual de Quatro Folhas.png">
+    <h3>Trevo Visual de Quatro Folhas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Trevo Visual de Quatro Folhas',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Familiar de Estimação" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Familiar de Estimação.png">
+    <h3>Familiar de Estimação</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Familiar de Estimação',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca Espiralizada" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Peruca Espiralizada.png">
+    <h3>Peruca Espiralizada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca Espiralizada',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Olho Maligno do Barão" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Olho Maligno do Barão.png">
+    <h3>Olho Maligno do Barão</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Olho Maligno do Barão',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Roxo" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Roxo.png">
+    <h3>Aplique Roxo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Roxo',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Branco" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Branco.jpeg">
+    <h3>Aplique Branco</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Branco',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Azul" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Azul.jpeg">
+    <h3>Aplique Azul</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Azul',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Castanho" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Castanho.png">
+    <h3>Aplique Castanho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Castanho',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Loiro" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Loiro.png">
+    <h3>Aplique Loiro</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Loiro',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Marrom" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Marrom.png">
+    <h3>Aplique Marrom</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Marrom',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Verde" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Verde.png">
+    <h3>Aplique Verde</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Verde',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Vermelho" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Vermelho.png">
+    <h3>Aplique Vermelho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Vermelho',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aplique Duplo Branco" data-preco="5,99" data-equipa="baixo">
+    <img src="../imagens/Aplique Duplo Branco.png">
+    <h3>Aplique Duplo Branco</h3>
+    <div class="preco">R$ 5,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aplique Duplo Branco',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Lenço do Fora da Lei" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Lenço do Fora da Lei.png">
+    <h3>Lenço do Fora da Lei</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Lenço do Fora da Lei',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Valsa da Primavera" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Valsa da Primavera.png">
+    <h3>Valsa da Primavera</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Valsa da Primavera',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Flocos de Neve" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Flocos de Neve.png">
+    <h3>Flocos de Neve</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Flocos de Neve',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Manta Digníssima" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Manta Digníssima.png">
+    <h3>Manta Digníssima</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Manta Digníssima',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Ás de Copas" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Ás de Copas.png">
+    <h3>Ás de Copas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Ás de Copas',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Ás Surpresa" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Ás Surpresa.png">
+    <h3>Ás Surpresa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Ás Surpresa',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Azul" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Azul.png">
+    <h3>Rabo de Cavalo Azul</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Azul',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Branco" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Branco.png">
+    <h3>Rabo de Cavalo Branco</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Branco',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Castanho" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Castanho.png">
+    <h3>Rabo de Cavalo Castanho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Castanho',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Loiro" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Loiro.png">
+    <h3>Rabo de Cavalo Loiro</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Loiro',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Preto" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Preto.png">
+    <h3>Rabo de Cavalo Preto</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Preto',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Roxo" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Roxo.png">
+    <h3>Rabo de Cavalo Roxo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Roxo',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Verde" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Verde.png">
+    <h3>Rabo de Cavalo Verde</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Verde',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Vermelho" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Vermelho.png">
+    <h3>Rabo de Cavalo Vermelho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Vermelho',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rabo de Cavalo Loiro" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Rabo de Cavalo Loiro.png">
+    <h3>Rabo de Cavalo Loiro</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rabo de Cavalo Loiro',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Guloseimas Encantadas" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Guloseimas Encantadas.png">
+    <h3>Guloseimas Encantadas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Guloseimas Encantadas',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Seixos Polares" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Seixos Polares.png">
+    <h3>Seixos Polares</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Seixos Polares',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Estola Angelical" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Estola Angelical.png">
+    <h3>Estola Angelical</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Estola Angelical',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cabelo Ondulado Quartzo" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Cabelo Ondulado Quartzo.png">
+    <h3>Cabelo Ondulado Quartzo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cabelo Ondulado Quartzo',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aura Venenosa" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Aura Venenosa.png">
+    <h3>Aura Venenosa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aura Venenosa',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca de Nereida" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Peruca de Nereida.png">
+    <h3>Peruca de Nereida</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca de Nereida',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Gorro de Carneirinho Rosa" data-preco="3,99" data-equipa="topo/meio/baixo">
+    <img src="../imagens/Gorro de Carneirinho Rosa.png">
+    <h3>Gorro de Carneirinho Rosa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Gorro de Carneirinho Rosa',
+            'Tipo: Visual<br>Equipa em: topo/meio/baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca Branca" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Peruca Branca.png">
+    <h3>Peruca Branca</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca Branca',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Óculos da Persona" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Óculos da Persona.png">
+    <h3>Óculos da Persona</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Óculos da Persona',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Óculos Hi-Ban" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Óculos Hi-Ban.png">
+    <h3>Óculos Hi-Ban</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Óculos Hi-Ban',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Máscara de Ifrit" data-preco="3,99" data-equipa="topo/meio/baixo">
+    <img src="../imagens/Máscara de Ifrit.png">
+    <h3>Máscara de Ifrit</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Máscara de Ifrit',
+            'Tipo: Visual<br>Equipa em: topo/meio/baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca de Skia" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Peruca de Skia.png">
+    <h3>Peruca de Skia</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca de Skia',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Biscoito do Amor" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Biscoito do Amor.png">
+    <h3>Biscoito do Amor</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Biscoito do Amor',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Goma de Mascar Visual" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Goma de Mascar Visual.png">
+    <h3>Goma de Mascar Visual</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Goma de Mascar Visual',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Bevor de Plástico" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Bevor de Plástico.png">
+    <h3>Bevor de Plástico</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Bevor de Plástico',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cruz Dourada" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Cruz Dourada.png">
+    <h3>Cruz Dourada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cruz Dourada',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Lentes Intelectuais" data-preco="3,99" data-equipa="baixo">
+    <img src="../imagens/Lentes Intelectuais.png">
+    <h3>Lentes Intelectuais</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Lentes Intelectuais',
+            'Tipo: Visual<br>Equipa em: baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Folhas Outonais" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Folhas Outonais.png">
+    <h3>Folhas Outonais</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Folhas Outonais',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tapa-Lua" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Tapa-Lua.png">
+    <h3>Tapa-Lua</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tapa-Lua',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Avermelhadas" data-preco="6,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Avermelhadas.png">
+    <h3>Pupilas Avermelhadas</h3>
+    <div class="preco">R$ 6,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Avermelhadas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Azuladas" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Azuladas.png">
+    <h3>Pupilas Azuladas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Azuladas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Carmesins" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Carmesins.png">
+    <h3>Pupilas Carmesins</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Carmesins',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Cerúleas" data-preco="4,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Cerúleas.png">
+    <h3>Pupilas Cerúleas</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Cerúleas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Douradas" data-preco="4,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Douradas.png">
+    <h3>Pupilas Douradas</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Douradas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pupilas Draconianas" data-preco="6,99" data-equipa="meio">
+    <img src="../imagens/Pupilas Draconianas.png">
+    <h3>Pupilas Draconianas</h3>
+    <div class="preco">R$ 6,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pupilas Draconianas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Piscadela Congelante" data-preco="4,99" data-equipa="meio">
+    <img src="../imagens/Piscadela Congelante.png">
+    <h3>Piscadela Congelante</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Piscadela Congelante',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Piscadela" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Piscadela.png">
+    <h3>Piscadela</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Piscadela',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Protetor com Coelhinhos" data-preco="3,99" data-equipa="topo/meio">
+    <img src="../imagens/Protetor com Coelhinhos.png">
+    <h3>Protetor com Coelhinhos</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Protetor com Coelhinhos',
+            'Tipo: Visual<br>Equipa em: topo/meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Gata Branca" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Gata Branca.png">
+    <h3>Gata Branca</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Gata Branca',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cara de Espanto" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Cara de Espanto.png">
+    <h3>Cara de Espanto</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cara de Espanto',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Luar de Cristal" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Luar de Cristal.png">
+    <h3>Luar de Cristal</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Luar de Cristal',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chorinho" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Chorinho.png">
+    <h3>Chorinho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chorinho',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Presilha de Relógio Retrô" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Presilha de Relógio Retrô.png">
+    <h3>Presilha de Relógio Retrô</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Presilha de Relógio Retrô',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Camarada Fox" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Camarada Fox.png">
+    <h3>Camarada Fox</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Camarada Fox',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Coroa do Chefe dos Orcs" data-preco="4,99" data-equipa="topo/meio">
+    <img src="../imagens/Coroa do Chefe dos Orcs.png">
+    <h3>Coroa do Chefe dos Orcs</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Coroa do Chefe dos Orcs',
+            'Tipo: Visual<br>Equipa em: topo/meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Capacete de Ataduras Vermelhas" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Capacete de Ataduras Vermelhas.png">
+    <h3>Capacete de Ataduras Vermelhas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Capacete de Ataduras Vermelhas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cerração" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Cerração.png">
+    <h3>Cerração</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cerração',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Gota da Via Láctea" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Gotas da Via Láctea.png">
+    <h3>Gota da Via Láctea</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Gota da Via Láctea',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Rosto do Despero" data-preco="3,99" data-equipa="meio/baixo">
+    <img src="../imagens/Rosto do Despero.png">
+    <h3>Rosto do Despero</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Rosto do Despero',
+            'Tipo: Visual<br>Equipa em: meio/baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Aura do Amor" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Aura do Amor.png">
+    <h3>Aura do Amor</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Aura do Amor',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="A-Ji Agitado" data-preco="6,99" data-equipa="meio">
+    <img src="../imagens/A-Ji Agitado.png">
+    <h3>A-Ji Agitado</h3>
+    <div class="preco">R$ 6,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'A-Ji Agitado',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Venda de Sicário" data-preco="4,99" data-equipa="meio">
+    <img src="../imagens/Venda de Sicário.png">
+    <h3>Venda de Sicário</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Venda de Sicário',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Diadema de Górgona" data-preco="3,99" data-equipa="meio">
+    <img src="../imagens/Diadema de Górgona.png">
+    <h3>Diadema de Górgona</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Diadema de Górgona',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Caveiras Místicas" data-preco="6,99" data-equipa="meio">
+    <img src="../imagens/Caveiras Místicas.png">
+    <h3>Caveiras Místicas</h3>
+    <div class="preco">R$ 6,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Caveiras Místicas',
+            'Tipo: Visual<br>Equipa em: meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Elmo dos Orcs" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Elmo dos Orcs.png">
+    <h3>Elmo dos Orcs</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Elmo dos Orcs',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Laço de Frutas" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Laço de Frutas.png">
+    <h3>Laço de Frutas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Laço de Frutas',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu do Comissário" data-preco="14,99" data-equipa="topo">
+    <img src="../imagens/Chapéu do Comissário.png">
+    <h3>Chapéu do Comissário</h3>
+    <div class="preco">R$ 14,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu do Comissário',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Boina Magenta" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Boina Magenta.png">
+    <h3>Boina Magenta</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Boina Magenta',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara Qixiqué" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara Qixiqué.jpeg">
+    <h3>Tiara Qixiqué</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara Qixiqué',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Penteado Estiloso Branco" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Penteado Estiloso Branco.png">
+    <h3>Penteado Estiloso Branco</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Penteado Estiloso Branco',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Penteado Estiloso Castanho" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Penteado Estiloso Castanho.png">
+    <h3>Penteado Estiloso Castanho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Penteado Estiloso Castanho',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara de Sakura" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara de Sakura.png">
+    <h3>Tiara de Sakura</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara de Sakura',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Presilha de Recife" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Presilha de Recife.png">
+    <h3>Presilha de Recife</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Presilha de Recife',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca Rosa de Alice" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Peruca Rosa de Alice.png">
+    <h3>Peruca Rosa de Alice</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca Rosa de Alice',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Coroa de Pétalas de Lavanda" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Coroa de Pétalas de Lavanda.png">
+    <h3>Coroa de Pétalas de Lavanda</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Coroa de Pétalas de Lavanda',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Penteado Estiloso Roxo" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Penteado Estiloso Roxo.png">
+    <h3>Penteado Estiloso Roxo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Penteado Estiloso Roxo',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara Pomposa" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara Pomposa.png">
+    <h3>Tiara Pomposa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara Pomposa',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Laço Delicado" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Laço Delicado.png">
+    <h3>Laço Delicado</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Laço Delicado',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Elmo da Khalitzburg" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Elmo da Khalitzburg.png">
+    <h3>Elmo da Khalitzburg</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Elmo da Khalitzburg',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Coroa Realeza Gelada" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Coroa Realeza Gelada.png">
+    <h3>Coroa Realeza Gelada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Coroa Realeza Gelada',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu da Grande Caçada" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu da Grande Caçada.png">
+    <h3>Chapéu da Grande Caçada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu da Grande Caçada',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu Aclamado" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu Aclamado.png">
+    <h3>Chapéu Aclamado</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu Aclamado',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Laçarote das Orelhas Pontudas" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Laçarote das Orelhas Pontudas.png">
+    <h3>Laçarote das Orelhas Pontudas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Laçarote das Orelhas Pontudas',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="mestre arcanista" data-preco="6,99" data-equipa="topo">
+    <img src="../imagens/mestre arcanista.png">
+    <h3>mestre arcanista</h3>
+    <div class="preco">R$ 6,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'mestre arcanista',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Mestre Arcanista Amarelo" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/mestre arcanista amarelo.png">
+    <h3>Mestre Arcanista Amarelo</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Mestre Arcanista Amarelo',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Mestre Arcanista Azul" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/mestre arcanista azul.png">
+    <h3>Mestre Arcanista Azul</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Mestre Arcanista Azul',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Mestre Arcanista Branco" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/mestre arcanista branco.png">
+    <h3>Mestre Arcanista Branco</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Mestre Arcanista Branco',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Mestre Arcanista Vermelho" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/mestre arcanista vermelho.png">
+    <h3>Mestre Arcanista Vermelho</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Mestre Arcanista Vermelho',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Coroa de Reis" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Coroa de Reis.png">
+    <h3>Coroa de Reis</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Coroa de Reis',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pequena Coroa" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Pequena Coroa.png">
+    <h3>Pequena Coroa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pequena Coroa',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara do Mar" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara do Mar.png">
+    <h3>Tiara do Mar</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara do Mar',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cartola Recheada" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Cartola Recheada.png">
+    <h3>Cartola Recheada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cartola Recheada',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Touca de Ursinho" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/Touca de Ursinho.png">
+    <h3>Touca de Ursinho</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Touca de Ursinho',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Elmo do Arcanjo" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Elmo do Arcanjo.jpeg">
+    <h3>Elmo do Arcanjo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Elmo do Arcanjo',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas de Raposa" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas de Raposa.png">
+    <h3>Orelhas de Raposa</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas de Raposa',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div><!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu de Dragão" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/Chapéu de Dragão.png">
+    <h3>Chapéu de Dragão</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu de Dragão',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas da Lebre Noturna" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas da Lebre Noturna.png">
+    <h3>Orelhas da Lebre Noturna</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas da Lebre Noturna',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas da Lebre Rubra" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas da Lebre Rubra.png">
+    <h3>Orelhas da Lebre Rubra</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas da Lebre Rubra',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas da Lebre Verde" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas da Lebre Verde,.png">
+    <h3>Orelhas da Lebre Verde</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas da Lebre Verde',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas da Lebre Violeta" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas da Lebre Violeta.png">
+    <h3>Orelhas da Lebre Violeta</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas da Lebre Violeta',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas de Lebre" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas de Lebre.png">
+    <h3>Orelhas de Lebre</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas de Lebre',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Elmo do Dragão de Prata" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/Elmo do Dragão de Prata.png">
+    <h3>Elmo do Dragão de Prata</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Elmo do Dragão de Prata',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu de Peixinho" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu de Peixinho.png">
+    <h3>Chapéu de Peixinho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu de Peixinho',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Pequeno Laço Verde" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Pequeno Laço Verde.png">
+    <h3>Pequeno Laço Verde</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Pequeno Laço Verde',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Gorro do Gatinho Amoroso" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Gorro do Gatinho Amoroso.png">
+    <h3>Gorro do Gatinho Amoroso</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Gorro do Gatinho Amoroso',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Peruca de Youkai" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Peruca de Youkai.png">
+    <h3>Peruca de Youkai</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Peruca de Youkai',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Flores do Amanhecer" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Flores do Amanhecer.jpeg">
+    <h3>Flores do Amanhecer</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Flores do Amanhecer',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Lacinho Sting" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Lacinho Sting.png">
+    <h3>Lacinho Sting</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Lacinho Sting',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas do Coelho da Lua" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas do Coelho da Lua.png">
+    <h3>Orelhas do Coelho da Lua</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas do Coelho da Lua',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Faixa da Preula Azul" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Faixa da Preula Azul.png">
+    <h3>Faixa da Preula Azul</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Faixa da Preula Azul',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Faixa do Shurão da Preula" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Faixa do Shurão da Preula.png">
+    <h3>Faixa do Shurão da Preula</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Faixa do Shurão da Preula',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Cabelo Longo Preto" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Cabelo Longo Preto.png">
+    <h3>Cabelo Longo Preto</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cabelo Longo Preto',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Balão de AFK" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/Balão de AFK.png">
+    <h3>Balão de AFK</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Balão de AFK',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu do Dartanham" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu do Dartanham.png">
+    <h3>Chapéu do Dartanham</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu do Dartanham',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Boné do Melhor Pai do Mundo" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Boné do Melhor Pai do Mundo.png">
+    <h3>Boné do Melhor Pai do Mundo</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Boné do Melhor Pai do Mundo',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Boné Amarelo de Beisebol(Equipamento)" data-preco="14,99" data-equipa="equipamento">
+    <img src="../imagens/Boné Amarelo de Beisebol.png">
+    <h3>Boné Amarelo de Beisebol(Equipamento)</h3>
+    <div class="preco">R$ 14,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Boné Amarelo de Beisebol(Equipamento)',
+            'Tipo: Equipamento<br>Equipa em: topo<br>Peso: 30<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara de Laço Verde" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara de Laço Verde.png">
+    <h3>Tiara de Laço Verde</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara de Laço Verde',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara de laço Azul" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara de Laço Azul.png">
+    <h3>Tiara de laço Azul</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara de laço Azul',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Capuz do Mestre Necromante" data-preco="3,99" data-equipa="topo/meio">
+    <img src="../imagens/Capuz do Mestre Necromante.png">
+    <h3>Capuz do Mestre Necromante</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Capuz do Mestre Necromante',
+            'Tipo: Visual<br>Equipa em: topo/meio<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhinhas Atentas" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhinhas Atentas.png">
+    <h3>Orelhinhas Atentas</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhinhas Atentas',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Bandana Xadrez" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Bandana Xadrez.png">
+    <h3>Bandana Xadrez</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Bandana Xadrez',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu Verona" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu Verona.png">
+    <h3>Chapéu Verona</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu Verona',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Laço de Fita" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Laço de Fita.png">
+    <h3>Laço de Fita</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Laço de Fita',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu Natureba" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu Natureba.png">
+    <h3>Chapéu Natureba</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu Natureba',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Orelhas Incinerantes" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Orelhas Incinerantes.png">
+    <h3>Orelhas Incinerantes</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Orelhas Incinerantes',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Tiara Prateada" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Tiara Prateada.png">
+    <h3>Tiara Prateada</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Tiara Prateada',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Lacinhos Oníricos" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Lacinhos Oníricos.png">
+    <h3>Lacinhos Oníricos</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Lacinhos Oníricos',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu de Veraneio" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu de Veraneio.png">
+    <h3>Chapéu de Veraneio</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu de Veraneio',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Adorno Vampiresco" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Adorno Vampiresco.png">
+    <h3>Adorno Vampiresco</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Adorno Vampiresco',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Lenço da Memória Secreta" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Lenço da Memória Secreta.png">
+    <h3>Lenço da Memória Secreta</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Lenço da Memória Secreta',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Quepe Branco do Serumaninho" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Quepe Branco do Serumaninho.png">
+    <h3>Quepe Branco do Serumaninho</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Quepe Branco do Serumaninho',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Boné do Príncipe Ali" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Boné do Príncipe Ali.png">
+    <h3>Boné do Príncipe Ali</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Boné do Príncipe Ali',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Quepe do Capitão" data-preco="4,99" data-equipa="topo">
+    <img src="../imagens/Quepe do Capitão.png">
+    <h3>Quepe do Capitão</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Quepe do Capitão',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+<!-- PRODUTO MODELO -->
+<div class="card" data-categoria="baixo" data-produto="Chapéu de Jormungand" data-preco="3,99" data-equipa="topo">
+    <img src="../imagens/Chapéu de Jormungand.png">
+    <h3>Chapéu de Jormungand</h3>
+    <div class="preco">R$ 3,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Chapéu de Jormungand',
+            'Tipo: Visual<br>Equipa em: topo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar" onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+
+
+
+<!-- MAIS PRODUTOS AQUI -->
 
 </div>
 </section>
@@ -233,6 +3308,33 @@ footer{
 </div>
 
 <script>
+// Filtro de categoria
+function filterByCategory(category){
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if(card.getAttribute('data-equipa') !== category){
+            card.style.display = 'none'; // Esconde o produto
+        } else {
+            card.style.display = 'block'; // Mostra o produto
+        }
+    });
+}
+
+// Função de pesquisa
+function searchProduct(){
+    const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        const productName = card.querySelector('h3').textContent.toLowerCase();
+        if(productName.includes(searchQuery)){
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
 function abrirModal(titulo, texto){
     document.getElementById("modalTitulo").innerHTML = titulo;
     document.getElementById("modalTexto").innerHTML = texto;
@@ -246,7 +3348,9 @@ function fecharModal(){
 function comprar(botao){
     const card = botao.closest(".card");
     const produto = card.dataset.produto;
-    const preco = card.dataset.preco;
+    
+    // Pega o preço diretamente do elemento .preco
+    const preco = card.querySelector('.preco').textContent.replace('R$ ', '').trim();
 
     const mensagem = `Quero comprar ${produto} por R$ ${preco}`;
     const url = `https://wa.me/5524999561861?text=${encodeURIComponent(mensagem)}`;
