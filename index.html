@@ -115,7 +115,7 @@ flex-wrap:wrap;
 
 .promo-card{
 width:320px;
-height:150px;          /* AJUSTEI PARA FICAR MELHOR VISÍVEL */
+height:150px;
 border-radius:16px;
 overflow:hidden;
 box-shadow:0 0 18px rgba(0,247,255,.55);
@@ -134,85 +134,143 @@ box-shadow:0 0 28px rgba(0,247,255,.7);
 }
 
 /* STREAMERS */
-section{
+.streamers{
 padding:60px 20px;
 text-align:center;
 }
 
-.cards{
+.streamer-cards{
 display:flex;
-justify-content:space-between;
-max-width:1100px;
-margin:auto;
-gap:60px;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
-.produto-card{
-width:220px;
-height:280px;
-border-radius:16px;
+.streamer-card{
+width:180px;
+border-radius:14px;
 overflow:hidden;
-position:relative;
-box-shadow:0 0 18px rgba(0,247,255,.55);
+background:rgba(0,0,0,.6);
+box-shadow:0 0 18px rgba(0,247,255,.4);
 transition:.3s;
 }
 
-.produto-card:hover{transform:scale(1.05)}
+.streamer-card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 30px rgba(0,247,255,.7);
+}
 
-.produto-card img{
+.streamer-card img{
 width:100%;
-height:100%;
+height:200px;
 object-fit:cover;
 }
 
-.card-content{
-position:absolute;
-bottom:0;
-width:100%;
-background:rgba(0,0,0,.75);
+.streamer-info{
 padding:12px;
 }
 
+.streamer-info h3{
+margin:5px 0 8px;
+font-size:1rem;
+}
+
 .social-links{
-margin-top:8px;
+display:flex;
+justify-content:center;
+gap:14px;
 }
 
 .social-links a{
-margin:0 8px;
-font-size:1.4rem;
+font-size:1.3rem;
 transition:.3s;
 }
 
-/* CORES DAS PLATAFORMAS */
+/* CORES */
 .social-links .twitch{color:#9146FF;}
 .social-links .youtube{color:#FF0000;}
 .social-links .kick{color:#53FC18;}
 
 .social-links a:hover{
-transform:scale(1.2);
+transform:scale(1.25);
 filter:brightness(1.2);
 }
 
-/* WHATSAPP */
+/* WHATSAPP BOTÃO */
 .whatsapp-button{
 position:fixed;
 bottom:20px;
 right:20px;
-background:#25d366;
+background:linear-gradient(135deg,#25d366,#1ebe57);
 color:#fff;
-padding:14px 24px;
-border-radius:30px;
-font-weight:bold;
+padding:14px 22px;
+border-radius:10px;
+font-weight:600;
 display:flex;
 align-items:center;
 gap:10px;
-box-shadow:0 0 15px rgba(0,0,0,.4);
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+cursor:pointer;
+transition:.3s;
+z-index:9999;
+}
+
+.whatsapp-button i{font-size:22px}
+
+.whatsapp-button:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 40px rgba(37,211,102,.6);
+}
+
+/* WIDGET */
+.whatsapp-widget{
+position:fixed;
+bottom:90px;
+right:20px;
+width:280px;
+background:#fff;
+color:#000;
+border-radius:14px;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+display:none;
+overflow:hidden;
+z-index:9999;
+}
+
+.whatsapp-header{
+background:#25d366;
+color:#fff;
+padding:12px 15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:bold;
+}
+
+.whatsapp-header span{
+cursor:pointer;
+font-size:18px;
+}
+
+.whatsapp-body{
+padding:18px;
+text-align:center;
+font-size:14px;
+}
+
+.whatsapp-start{
+display:inline-block;
+background:#25d366;
+color:#fff;
+padding:12px 18px;
+border-radius:8px;
+margin-top:12px;
+font-weight:bold;
 transition:.3s;
 }
 
-.whatsapp-button:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px rgba(0,247,255,.7);
+.whatsapp-start:hover{
+background:#1ebe57;
 }
 
 /* FOOTER */
@@ -242,12 +300,11 @@ color:#aaa;
 <section id="inicio">
 <div class="hero-text">
 <h1>4S STORE</h1>
-<p>Rápido • Seguro • teste</p>
+<p>Rápido • Seguro • Barato</p>
 <a href="./produtos/index.html" class="btn">Comprar Agora</a>
 </div>
 </section>
 
-<!-- PROMOÇÕES -->
 <section class="promo-section">
 <div class="promo-cards">
 <div class="promo-card"><img src="promo1.jpg"></div>
@@ -256,14 +313,14 @@ color:#aaa;
 </div>
 </section>
 
-<!-- STREAMERS -->
-<section>
+<section class="streamers">
 <h2>Streamers Recomendados</h2>
-<div class="cards">
 
-<div class="produto-card">
+<div class="streamer-cards">
+
+<div class="streamer-card">
 <img src="creator1.jpg">
-<div class="card-content">
+<div class="streamer-info">
 <h3>Noturnolll</h3>
 <div class="social-links">
 <a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
@@ -273,9 +330,9 @@ color:#aaa;
 </div>
 </div>
 
-<div class="produto-card">
+<div class="streamer-card">
 <img src="creator2.jpg">
-<div class="card-content">
+<div class="streamer-info">
 <h3>YuukiiBr</h3>
 <div class="social-links">
 <a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
@@ -285,9 +342,9 @@ color:#aaa;
 </div>
 </div>
 
-<div class="produto-card">
+<div class="streamer-card">
 <img src="creator3.jpg">
-<div class="card-content">
+<div class="streamer-info">
 <h3>Julliezinha</h3>
 <div class="social-links">
 <a href="#" class="twitch"><i class="fab fa-twitch"></i></a>
@@ -300,11 +357,33 @@ color:#aaa;
 </div>
 </section>
 
-<a href="https://wa.me/5599999999999" class="whatsapp-button">
+<div class="whatsapp-button" onclick="toggleChat()">
 <i class="fab fa-whatsapp"></i> WhatsApp
+</div>
+
+<div class="whatsapp-widget">
+<div class="whatsapp-header">
+WhatsApp
+<span onclick="toggleChat()">×</span>
+</div>
+<div class="whatsapp-body">
+<p>Olá 👋<br>Fale com nosso atendimento.</p>
+<a href="https://wa.me/5599999999999?text=Olá,%20vim%20pelo%20site%204S%20Store"
+target="_blank"
+class="whatsapp-start">
+Iniciar conversa
 </a>
+</div>
+</div>
 
 <footer>© 2026 4S Store • Todos os direitos reservados</footer>
+
+<script>
+function toggleChat(){
+const chat=document.querySelector('.whatsapp-widget');
+chat.style.display=chat.style.display==='block'?'none':'block';
+}
+</script>
 
 </body>
 </html>
