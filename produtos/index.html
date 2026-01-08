@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja | 4S Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:#0b0b0b;
+    color:#fff;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:15px 10px;
+}
+
+header h1{
+    color:#00f7ff;
+    font-size:1.4rem;
+}
+
+header a{
+    color:#00f7ff;
+    font-size:.8rem;
+    text-decoration:none;
+}
+
+header a:hover{color:#00ff88}
+
+/* GRID */
+.loja{
+    max-width:1200px;
+    margin:auto;
+    padding:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta o tamanho dos cards */
+    gap:10px;
+}
+
+/* CARD */
+.card{
+    background:#111;
+    border-radius:10px;
+    padding:8px;
+    text-align:center;
+    box-shadow:0 0 8px rgba(0,255,255,.15);
+    transition:.25s;
+    height: auto; /* Remove altura fixa */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 14px rgba(0,255,255,.35);
+}
+
+.card img{
+    width: 100%;
+    height: 180px; /* Ajusta a altura da imagem para se adaptar melhor */
+    object-fit: cover; /* Faz a imagem cobrir toda a área do card */
+    border-radius: 8px;
+}
+
+.card h3{
+    font-size:.75rem;
+    margin:5px 0;
+    color:#00f7ff;
+}
+
+.preco{
+    font-size:.7rem;
+    color:#00ff88;
+    font-weight:600;
+}
+
+/* BOTÕES */
+.botoes{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    margin-top:6px;
+}
+
+.botao{
+    padding:6px;
+    font-size:.65rem;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn-detalhes{
+    background:#1a1a1a;
+    color:#00f7ff;
+}
+
+.btn-comprar{
+    background:#00ff88;
+    color:#000;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.modal-box{
+    background:#0f0f0f;
+    padding:18px;
+    border-radius:15px;
+    max-width:320px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(0,255,255,.4);
+}
+
+.modal-box h2{
+    color:#00f7ff;
+}
+
+.modal-box p{
+    font-size:.75rem;
+    line-height:1.4;
+}
+
+.fechar{
+    background:#ff4d4d;
+    color:#000;
+    margin-top:10px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    font-size:.7rem;
+    padding:15px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛒 Loja 4S Store</h1>
+    <a href="../index.html">🏠 Voltar ao Início</a>
+</header>
+
+<section class="loja">
+<div class="grid">
+
+<!-- PRODUTO MODELO -->
+<div class="card"
+     data-produto="Cachecol Preto do Eremes"
+     data-preco="4,99">
+
+    <img src="../imagens/eremes-preto.png">
+    <h3>Cachecol Preto do Eremes</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol Preto do Eremes',
+            'Tipo: Visual<br>Equipa em: Baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar"
+            onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- PRODUTO MODELO -->
+<div class="card"
+     data-produto="Cachecol Azul do Eremes"
+     data-preco="4,99">
+
+    <img src="../imagens/eremes azul.png">
+    <h3>Cachecol Azul do Eremes</h3>
+    <div class="preco">R$ 4,99</div>
+
+    <div class="botoes">
+        <button class="botao btn-detalhes"
+            onclick="abrirModal(
+            'Cachecol Azul do Eremes',
+            'Tipo: Visual<br>Equipa em: Baixo<br>Peso: 0<br>Nível Necessário: 1<br>Classes: Todas'
+            )">
+            🔍 Detalhes
+        </button>
+
+        <button class="botao btn-comprar"
+            onclick="comprar(this)">
+            💰 Comprar
+        </button>
+    </div>
+</div>
+<!-- DUPLIQUE ESSE CARD PARA MAIS PRODUTOS -->
+
+</div>
+</section>
+
+<footer>
+© 2026 4S Store — Todos os direitos reservados.
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h2 id="modalTitulo"></h2>
+        <p id="modalTexto"></p>
+        <button class="botao fechar" onclick="fecharModal()">❌ Fechar</button>
+    </div>
+</div>
+
+<script>
+function abrirModal(titulo, texto){
+    document.getElementById("modalTitulo").innerHTML = titulo;
+    document.getElementById("modalTexto").innerHTML = texto;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function fecharModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+function comprar(botao){
+    const card = botao.closest(".card");
+    const produto = card.dataset.produto;
+    const preco = card.dataset.preco;
+
+    const mensagem = `Quero comprar ${produto} por R$ ${preco}`;
+    const url = `https://wa.me/5524999561861?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>

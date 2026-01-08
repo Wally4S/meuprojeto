@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4S Store | Rápido e Barato</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #050505;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 70px;
+        }
+
+        h1, h2, h3, p, a {
+            text-shadow: 0 0 10px rgba(0,255,255,.6);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,.2);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            padding: 10px 0;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        header nav a:hover {
+            color: #00f7ff;
+        }
+
+        /* HERO */
+        #inicio {
+            height: 65vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #inicio video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: #00f7ff;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            background: #00f7ff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        /* SEÇÃO STREAMERS */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 180px;
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0,255,255,.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,.6);
+            padding: 10px;
+        }
+
+        .social-links a {
+            color: #00f7ff;
+            margin: 0 5px;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="./produtos/index.html">Loja</a></li>
+            <li><a href="./produtos/index.html">Comprar</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio">
+    <video autoplay loop muted>
+        <source src="background.png" type="video/mp4">
+    </video>
+
+    <div class="hero-text">
+        <h1>4S STORE</h1>
+        <p>Rápido • Seguro • Barato</p>
+        <a href="./produtos/index.html" class="btn">Comprar Agora</a>
+    </div>
+</section>
+
+<!-- STREAMERS -->
+<section>
+    <h2>Streamers Recomendados</h2>
+    <div class="cards">
+
+        <div class="card">
+            <img src="creator1.jpg">
+            <div class="card-content">
+                <h3>Noturnolll</h3>
+                <div class="social-links">
+                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="creator2.jpg">
+            <div class="card-content">
+                <h3>YuukiiBr</h3>
+                <div class="social-links">
+                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="creator3.jpg">
+            <div class="card-content">
+                <h3>Julliezinha</h3>
+                <div class="social-links">
+                    <a href="https://www.twitch.tv" target="_blank"><i class="fab fa-twitch"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 4S Store • Todos os direitos reservados
+</footer>
+
+</body>
+</html>
