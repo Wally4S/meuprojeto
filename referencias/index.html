@@ -1,226 +1,350 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referências | Seu Projeto</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Arial', sans-serif; background: radial-gradient(circle at top left, #0d0d0d, #121212); color: #fff; min-height: 100vh; overflow-x: hidden; }
-    header { text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #5c00d2, #00cfff); border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5); position: relative; }
-    header h1 { font-size: 2.4rem; font-weight: 700; text-shadow: 0 0 15px #00cfff; margin-bottom: 6px; }
-    header p { font-size: 1.2rem; color: #e0e0e0; text-shadow: 0 0 6px #000; }
-    .back-button { position: absolute; top: 20px; left: 20px; padding: 10px 20px; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid #00cfff; border-radius: 20px; font-weight: bold; text-decoration: none; transition: 0.3s, box-shadow 0.3s, transform 0.3s; }
-    .back-button:hover { background: rgba(0, 207, 255, 0.3); box-shadow: 0 0 15px #00cfff; transform: scale(1.05); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referências | Seu Projeto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .references-carousel { max-width: 900px; margin: 40px auto; min-height: 200px; position: relative; overflow: hidden; }
-    .reference-card {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      background: #1e1e1e;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 207, 255, 0.3), 0 0 30px rgba(92, 0, 210, 0.3);
-      padding: 15px;
-      margin-bottom: 20px;
-      text-align: left;
-      opacity: 0;
-      transition: all 1s ease;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .reference-card.active {
-      left: 0;
-      opacity: 1;
-    }
-    .reference-card.inactive {
-      left: -100%;
-      opacity: 0;
-    }
-    .reference-card h4, .reference-card h3, .reference-card p { margin-bottom: 10px; }
-    .reference-card h3 { color: #00cfff; }
-    .reference-card p { color: #ccc; }
-    .reference-card img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
-    .reference-text {
-      flex: 1;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 2px #00cfff; }
-      to { text-shadow: 0 0 6px #00cfff; }
-    }
-    .reference-card p {
-      font-size: 1.05rem;
-      color: #ccc;
-      line-height: 1.5;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      white-space: pre-wrap;
-      animation: glow 2s ease-in-out infinite alternate;
-      max-height: 120px;
-      overflow-y: auto;
-      padding-right: 5px;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    .reference-form { max-width: 520px; margin: 50px auto; background: #1e1e1e; padding: 25px 20px; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 207, 255, 0.3), 0 0 25px rgba(92, 0, 210, 0.3); }
-    .reference-form h2 { text-align: center; margin-bottom: 20px; color: #00cfff; }
-    .reference-form input, .reference-form textarea, .reference-form button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 12px; border: none; font-size: 1.05rem; }
-    .reference-form input, .reference-form textarea { background: #2a2a2a; color: #fff; }
-    .reference-form button { background: linear-gradient(135deg, #5c00d2, #00cfff); color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s, box-shadow 0.3s, transform 0.3s; }
-    .reference-form button:hover { transform: scale(1.05); box-shadow: 0 0 20px #00cfff, 0 0 30px #5c00d2; }
-    #successMessage { color: #00ff7f; display: none; text-align: center; margin-top: 10px; }
-    footer { text-align: center; padding: 30px 15px; background: #111; font-size: 1.05rem; }
-    footer a { color: #00cfff; text-decoration: none; font-weight: bold; }
-    footer a:hover { text-decoration: underline; }
-  </style>
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #5c00d2, #00cfff);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px #00cfff;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            text-shadow: 0 0 6px #000;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #00cfff;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .reference-form {
+            max-width: 520px;
+            margin: 90px auto;
+            background: #1e1e1e;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 207, 255, 0.3), 0 0 25px rgba(92, 0, 210, 0.3);
+        }
+
+        .reference-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00cfff;
+        }
+
+        .reference-form input,
+        .reference-form textarea,
+        .reference-form button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.05rem;
+        }
+
+        .reference-form input,
+        .reference-form textarea {
+            background: #2a2a2a;
+            color: #fff;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .reference-form input::placeholder,
+        .reference-form textarea::placeholder {
+            color: #aaa;
+        }
+
+        .reference-form button {
+            background: linear-gradient(135deg, #5c00d2, #00cfff);
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            background: #111;
+            font-size: 1.05rem;
+        }
+
+        footer a {
+            color: #00cfff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para o card de referência */
+        .reference-card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+            margin: 10px;
+            width: 520px; /* Largura igual ao formulário */
+            height: 250px; /* Altura fixa */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            word-wrap: break-word;
+            word-break: break-word;
+            opacity: 1; /* Card sempre visível */
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .reference-card h4, .reference-card h3 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.4rem; /* Nome da pessoa maior */
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.5);
+        }
+
+        .reference-card h3 {
+            color: #00cfff;
+            font-size: 1.3rem; /* Nome do personagem destacado */
+            text-shadow: 0 0 10px rgba(0, 207, 255, 0.5);
+        }
+
+        .reference-card p {
+            color: #ccc;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 100px;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .carousel-inner {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Botão próximo */
+        .next-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #00cfff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 207, 255, 0.5);
+        }
+
+        .next-button:hover {
+            background-color: #5c00d2;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 207, 255, 0.7);
+        }
+
+        /* Ícone */
+        .icon {
+            width: 55px; /* Aumentei o ícone */
+            height: 55px;
+            margin-right: 15px;
+            vertical-align: middle;
+            border-radius: 50%; /* Ajuste para um contorno arredondado */
+            box-shadow: 0 0 15px rgba(0, 207, 255, 0.5); /* Efeito de glow */
+            transition: all 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 207, 255, 0.7); /* Aumenta o efeito de glow ao passar o mouse */
+        }
+
+        .reference-card .reference-text {
+            display: flex;
+            align-items: center; /* Garante que o ícone e o nome fiquem centralizados */
+            gap: 15px; /* Adiciona um espaçamento fixo entre o ícone e o nome */
+            flex-wrap: nowrap; /* Impede o texto de quebrar linha e deslocar o ícone */
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <a href="../index.html" class="back-button">← Página Inicial</a>
-  <h1>Referências de Jogadores</h1>
-  <p>Envie sua referência e veja aparecer aqui!</p>
+    <a href="../index.html" class="back-button">← Página Inicial</a>
+    <h1>Referências de Jogadores</h1>
+    <p>Envie sua referência e veja aparecer aqui!</p>
 </header>
 
-<main class="references-carousel" id="carousel"></main>
+<section id="references">
+    <!-- Carrossel de referências -->
+    <div class="carousel">
+        <div id="carouselInner" class="carousel-inner"></div>
+    </div>
+</section>
 
 <section class="reference-form">
-  <h2>Envie sua referência</h2>
-  <form id="sendReference">
-    <input type="text" name="fullname" placeholder="Seu nome real" required>
-    <input type="text" name="nickname" placeholder="Seu nickname no jogo" required>
-    <input type="email" name="email" placeholder="Seu e-mail válido" required>
-    <textarea name="message" rows="4" placeholder="Sua referência..." required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-  <p id="successMessage">Obrigado! Sua referência foi enviada.</p>
+    <h2>Envie sua referência</h2>
+    <form id="sendReference">
+        <input type="text" name="fullname" placeholder="Seu nome real" required>
+        <input type="text" name="nickname" placeholder="Seu nickname no jogo" required>
+        <input type="email" name="email" placeholder="Seu e-mail válido" required>
+        <textarea name="message" rows="4" placeholder="Sua referência..." required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="successMessage" style="display: none;">Obrigado! Sua referência foi enviada.</p>
 </section>
 
 <footer>
-  <p>Quer fazer parte dessa lista? <a href="../contato.html">Entre em contato</a></p>
+    <p>Quer fazer parte dessa lista? <a href="../contato.html">Entre em contato</a></p>
 </footer>
 
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script>
-  const firebaseConfig = {
+// Configuração do Firebase
+const firebaseConfig = {
     apiKey: "AIzaSyBGeptReBViZ9CQoJ2G18SmnaxbnvO3kDw",
     authDomain: "referenciasjogadores.firebaseapp.com",
     projectId: "referenciasjogadores",
     storageBucket: "referenciasjogadores.appspot.com",
     messagingSenderId: "431805442384",
     appId: "1:431805442384:web:7c0bb851dc6362a54ee455"
-  };
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const form = document.getElementById('sendReference');
+const successMessage = document.getElementById('successMessage');
+const carouselInner = document.getElementById('carouselInner');
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+// Carregar referências
+let references = [];
+let currentIndex = 0;
 
-  const carousel = document.getElementById('carousel');
-  const form = document.getElementById('sendReference');
-  const successMessage = document.getElementById('successMessage');
+function loadReferences() {
+    db.collection("referencias").orderBy("timestamp", "desc").get().then(querySnapshot => {
+        references = [];
+        querySnapshot.forEach(doc => {
+            references.push(doc.data());
+        });
+        showReference();
+    });
+}
 
-  // Lista de ícones aleatórios
-  const icons = [
-    'https://game.ragnaplace.com/ro/job/1002/0.png', // Substitua por URLs reais de ícones
-    'https://game.ragnaplace.com/ro/job/1096/0.png',
-    'https://game.ragnaplace.com/ro/job/1582/0.png'
-  ];
+// Exibir a referência atual
+function showReference() {
+    if (references.length > 0) {
+        const data = references[currentIndex];
+        const card = document.createElement('div');
+        card.classList.add('reference-card');
+        card.innerHTML = `
+            <div class="reference-text">
+                <img class="icon" src="https://cdn3.emoji.gg/emojis/747328-ownericon.png" alt="Ícone">
+                <div>
+                    <h4>${data.fullname}</h4>
+                    <h3>${data.nickname}</h3>
+                    <p>${data.message}</p>
+                </div>
+            </div>
+            <button class="next-button" onclick="nextReference()">Próximo</button>
+        `;
+        carouselInner.innerHTML = '';
+        carouselInner.appendChild(card);
+    } else {
+        carouselInner.innerHTML = "<p>Nenhuma referência disponível.</p>";
+    }
+}
 
-  // Função para pegar um ícone aleatório
-  function getRandomIcon() {
-    const index = Math.floor(Math.random() * icons.length);
-    return icons[index];
-  }
+// Navegar para a próxima referência
+function nextReference() {
+    if (currentIndex < references.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;  // Voltar para o primeiro comentário
+    }
+    showReference();
+}
 
-  // Envio de Dados para Firestore
-  form.addEventListener('submit', e => {
+// Enviar nova referência
+form.addEventListener('submit', e => {
     e.preventDefault();
-
+    
     const fullname = form.fullname.value.trim();
     const nickname = form.nickname.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
     db.collection("referencias").add({
-      fullname: fullname,
-      nickname: nickname,
-      email: email,
-      message: message,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        fullname: fullname,
+        nickname: nickname,
+        email: email,
+        message: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
-    .then(docRef => {
-      const newCard = document.createElement('section');
-      newCard.classList.add('reference-card');
-      const icon = getRandomIcon();
-
-      newCard.innerHTML = `
-        <img src="${icon}" alt="Icon">
-        <div class="reference-text">
-          <h4>${fullname}</h4>
-          <h3>${nickname}</h3>
-          <p>"${message}"</p>
-        </div>
-      `;
-      
-      carousel.appendChild(newCard);
-      form.reset();
-      successMessage.style.display = 'block';
-      setTimeout(() => successMessage.style.display = 'none', 4000);
-      manageCards();
+    .then(() => {
+        successMessage.style.display = 'block';
+        setTimeout(() => successMessage.style.display = 'none', 4000);
+        form.reset();
+        loadReferences();
     })
     .catch(error => {
-      console.error("Erro ao enviar referência:", error);
+        console.error("Erro ao enviar referência:", error);
     });
-  });
+});
 
-  // Função para exibir 3 cards ao mesmo tempo
-  function manageCards() {
-    const cards = document.querySelectorAll('.reference-card');
-    if (cards.length > 3) {
-      const firstCard = cards[0];
-      firstCard.classList.add('inactive');
-      setTimeout(() => {
-        firstCard.remove();
-      }, 1000); // Remover após a animação de esmaecimento
-    }
-
-    const lastCard = cards[cards.length - 1];
-    lastCard.classList.add('active');
-  }
-
-  // Carregar as referências já existentes
-  function loadReferences() {
-    db.collection("referencias").orderBy("timestamp", "desc").get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        const data = doc.data();
-        const newCard = document.createElement('section');
-        newCard.classList.add('reference-card');
-        const icon = getRandomIcon();
-
-        newCard.innerHTML = `
-          <img src="${icon}" alt="Icon">
-          <div class="reference-text">
-            <h4>${data.fullname}</h4>
-            <h3>${data.nickname}</h3>
-            <p>"${data.message}"</p>
-          </div>
-        `;
-        
-        carousel.appendChild(newCard);
-      });
-
-      manageCards(); // Ajusta para exibir no máximo 3 cards
-    });
-  }
-
-  loadReferences();
+// Inicializar carregamento de referências
+loadReferences();
 </script>
 
 </body>
