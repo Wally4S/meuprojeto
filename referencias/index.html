@@ -13,9 +13,11 @@
     .back-button { position: absolute; top: 20px; left: 20px; padding: 10px 20px; background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid #00cfff; border-radius: 20px; font-weight: bold; text-decoration: none; transition: 0.3s, box-shadow 0.3s, transform 0.3s; }
     .back-button:hover { background: rgba(0, 207, 255, 0.3); box-shadow: 0 0 15px #00cfff; transform: scale(1.05); }
 
-    .references-carousel { max-width: 900px; margin: 40px auto; min-height: 200px; position: relative; }
+    .references-carousel { max-width: 900px; margin: 40px auto; min-height: 200px; position: relative; overflow: hidden; }
     .reference-card {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 100%;
       width: 100%;
       background: #1e1e1e;
       border-radius: 20px;
@@ -23,11 +25,49 @@
       padding: 15px;
       margin-bottom: 20px;
       text-align: left;
+      opacity: 0;
+      transition: all 1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .reference-card.active {
+      left: 0;
+      opacity: 1;
+    }
+    .reference-card.inactive {
+      left: -100%;
+      opacity: 0;
     }
     .reference-card h4, .reference-card h3, .reference-card p { margin-bottom: 10px; }
     .reference-card h3 { color: #00cfff; }
     .reference-card p { color: #ccc; }
-    
+    .reference-card img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .reference-text {
+      flex: 1;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 2px #00cfff; }
+      to { text-shadow: 0 0 6px #00cfff; }
+    }
+    .reference-card p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.5;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      animation: glow 2s ease-in-out infinite alternate;
+      max-height: 120px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
     .reference-form { max-width: 520px; margin: 50px auto; background: #1e1e1e; padding: 25px 20px; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 207, 255, 0.3), 0 0 25px rgba(92, 0, 210, 0.3); }
     .reference-form h2 { text-align: center; margin-bottom: 20px; color: #00cfff; }
     .reference-form input, .reference-form textarea, .reference-form button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 12px; border: none; font-size: 1.05rem; }
@@ -86,6 +126,19 @@
   const form = document.getElementById('sendReference');
   const successMessage = document.getElementById('successMessage');
 
+  // Lista de ícones aleatórios
+  const icons = [
+    'https://game.ragnaplace.com/ro/job/1002/0.png', // Substitua por URLs reais de ícones
+    'https://game.ragnaplace.com/ro/job/1096/0.png',
+    'https://game.ragnaplace.com/ro/job/1582/0.png'
+  ];
+
+  // Função para pegar um ícone aleatório
+  function getRandomIcon() {
+    const index = Math.floor(Math.random() * icons.length);
+    return icons[index];
+  }
+
   // Envio de Dados para Firestore
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -105,43 +158,68 @@
     .then(docRef => {
       const newCard = document.createElement('section');
       newCard.classList.add('reference-card');
+      const icon = getRandomIcon();
+
       newCard.innerHTML = `
+        <img src="${icon}" alt="Icon">
         <div class="reference-text">
           <h4>${fullname}</h4>
           <h3>${nickname}</h3>
           <p>"${message}"</p>
         </div>
       `;
+      
       carousel.appendChild(newCard);
       form.reset();
       successMessage.style.display = 'block';
       setTimeout(() => successMessage.style.display = 'none', 4000);
+      manageCards();
     })
     .catch(error => {
       console.error("Erro ao enviar referência:", error);
     });
   });
 
-  // Carregar dados do Firestore
+  // Função para exibir 3 cards ao mesmo tempo
+  function manageCards() {
+    const cards = document.querySelectorAll('.reference-card');
+    if (cards.length > 3) {
+      const firstCard = cards[0];
+      firstCard.classList.add('inactive');
+      setTimeout(() => {
+        firstCard.remove();
+      }, 1000); // Remover após a animação de esmaecimento
+    }
+
+    const lastCard = cards[cards.length - 1];
+    lastCard.classList.add('active');
+  }
+
+  // Carregar as referências já existentes
   function loadReferences() {
     db.collection("referencias").orderBy("timestamp", "desc").get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         const data = doc.data();
         const newCard = document.createElement('section');
         newCard.classList.add('reference-card');
+        const icon = getRandomIcon();
+
         newCard.innerHTML = `
+          <img src="${icon}" alt="Icon">
           <div class="reference-text">
             <h4>${data.fullname}</h4>
             <h3>${data.nickname}</h3>
             <p>"${data.message}"</p>
           </div>
         `;
+        
         carousel.appendChild(newCard);
       });
+
+      manageCards(); // Ajusta para exibir no máximo 3 cards
     });
   }
 
-  // Carregar as referências já existentes
   loadReferences();
 </script>
 
