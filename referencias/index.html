@@ -1,88 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Referências | Seu Projeto</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Arial',sans-serif;background: radial-gradient(circle at top left,#0d0d0d,#121212);color:#fff;min-height:100vh;overflow-x:hidden;}
-header{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#5c00d2,#00cfff);border-bottom-left-radius:20px;border-bottom-right-radius:20px;box-shadow:0 6px 25px rgba(0,0,0,0.5);position:relative;}
-header h1{font-size:2.4rem;font-weight:700;text-shadow:0 0 15px #00cfff;margin-bottom:6px;}
-header p{font-size:1.2rem;color:#e0e0e0;text-shadow:0 0 6px #000;}
-.back-button{position:absolute;top:20px;left:20px;padding:10px 20px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid #00cfff;border-radius:20px;font-weight:bold;text-decoration:none;transition:0.3s, box-shadow 0.3s, transform 0.3s;}
-.back-button:hover{background:rgba(0,207,255,0.3);box-shadow:0 0 15px #00cfff;transform:scale(1.05);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referências | Seu Projeto</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Arial',sans-serif;background: radial-gradient(circle at top left,#0d0d0d,#121212);color:#fff;min-height:100vh;overflow-x:hidden;}
+    header{text-align:center;padding:30px 20px;background:linear-gradient(135deg,#5c00d2,#00cfff);border-bottom-left-radius:20px;border-bottom-right-radius:20px;box-shadow:0 6px 25px rgba(0,0,0,0.5);position:relative;}
+    header h1{font-size:2.4rem;font-weight:700;text-shadow:0 0 15px #00cfff;margin-bottom:6px;}
+    header p{font-size:1.2rem;color:#e0e0e0;text-shadow:0 0 6px #000;}
+    .back-button{position:absolute;top:20px;left:20px;padding:10px 20px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid #00cfff;border-radius:20px;font-weight:bold;text-decoration:none;transition:0.3s, box-shadow 0.3s, transform 0.3s;}
+    .back-button:hover{background:rgba(0,207,255,0.3);box-shadow:0 0 15px #00cfff;transform:scale(1.05);}
 
-.references-carousel{max-width:900px;margin:40px auto;min-height:200px;position:relative;perspective:1000px;}
-.reference-card {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  padding: 15px;
-  background: #1e1e1e;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 207, 255, 0.3), 0 0 30px rgba(92, 0, 210, 0.3);
-  text-align: left;
-  max-height: 220px;
-  overflow: hidden;
-}
-.reference-card.active{opacity:1;transform:translateX(0) rotateY(0deg);}
-.reference-card:hover{box-shadow:0 0 25px rgba(0,207,255,0.5),0 0 35px rgba(92,0,210,0.5);transform:scale(1.02);}
-.reference-card img{width:175px;height:175px;object-fit:cover;border-radius:12px;margin-right:20px;flex-shrink:0;transition:transform 0.3s;}
-.reference-card img:hover{transform:scale(1.05);}
-.reference-text{display:flex;flex-direction:column;flex:1;min-width:0;}
-.reference-text h4{font-size:1.3rem;color:#fff;margin-bottom:6px;text-shadow:0 0 5px #000;}
-.reference-text h3{font-size:1.2rem;color:#00cfff;margin-bottom:8px;text-shadow:0 0 6px #00cfff;}
-.reference-text p{font-size:1.05rem;color:#ccc;line-height:1.5;word-break:break-word;overflow-wrap:break-word;white-space:pre-wrap;animation:glow 2s ease-in-out infinite alternate;max-height:120px;overflow-y:auto;padding-right:5px;}
-@keyframes glow{from{text-shadow:0 0 2px #00cfff;}to{text-shadow:0 0 6px #00cfff;}}
+    .references-carousel{max-width:900px;margin:40px auto;min-height:200px;position:relative;perspective:1000px;}
+    .reference-card {
+      opacity: 0;
+      transform: translateX(50px) rotateY(5deg);
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      padding: 15px;
+      background: #1e1e1e;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 207, 255, 0.3), 0 0 30px rgba(92, 0, 210, 0.3);
+      text-align: left;
+      max-height: 220px;
+      overflow: hidden;
+      transition: opacity 1s ease, transform 0.8s ease, box-shadow 0.3s;
+    }
+    .reference-card.active{opacity:1;transform:translateX(0) rotateY(0deg);}
+    .reference-card:hover{box-shadow:0 0 25px rgba(0,207,255,0.5),0 0 35px rgba(92,0,210,0.5);transform:scale(1.02);}
+    .reference-card img{width:175px;height:175px;object-fit:cover;border-radius:12px;margin-right:20px;flex-shrink:0;transition:transform 0.3s;}
+    .reference-card img:hover{transform:scale(1.05);}
+    .reference-text{display:flex;flex-direction:column;flex:1;min-width:0;}
+    .reference-text h4{font-size:1.3rem;color:#fff;margin-bottom:6px;text-shadow:0 0 5px #000;}
+    .reference-text h3{font-size:1.2rem;color:#00cfff;margin-bottom:8px;text-shadow:0 0 6px #00cfff;}
+    .reference-text p{font-size:1.05rem;color:#ccc;line-height:1.5;word-break:break-word;overflow-wrap:break-word;white-space:pre-wrap;animation:glow 2s ease-in-out infinite alternate;max-height:120px;overflow-y:auto;padding-right:5px;}
+    @keyframes glow{from{text-shadow:0 0 2px #00cfff;}to{text-shadow:0 0 6px #00cfff;}}
 
-.reference-form{max-width:520px;margin:50px auto;background:#1e1e1e;padding:25px 20px;border-radius:20px;box-shadow:0 0 15px rgba(0,207,255,0.3),0 0 25px rgba(92,0,210,0.3);transition:box-shadow 0.3s;}
-.reference-form:hover{box-shadow:0 0 25px rgba(0,207,255,0.5),0 0 35px rgba(92,0,210,0.5);}
-.reference-form h2{text-align:center;margin-bottom:20px;color:#00cfff;text-shadow:0 0 8px #00cfff;}
-.reference-form input,.reference-form textarea,.reference-form button{width:100%;padding:12px;margin:8px 0;border-radius:12px;border:none;font-size:1.05rem;}
-.reference-form input,.reference-form textarea{background:#2a2a2a;color:#fff;box-shadow:inset 0 0 8px rgba(0,0,0,0.5);}
-.reference-form input::placeholder,.reference-form textarea::placeholder{color:#aaa;}
-.reference-form button{background:linear-gradient(135deg,#5c00d2,#00cfff);color:#fff;font-weight:bold;cursor:pointer;transition:0.3s, box-shadow 0.3s, transform 0.3s;box-shadow:0 0 12px #00cfff,0 0 20px #5c00d2;}
-.reference-form button:hover{transform:scale(1.05);box-shadow:0 0 20px #00cfff,0 0 30px #5c00d2;}
-#successMessage{color:#00ff7f;display:none;text-align:center;margin-top:10px;text-shadow:0 0 5px #00ff7f;}
+    .reference-form{max-width:520px;margin:50px auto;background:#1e1e1e;padding:25px 20px;border-radius:20px;box-shadow:0 0 15px rgba(0,207,255,0.3),0 0 25px rgba(92,0,210,0.3);transition:box-shadow 0.3s;}
+    .reference-form:hover{box-shadow:0 0 25px rgba(0,207,255,0.5),0 0 35px rgba(92,0,210,0.5);}
+    .reference-form h2{text-align:center;margin-bottom:20px;color:#00cfff;text-shadow:0 0 8px #00cfff;}
+    .reference-form input,.reference-form textarea,.reference-form button{width:100%;padding:12px;margin:8px 0;border-radius:12px;border:none;font-size:1.05rem;}
+    .reference-form input,.reference-form textarea{background:#2a2a2a;color:#fff;box-shadow:inset 0 0 8px rgba(0,0,0,0.5);}
+    .reference-form input::placeholder,.reference-form textarea::placeholder{color:#aaa;}
+    .reference-form button{background:linear-gradient(135deg,#5c00d2,#00cfff);color:#fff;font-weight:bold;cursor:pointer;transition:0.3s, box-shadow 0.3s, transform 0.3s;box-shadow:0 0 12px #00cfff,0 0 20px #5c00d2;}
+    .reference-form button:hover{transform:scale(1.05);box-shadow:0 0 20px #00cfff,0 0 30px #5c00d2;}
+    #successMessage{color:#00ff7f;display:none;text-align:center;margin-top:10px;text-shadow:0 0 5px #00ff7f;}
 
-footer{text-align:center;padding:30px 15px;background:#111;font-size:1.05rem;}
-footer a{color:#00cfff;text-decoration:none;font-weight:bold;}
-footer a:hover{text-decoration:underline;}
+    footer{text-align:center;padding:30px 15px;background:#111;font-size:1.05rem;}
+    footer a{color:#00cfff;text-decoration:none;font-weight:bold;}
+    footer a:hover{text-decoration:underline;}
 
-@media(max-width:600px){.reference-card{flex-direction:column;align-items:center;}.reference-card img{margin:0 0 15px 0;height:auto;}.reference-text{text-align:center;}}
-</style>
+    @media(max-width:600px){.reference-card{flex-direction:column;align-items:center;}.reference-card img{margin:0 0 15px 0;height:auto;}.reference-text{text-align:center;}}
+  </style>
 </head>
 <body>
 
 <header>
-    <a href="../index.html" class="back-button">← Página Inicial</a>
-    <h1>Referências de Jogadores</h1>
-    <p>Envie sua referência e veja aparecer aqui!</p>
+  <a href="../index.html" class="back-button">← Página Inicial</a>
+  <h1>Referências de Jogadores</h1>
+  <p>Envie sua referência e veja aparecer aqui!</p>
 </header>
 
 <main class="references-carousel" id="carousel"></main>
 
 <section class="reference-form">
-<h2>Envie sua referência</h2>
-<form id="sendReference">
+  <h2>Envie sua referência</h2>
+  <form id="sendReference">
     <input type="text" name="fullname" placeholder="Seu nome real" required>
     <input type="text" name="nickname" placeholder="Seu nickname no jogo" required>
     <input type="email" name="email" placeholder="Seu e-mail válido" required>
     <textarea name="message" rows="4" placeholder="Sua referência..." required></textarea>
     <button type="submit">Enviar</button>
-</form>
-<p id="successMessage">Obrigado! Sua referência foi enviada.</p>
+  </form>
+  <p id="successMessage">Obrigado! Sua referência foi enviada.</p>
 </section>
 
 <footer>
-<p>Quer fazer parte dessa lista? <a href="../contato.html">Entre em contato</a></p>
+  <p>Quer fazer parte dessa lista? <a href="../contato.html">Entre em contato</a></p>
 </footer>
 
 <!-- Firebase -->
@@ -117,6 +118,7 @@ const avatars = [
   'clientes/default.png'
 ];
 let lastAvatarIndex = -1;
+
 function getRandomAvatar() {
   if (avatars.length === 0) return 'clientes/default.png';
   let index = Math.floor(Math.random()*avatars.length);
@@ -201,7 +203,6 @@ function loadReferences() {
 
 // Carregar as referências já existentes
 loadReferences();
-
 </script>
 </body>
 </html>
