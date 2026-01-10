@@ -3,271 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Referências | Seu Projeto</title>
+<title>Referências | 4S Store</title>
+<link rel="icon" href="favicon.ico">
+
+<!-- Google Fonts e Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:800&family=Gravitas+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        min-height: 100vh; 
-        overflow-x: hidden; 
-        color: #fff;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#fff;
+    padding-top:90px;
+    background: url('https://loki.ragnarevival.com/themes/default/img/bg-img/welcome-bg.webp') no-repeat center center fixed;
+    background-size: cover;
+}
 
-        /* BACKGROUND COM IMAGEM + GRADIENTE ESCURO PARA MELHOR CONTRASTE */
-        background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://scontent.frez1-1.fna.fbcdn.net/v/t39.30808-6/487175861_122196078014113354_6681417540300629004_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=SJZRC_8yhIsQ7kNvwFF76ON&_nc_oc=Admkh5749Kijt-D1rYhCMhB2zKmG6l14FzUVoXCJX0j4ywACyEZeSkPwslgoE1VB_kTDJ5nbGNKADNTiJZe2_Oy3&_nc_zt=23&_nc_ht=scontent.frez1-1.fna&_nc_gid=9HaG-T0LOehIk7AdxB8DUA&oh=00_AfrX-eherdfB3VYhsZRF9gH_vpxbkzrNkaxtMy0G8zsmaA&oe=696758E9') no-repeat center center fixed;
-        background-size: cover;
-        position: relative;
-    }
+/* HEADER TRANSPARENTE CENTRALIZADO */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:12px 60px;
+    display:flex;
+    flex-direction:column; /* centraliza título e subtítulo */
+    align-items:center;
+    justify-content:center;
+    background: transparent;
+    z-index:999;
+    transition: top 0.4s;
+}
 
-    /* PARTICULAS DISCRETAS ANIMADAS */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-image:
-            radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px),
-            radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
-        background-size: 100px 100px, 200px 200px;
-        background-position: 0 0, 50px 50px;
-        pointer-events: none;
-        animation: moveParticles 60s linear infinite;
-    }
-    @keyframes moveParticles {
-        0% { background-position: 0 0, 50px 50px; }
-        100% { background-position: 200px 200px, 0 0; }
-    }
+/* BOTÃO VOLTAR FIXO NO CANTO */
+header .back-button{
+    position:absolute;
+    top:12px;
+    left:20px;
+    padding:12px 24px;
+    background:linear-gradient(145deg,#0d6efd,#004bbd);
+    color:#fff;
+    border-radius:25px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 0 12px rgba(0,102,255,.7);
+    transition:.3s;
+}
+header .back-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 28px rgba(0,102,255,.9);
+}
 
-    header {
-        text-align: center;
-        padding: 40px 20px;
-        background: linear-gradient(135deg, #4b00d2, #00e0ff);
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-        position: relative;
-    }
+/* TITULO CENTRALIZADO */
+header h1{
+    font-family:'Montserrat',sans-serif;
+    font-size:3rem;
+    color:#0d6efd;
+    text-shadow:0 0 12px rgba(0,102,255,.5);
+}
+header p{
+    font-size:1.2rem;
+    color:#eaf6ff;
+    text-shadow:0 0 6px rgba(0,153,255,.4);
+}
 
-    header h1 {
-        font-size: 2.6rem;
-        font-weight: 700;
-        text-shadow: 0 0 20px rgba(0, 224, 255, 0.8);
-        margin-bottom: 8px;
-    }
+/* FORMULÁRIO REFERÊNCIAS */
+.reference-form{
+    max-width:540px;
+    margin:140px auto 60px;
+    background: linear-gradient(145deg,#111,#222);
+    padding:30px 25px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(0,102,255,.2), 0 0 35px rgba(75,0,210,.2);
+    transition:all 0.3s ease;
+}
+.reference-form:hover{
+    box-shadow:0 0 35px rgba(0,102,255,.3), 0 0 45px rgba(75,0,210,.2);
+}
+.reference-form h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#0d6efd;
+    font-size:1.8rem;
+    letter-spacing:1px;
+}
+.reference-form input,
+.reference-form textarea,
+.reference-form button{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:12px;
+    border:none;
+    font-size:1.05rem;
+}
+.reference-form input,
+.reference-form textarea{
+    background:#262626;
+    color:#fff;
+    box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+    transition: all 0.3s ease;
+}
+.reference-form input:focus,
+.reference-form textarea:focus{
+    outline:none;
+    box-shadow: inset 0 0 12px rgba(0,102,255,.7);
+}
+.reference-form button{
+    background: linear-gradient(135deg,#0d6efd,#004bbd);
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 12px rgba(0,102,255,.5);
+}
+.reference-form button:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 28px rgba(0,102,255,.8);
+}
 
-    header p {
-        font-size: 1.2rem;
-        color: #e0e0e0;
-        text-shadow: 0 0 6px #000;
-    }
+/* MENSAGENS DE SUCESSO E ERRO */
+#successMessage{
+    margin-top:15px;
+    color:#00ff99;
+    font-weight:bold;
+    text-align:center;
+    text-shadow:0 0 6px rgba(0,255,153,.7);
+}
+#errorMessage{
+    margin-top:15px;
+    color:#ff5555;
+    font-weight:bold;
+    text-align:center;
+    text-shadow:0 0 8px rgba(255,85,85,.7);
+    animation: glowError 1.5s infinite alternate;
+}
+@keyframes glowError{
+    from { text-shadow:0 0 6px rgba(255,85,85,.7); }
+    to { text-shadow:0 0 14px rgba(255,85,85,1); }
+}
 
-    .back-button {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        padding: 12px 24px;
-        background: rgba(255,255,255,0.1);
-        color: #fff;
-        border: 1px solid #00e0ff;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    .back-button:hover {
-        background: rgba(0,224,255,0.2);
-        box-shadow: 0 0 20px rgba(0,224,255,0.7);
-    }
+/* CARDS REFERÊNCIAS */
+.carousel{display:flex; justify-content:center; margin-bottom:60px;}
+.carousel-inner{display:flex; justify-content:center;}
 
-    .reference-form {
-        max-width: 540px;
-        margin: 80px auto;
-        background: #1b1b1b;
-        padding: 30px 25px;
-        border-radius: 15px;
-        box-shadow: 0 0 25px rgba(0,224,255,0.2), 0 0 35px rgba(75,0,210,0.2);
-    }
+.reference-card{
+    background:#1f1f1f;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,102,255,.15),0 0 35px rgba(0,102,255,.1);
+    margin:10px;
+    width:540px;
+    min-height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    transition:all 0.4s ease;
+    border:1px solid rgba(0,102,255,0.3);
+    overflow:hidden;
+}
 
-    .reference-form h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #00e0ff;
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-    }
+.reference-card:hover{
+    transform: translateY(-5px);
+    box-shadow:0 0 35px rgba(0,102,255,.5),0 0 50px rgba(0,102,255,.3);
+}
 
-    .reference-form input,
-    .reference-form textarea,
-    .reference-form button {
-        width: 100%;
-        padding: 14px;
-        margin: 10px 0;
-        border-radius: 12px;
-        border: none;
-        font-size: 1.05rem;
-    }
+.reference-text{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    flex-wrap:nowrap;
+}
 
-    .reference-form input,
-    .reference-form textarea {
-        background: #262626;
-        color: #fff;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-        transition: all 0.3s ease;
-    }
-    .reference-form input:focus,
-    .reference-form textarea:focus {
-        outline: none;
-        box-shadow: inset 0 0 12px rgba(0,224,255,0.7);
-    }
+.reference-text img.icon{
+    width:50px;
+    height:50px;
+    flex-shrink:0;
+    border-radius:50%;
+    object-fit:cover;
+}
 
-    .reference-form button {
-        background: linear-gradient(135deg, #4b00d2, #00e0ff);
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 12px rgba(0,224,255,0.5);
-    }
-    .reference-form button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 28px rgba(0,224,255,0.8);
-    }
+.reference-text div{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    overflow:hidden;
+}
 
-    #successMessage {
-        margin-top: 15px;
-        color: #00ff99;
-        font-weight: bold;
-        text-align: center;
-    }
+.reference-text h4{
+    font-size:1.25rem;
+    color:#fff;
+    font-weight:700;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    margin-bottom:2px;
+}
 
-    #errorMessage {
-        margin-top: 15px;
-        color: #ff5555;
-        font-weight: bold;
-        text-align: center;
-    }
+.reference-text h3{
+    font-size:1.1rem;
+    color:#0d6efd;
+    font-weight:600;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    margin-bottom:5px;
+}
 
-    footer {
-        text-align: center;
-        padding: 30px 15px;
-        background: #111;
-        font-size: 1.05rem;
-    }
+.reference-text p{
+    font-size:1rem;
+    color:#ccc;
+    line-height:1.4;
+    max-height:100px;
+    overflow-y:auto;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    scrollbar-width: thin;
+    scrollbar-color: #0d6efd rgba(30,30,30,0.5);
+}
+.reference-text p::-webkit-scrollbar{
+    width:8px;
+}
+.reference-text p::-webkit-scrollbar-track{
+    background: rgba(30,30,30,0.5);
+    border-radius:4px;
+}
+.reference-text p::-webkit-scrollbar-thumb{
+    background-color:#0d6efd;
+    border-radius:4px;
+}
 
-    footer a {
-        color: #00e0ff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    footer a:hover { text-decoration: underline; }
+/* NEXT BUTTON */
+.next-button{
+    position:absolute;
+    top:10px;
+    right:20px;
+    background: linear-gradient(145deg,#0d6efd,#004bbd);
+    color:#fff;
+    padding:10px 22px;
+    border:none;
+    border-radius:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 15px rgba(0,102,255,.5);
+}
+.next-button:hover{
+    background-color:#4b00d2;
+    transform: scale(1.08);
+    box-shadow:0 0 35px rgba(0,102,255,.7);
+}
 
-    .carousel { display: flex; justify-content: center; margin-bottom: 60px; }
-    .carousel-inner { display: flex; justify-content: center; }
+/* WHATSAPP FLUTUANTE */
+.whatsapp-button{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:linear-gradient(145deg,#0d6efd,#004bbd);
+    color:#fff;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:0 0 18px rgba(0,102,255,.9);
+    cursor:pointer;
+    z-index:9999;
+    transition:.3s;
+}
+.whatsapp-button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px rgba(0,102,255,1);
+}
+.whatsapp-widget{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:280px;
+    background:linear-gradient(145deg,#07161f,#02080c);
+    color:#fff;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(0,102,255,.6);
+    display:none;
+    overflow:hidden;
+    z-index:9999;
+}
+.whatsapp-header{
+    background:linear-gradient(145deg,#0d6efd,#004bbd);
+    color:#fff;
+    padding:12px 15px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+    box-shadow:0 0 12px rgba(0,102,255,.5);
+}
+.whatsapp-body{
+    padding:18px;
+    text-align:center;
+}
+.whatsapp-start{
+    display:inline-block;
+    background:linear-gradient(145deg,#0d6efd,#004bbd);
+    color:#fff;
+    padding:10px 16px;
+    border-radius:8px;
+    margin-top:12px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 0 14px rgba(0,102,255,.7);
+}
 
-    .reference-card {
-        background: #1f1f1f;
-        padding: 22px;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0,224,255,0.15), 0 0 35px rgba(0,224,255,0.1);
-        margin: 10px;
-        width: 540px;
-        height: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        word-wrap: break-word;
-        word-break: break-word;
-        opacity: 1;
-        position: relative;
-        transition: all 0.4s ease;
-        border: 1px solid rgba(0,224,255,0.3);
-    }
-
-    .reference-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 35px rgba(0,224,255,0.5), 0 0 50px rgba(0,224,255,0.3);
-    }
-
-    .reference-card h4, .reference-card h3 {
-        margin: 0;
-        font-weight: 700;
-        text-shadow: 0 0 15px rgba(0,224,255,0.5);
-    }
-    .reference-card h4 { font-size: 1.45rem; color: #fff; }
-    .reference-card h3 { font-size: 1.3rem; color: #00e0ff; }
-
-    .reference-card p {
-        color: #ccc;
-        font-size: 1.15rem;
-        line-height: 1.5;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        overflow-y: auto;
-        max-height: 120px; 
-        margin-top: 12px;
-        padding-right: 5px;
-
-        scrollbar-width: thin;
-        scrollbar-color: #00e0ff rgba(30,30,30,0.5);
-    }
-
-    .reference-card p::-webkit-scrollbar {
-        width: 8px;
-    }
-    .reference-card p::-webkit-scrollbar-track {
-        background: rgba(30,30,30,0.5);
-        border-radius: 4px;
-    }
-    .reference-card p::-webkit-scrollbar-thumb {
-        background-color: #00e0ff;
-        border-radius: 4px;
-    }
-
-    .next-button {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        background-color: #00e0ff;
-        color: #fff;
-        padding: 10px 22px;
-        border: none;
-        border-radius: 15px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(0,224,255,0.5);
-    }
-    .next-button:hover {
-        background-color: #4b00d2;
-        transform: scale(1.08);
-        box-shadow: 0 0 35px rgba(0,224,255,0.7);
-    }
-
-    .icon {
-        width: 100px;
-        height: 100px;
-        margin-right: 15px;
-        border-radius: 0; 
-        box-shadow: none; 
-        background: transparent; 
-        transition: all 0.3s ease;
-        flex-shrink: 0;
-    }
-    .icon:hover { transform: scale(1.05); }
-
-    .reference-card .reference-text {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        flex-wrap: nowrap;
-    }
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px 15px;
+    background:#111;
+    font-size:1.05rem;
+}
+footer a{
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer a:hover{text-decoration:underline;}
 </style>
 </head>
+
 <body>
 
 <header>
     <a href="../index.html" class="back-button">← Página Inicial</a>
-    <h1>Referências de Clientes</h1>
-    <p>Já negociou comigo , deixe sua referência aqui✔️</p>
+    <div style="text-align:center;">
+        <h1>Referências de Clientes</h1>
+        <p>Já negociou comigo, deixe sua referência aqui✔️</p>
+    </div>
 </header>
 
 <section id="references">
@@ -282,12 +355,29 @@
         <input type="text" name="fullname" placeholder="Seu nome real" required>
         <input type="text" name="nickname" placeholder="Seu nickname no jogo" required>
         <input type="email" name="email" placeholder="Seu e-mail válido" required>
-        <textarea name="message" rows="4" placeholder="Sua referência..." required></textarea>
+        <textarea name="message" rows="4" placeholder="Sua referência..." required style="resize:none;"></textarea>
         <button type="submit">Enviar</button>
     </form>
     <p id="successMessage" style="display:none;">Obrigado! Sua referência foi enviada.</p>
     <p id="errorMessage" style="display:none;">Nome real, nickname ou e-mail já foi usado.</p>
 </section>
+
+<div class="whatsapp-button" onclick="toggleChat()">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</div>
+
+<div class="whatsapp-widget">
+    <div class="whatsapp-header">
+        WhatsApp
+        <span onclick="toggleChat()">×</span>
+    </div>
+    <div class="whatsapp-body">
+        <p>Olá 👋<br>Fale com nosso atendimento.</p>
+        <a href="https://wa.me/5524999561861" target="_blank" class="whatsapp-start">
+        Iniciar conversa
+        </a>
+    </div>
+</div>
 
 <footer>
     <p>Quer fazer parte dessa lista? <a href="https://api.whatsapp.com/send/?phone=5524999561861&text&type=phone_number&app_absent=0">Negocie Comigo💬</a></p>
@@ -379,6 +469,25 @@ form.addEventListener('submit', async e=>{
 });
 
 loadReferences();
+
+// HEADER SOME AO ROLAR
+let lastScroll = 0;
+const header = document.querySelector('header');
+window.addEventListener('scroll',()=>{
+  const currentScroll = window.pageYOffset;
+  if(currentScroll>lastScroll && currentScroll>50){
+    header.style.top='-120px';
+  } else {
+    header.style.top='0';
+  }
+  lastScroll=currentScroll;
+});
+
+// FUNÇÃO WIDGET WHATSAPP
+function toggleChat(){
+    const chat=document.querySelector('.whatsapp-widget');
+    chat.style.display=chat.style.display==='block'?'none':'block';
+}
 </script>
 
 </body>

@@ -1,27 +1,48 @@
-/* Reset de estilo */
+/* ========================= */
+/* 🎨 TEMA GLOBAL DO SITE */
+/* ========================= */
+:root {
+    /* cores principais */
+    --cor-primaria: #01529b;           /* azul padrão */
+    --cor-primaria-alpha: rgba(1, 82, 155, 0.7); /* azul translúcido */
+    --cor-glow: rgba(1, 82, 155, 0.7); /* glow em hover */
+    --cor-texto: #ffffff;               /* branco geral */
+    --cor-fundo: #121212;               /* fundo padrão */
+    --cor-card-shadow: rgba(1, 82, 155, 0.3);      /* sombra normal de card */
+    --cor-card-shadow-hover: rgba(1, 82, 155, 0.7);/* sombra hover de card */
+    --cor-preco: #ffd84d;               /* destaque preço */
+}
+
+/* ========================= */
+/* 🔹 RESET DE ESTILO */
+/* ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos globais */
+/* ========================= */
+/* 🌍 ESTILOS GLOBAIS */
+/* ========================= */
 body {
     font-family: 'Gravitas One', sans-serif;
-    background-color: #121212;
-    color: white;
-    overflow-x: hidden; /* Impede scroll horizontal */
-    background: url('background.png') no-repeat center center fixed; /* Aplica o fundo de papel em toda a página */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    overflow-x: hidden;
+    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* Cabeçalho */
+/* ========================= */
+/* 🔝 CABEÇALHO */
+/* ========================= */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 20px;
-    background-color: rgba(1, 82, 155, 0.7);
+    background-color: var(--cor-primaria-alpha);
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -31,34 +52,31 @@ header {
 }
 
 header .logo img {
-    width: auto;
     height: 50px;
 }
 
-/* Menu de Navegação */
+/* ========================= */
+/* 📌 MENU */
 header nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-header nav ul li {
-    display: inline-block;
-}
-
 header nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--cor-texto);
     font-size: 18px;
-    font-family: 'Gravitas One', sans-serif;
-    transition: color 0.3s ease;
+    transition: 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #01529b;
+    color: var(--cor-primaria);
+    text-shadow: 0 0 8px var(--cor-glow);
 }
 
-/* Seção Hero */
+/* ========================= */
+/* 🌟 HERO */
 .hero {
     background: url('background.png') no-repeat center center fixed;
     background-size: cover;
@@ -66,167 +84,134 @@ header nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     margin-top: 80px;
-    position: relative;
-    z-index: 1;
 }
 
 .hero-text {
-    z-index: 2;
-    color: white;
+    color: var(--cor-texto);
     padding: 30px;
-    text-shadow: 0px 0px 10px #01529b;
+    text-shadow: 0 0 10px var(--cor-primaria);
 }
 
 .hero h1 {
     font-size: 50px;
-    margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 24px;
-    margin-bottom: 30px;
 }
 
-/* Seção Criadores de Conteúdo */
-.criadores {
-    padding: 50px 20px;
-    text-align: center;
-    margin-top: 150px; /* Ajuste para garantir que as promoções não sejam cortadas */
-}
-
-.criadores h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: white;
-}
-
+/* ========================= */
+/* 🃏 CARDS */
 .cards {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Aumentando o espaçamento entre os cards */
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-/* Estilo dos Cards - Ajustados para menores */
 .card {
     background-color: rgba(255, 255, 255, 0);
-    padding: 15px; /* Menos padding */
+    padding: 15px;
     border-radius: 10px;
-    width: px; /* Diminuindo o tamanho */
-    height: 280px; /* Ajustando a altura */
+    height: 280px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(1, 82, 155, 0.3);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background-size: cover;
-    background-position: center;
+    box-shadow: 0 0 15px var(--cor-card-shadow);
+    transition: 0.3s;
 }
 
 .card:hover {
-    box-shadow: 0 0 25px rgba(1, 82, 155, 0.7);
+    box-shadow: 0 0 25px var(--cor-card-shadow-hover);
     transform: translateY(-10px);
 }
 
-.card-image img {
-    width: 100%;
-    height: 150px; /* Ajustando o tamanho da imagem */
-    object-fit: cover;
-    border-radius: 8px;
+/* ========================= */
+/* 🔥 PREÇOS */
+.card .preco {
+    font-weight: bold;
+    color: var(--cor-preco);
+    text-shadow:
+        0 0 6px rgba(255,216,77,.6),
+        0 0 16px rgba(255,180,0,.45);
 }
 
-.card-content h3 {
-    font-size: 18px;
-    margin-top: 10px;
-    color: white;
+/* ========================= */
+/* 🔥 BOTÕES */
+button,
+.home-btn,
+.search-btn {
+    background: linear-gradient(145deg, var(--cor-primaria), #004bbd);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.social-links a {
-    color: white;
-    font-size: 20px; /* Ajustando o tamanho dos ícones */
-    margin: 10px;
-    text-decoration: none;
+button:hover,
+.home-btn:hover,
+.search-btn:hover {
+    box-shadow: 0 0 10px var(--cor-glow);
+    transform: translateY(-2px);
 }
 
-.social-links a:hover {
-    color: #01529b;
-}
-
-/* Seção Promoções */
+/* ========================= */
+/* 🔥 PROMOÇÕES */
 .promocoes {
     padding: 50px 20px;
     text-align: center;
-    background: transparent;
-    margin-top: 150px; /* Aumentei para garantir que a seção Promoções apareça abaixo */
+    margin-top: 150px;
 }
 
 .promocoes-title {
     font-size: 36px;
     margin-bottom: 30px;
-    color: white;
-    animation: glowPulse 2s ease-in-out infinite;
+    animation: glowPulse 2s infinite;
 }
 
 @keyframes glowPulse {
-    0% {
-        text-shadow: 0 0 5px #01529b, 0 0 10px #01529b, 0 0 15px #01529b;
-    }
-    50% {
-        text-shadow: 0 0 20px #01529b, 0 0 30px #01529b, 0 0 40px #01529b;
-    }
-    100% {
-        text-shadow: 0 0 5px #01529b, 0 0 10px #01529b, 0 0 15px #01529b;
-    }
+    0% { text-shadow: 0 0 5px var(--cor-primaria); }
+    50% { text-shadow: 0 0 25px var(--cor-primaria); }
+    100% { text-shadow: 0 0 5px var(--cor-primaria); }
 }
 
-.promocoes .cards {
+/* ========================= */
+/* 🧾 RODAPÉ */
+footer {
+    background-color: transparent;
+    text-align: center;
+    padding: 20px;
+    color: var(--cor-texto);
+}
+
+/* ========================= */
+/* 🔢 PAGINAÇÃO */
+#pagination {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin: 40px 0;
 }
 
-.promocoes .card {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    width: 380px;
-    height: 250px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(1, 82, 155, 0.3);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: pulse 2s infinite;
+#pagination button {
+    background: var(--cor-primaria-alpha);
+    border: 1px solid var(--cor-primaria);
+    color: var(--cor-texto);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Gravitas One', sans-serif;
+    transition: 0.3s;
 }
 
-.promocoes .card:hover {
-    box-shadow: 0 0 25px rgba(1, 82, 155, 0.7);
-    transform: translateY(-10px);
+#pagination button:hover {
+    background: var(--cor-primaria);
+    box-shadow: 0 0 10px var(--cor-glow);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.promocoes .card-content {
-    color: white;
-}
-
-/* Rodapé */
-footer {
-    background-color: #ffffff00;
-    text-align: center;
-    padding: 20px;
-    font-size: 16px;
-    color: #fff;
+#pagination button.active {
+    background: var(--cor-texto);
+    color: var(--cor-primaria);
+    box-shadow: 0 0 12px var(--cor-glow);
 }
