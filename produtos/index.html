@@ -129,9 +129,10 @@ section{padding:1rem}
     padding:1rem;
     text-align:center;
     box-shadow:0 0 14px rgba(0,153,255,.25);
-    transition:.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
     display:flex;
     flex-direction:column;
+    position:relative;
 }
 
 .card.hidden{
@@ -144,6 +145,7 @@ section{padding:1rem}
     width:100%;
     border-radius:8px;
     margin-bottom:.6rem;
+    transition: transform 0.35s ease;
 }
 
 .card h3{
@@ -195,6 +197,17 @@ section{padding:1rem}
 .btn-comprar{
     background:linear-gradient(145deg,#2ecc71,#1e9f54);
     color:#fff;
+}
+
+/* ANIMAÇÃO DO CARD AO HOVER */
+.card:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 28px rgba(0,153,255,.7), 0 0 40px rgba(0,216,255,.5);
+    filter: brightness(1.1);
+}
+
+.card:hover img{
+    transform: scale(1.08);
 }
 
 /* MODAL */
@@ -299,23 +312,105 @@ section{padding:1rem}
 let currentCategory = 'all';
 let currentSearch = '';
 let currentPage = 1;
-const itemsPerPage = 6;
+const itemsPerPage = 12;
 
 const products = [
-    <!-- CATEGORIA TOPO -->
+    // Itens topo aqui
     {name: 'Chapéu de Dragão', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Dragão.png'},
-    {name: 'Chapéu do Timoneiro', price: '3,99', category: 'topo', image: '../imagens/Chapéu do Timoneiro.png'},
-        <!-- CATEGORIA MEIO -->
+    {name: 'Chapéu do Timoneiro', price: '3,99', category: 'topo', image: '../imagens/Chapéu do Timoneiro.png'},     
+    {name: 'Chapéu de Tarlock', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Tarlock.png'},
+    {name: 'Chapéu do Comissário', price: '14,99', category: 'topo', image: '../imagens/Chapéu do Comissário.png'},
+    {name: 'Chapéu de Esterco', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Esterco.png'},
+    {name: 'Chapéu de Veraneio', price: '3,99', category: 'topo', image: '../imagens/Chapéu do Xerloque.png'},
+    {name: 'Chapéu Verona', price: '3,99', category: 'topo', image: '../imagens/Chapéu Verona.png'},
+    {name: 'Chapéu do Doram de Botas', price: '3,99', category: 'topo', image: '../imagens/Chapéu do Doram de Botas.png'},
+    {name: 'Chapéu de Jormungand', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Jormungand.png'},
+    {name: 'Chapéu Aclamado', price: '3,99', category: 'topo', image: '../imagens/Chapéu Aclamado.png'},
+    {name: 'Chapéu de Peixinho', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Peixinho.png'},
+    {name: 'Boné do Melhor Pai do Mundo', price: '3,99', category: 'topo', image: '../imagens/Boné do Melhor Pai do Mundo.png'},
+    {name: 'Orelhas Incinerantes', price: '3,99', category: 'topo', image: '../imagens/Orelhas Incinerantes.png'},
+    {name: 'Cabelo Longo Preto', price: '3,99', category: 'topo', image: '../imagens/Cabelo Longo Preto.png'},
+    {name: 'Diadema de Rosas Brancas', price: '3,99', category: 'topo', image: '../imagens/Diadema de Rosas Brancas.png'},
+    {name: 'Orelhas do Coelho da Lua', price: '3,99', category: 'topo', image: '../imagens/Orelhas do Coelho da Lua.png'},
+    {name: 'Auréola Espiritural', price: '3,99', category: 'topo', image: '../imagens/Auréola Espiritual.png'},
+    {name: 'Penteado Estiloso Branco', price: '3,99', category: 'topo', image: '../imagens/Penteado Estiloso Branco.png'},
+    {name: 'Chapéu Natureba', price: '3,99', category: 'topo', image: '../imagens/Chapéu Natureba.png'},
+    {name: 'Protetor com Coelhinhos', price: '3,99', category: 'topo', image: '../imagens/Protetor com Coelhinhos.png'},
+    {name: 'Mestre Arcanista', price: '3,99', category: 'topo', image: '../imagens/Mestre Arcanista.png'},
+    {name: 'Mestre Arcanista Azul', price: '3,99', category: 'topo', image: '../imagens/Mestre Arcanista Azul.png'},
+    {name: 'Mestre Arcanista Amarelo', price: '3,99', category: 'topo', image: '../imagens/Mestre Arcanista Amarelo.png'},
+    {name: 'Mestre Arcanista Vermelho', price: '3,99', category: 'topo', image: '../imagens/Mestre Arcanista Vermelho.png'},
+    {name: 'Mestre Arcanista Branco', price: '3,99', category: 'topo', image: '../imagens/Mestre Arcanista Branco.png'},
+    {name: 'Touca Lunar', price: '3,99', category: 'topo', image: '../imagens/Touca Lunar.png'},
+    {name: 'Lacinho Sting', price: '3,99', category: 'topo', image: '../imagens/Lacinho Sting.png'},
+    {name: 'Coroa do Segredo', price: '3,99', category: 'topo', image: '../imagens/Coroa do Segredo.png'},
+    {name: 'Adorno Vampiresco', price: '3,99', category: 'topo', image: '../imagens/Adorno Vampiresco.png'},
+    {name: 'Peruca Rosa de Alice', price: '3,99', category: 'topo', image: '../imagens/Peruca Rosa de Alice.png'},
+    {name: 'Penteado Estiloso Castanho', price: '3,99', category: 'topo', image: '../imagens/Penteado Estiloso Castanho.png'},
+    {name: 'Cartola do Visconde Coruja', price: '3,99', category: 'topo', image: '../imagens/Cartola do Visconde Coruja.png'},
+    {name: 'Faixa do Shurão da Preula', price: '3,99', category: 'topo', image: '../imagens/Faixa do Shurão da Preula.png'},
+    {name: 'Faixa da Preula Azul', price: '3,99', category: 'topo', image: '../imagens/Faixa da Preula Azul.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Chifres Majestosos do Bafomé.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Balão de AFK.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Orelhas Brancas de Gatinho.png'},
+    {name: 'Tiara Qixiqué', price: '3,99', category: 'topo', image: '../imagens/Tiara Qixiqué.png'},
+    {name: 'Orelhas da Lebre Rubra', price: '3,99', category: 'topo', image: '../imagens/Orelhas da Lebre Rubra.png'},
+    {name: 'Orelhas da Lebre Verde', price: '3,99', category: 'topo', image: '../imagens/Orelhas da Lebre Verde.png'},
+    {name: 'Orelhas da Lebre Noturna', price: '3,99', category: 'topo', image: '../imagens/Orelhas da Lebre Noturna.png'},
+    {name: 'Orelhas da Lebre Violeta', price: '3,99', category: 'topo', image: '../imagens/Orelhas da Lebre Violeta.png'},
+    {name: 'Orelhas de Lebre', price: '3,99', category: 'topo', image: '../imagens/Orelhas de Lebre.png'},
+    {name: 'Coroa Realeza Gelada', price: '3,99', category: 'topo', image: '../imagens/Coroa Realeza Gelada.png'},
+    {name: 'Peruca de Youkai', price: '3,99', category: 'topo', image: '../imagens/Peruca de Youkai.png'},
+    {name: 'Tiara do Festival', price: '3,99', category: 'topo', image: '../imagens/Tiara do Festival.png'},
+    {name: 'Pequena Coroa', price: '3,99', category: 'topo', image: '../imagens/Pequena Coroa.png'},
+    {name: 'Tiara de Sakura', price: '3,99', category: 'topo', image: '../imagens/Tiara de Sakura.png'},
+    {name: 'Boné do Príncipe Ali', price: '3,99', category: 'topo', image: '../imagens/Boné do Príncipe Ali.png'},
+    {name: 'Penteado Estiloso Roxo', price: '3,99', category: 'topo', image: '../imagens/Penteado Estiloso Roxo.png'},
+    {name: 'Gorro do Gatinho Amoroso', price: '3,99', category: 'topo', image: '../imagens/Gorro do Gatinho Amoroso.png'},
+    {name: 'Tiara de Laço Azul', price: '3,99', category: 'topo', image: '../imagens/Tiara de Laço Azul.png'},
+    {name: 'Tiara de Laço Verde', price: '3,99', category: 'topo', image: '../imagens/Tiara de Laço Verde.png'},
+    {name: 'Tiara Pomposa', price: '3,99', category: 'topo', image: '../imagens/Tiara Pomposa.png'},
+    {name: 'Orelhas de Raposa', price: '3,99', category: 'topo', image: '../imagens/Orelhas de Raposa.png'},
+    {name: 'Laço de Frutas', price: '3,99', category: 'topo', image: '../imagens/Laço de Frutas.png'},
+    {name: 'Orelhas do Coelho Branco', price: '3,99', category: 'topo', image: '../imagens/Orelhas do Coelho Branco.png'},
+    {name: 'Coroa de Pétalas de Lavanda', price: '3,99', category: 'topo', image: '../imagens/Coroa de Pétalas de Lavanda.png'},
+    {name: 'Elmo do Arcanjo', price: '3,99', category: 'topo', image: '../imagens/Elmo do Arcanjo.png'},
+    {name: 'Chapéu do Dartanham', price: '3,99', category: 'topo', image: '../imagens/Chapéu do Dartanham.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Chapéu de Dragão.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Boné no Estilo.png'},
+    {name: 'item novo', price: '3,99', category: 'topo', image: '../imagens/Capuz Felino.png'},
+    {name: 'Elmo da Khalitzburg', price: '3,99', category: 'topo', image: '../imagens/Elmo da Khalitzburg.png'},
+    {name: 'Fita Macabra da Celine', price: '3,99', category: 'topo', image: '../imagens/Fita Macabra da Celine.png'},
+    {name: 'Touca de Anime', price: '3,99', category: 'topo', image: '../imagens/Touca de Anime.png'},
+    {name: 'Lacinhos Oníricos', price: '3,99', category: 'topo', image: '../imagens/Lacinhos Oníricos.png'},
+    {name: 'Flores do Amanhecer', price: '3,99', category: 'topo', image: '../imagens/Flores do Amanhecer.png'},
+    {name: 'Lenço da Memória Secreta', price: '3,99', category: 'topo', image: '../imagens/Lenço da Memória Secreta.png'},
+    {name: 'Presilha de Recife', price: '3,99', category: 'topo', image: '../imagens/Presilha de Recife.png'},
+    {name: 'Bandana Xadrez', price: '3,99', category: 'topo', image: '../imagens/Bandana Xadrez.png'},
+    {name: 'Fei-Chai Dorminhoco', price: '3,99', category: 'topo', image: '../imagens/Fei-Chai Dorminhoco.png'},
+    // Itens meio aqui
     {name: 'Piscadela Congelante', price: '5,99', category: 'meio', image: '../imagens/Piscadela Congelante.png'},
-        <!-- CATEGORIA BAIXO -->
+    // Itens baixo aqui
     {name: 'Cachecol Preto do Eremes', price: '6,99', category: 'baixo', image: '../imagens/eremes-preto.png'},
     {name: 'Cachecol Preto do Eremes', price: '3,99', category: 'baixo', image: '../imagens/eremes azul.png'},
     {name: 'Cachecol Celestial', price: '4,99', category: 'baixo', image: '../imagens/Cachecol Celestial.png'},
-        <!-- CATEGORIA CAPA -->
-    {name: 'Fuzil', price: '4,99', category: 'capa', image: '../imagens/Fuzil.png'},
-        <!-- CATEGORIA EQUIPAMENTO -->
+    // Itens capa aqui
+    {name: 'Fuzil', price: '3,99', category: 'capa', image: '../imagens/Fuzil.png'},
+    {name: 'Láctea', price: '3,99', category: 'capa', image: '../imagens/Láctea.png'},
+    {name: 'Miaura', price: '3,99', category: 'capa', image: '../imagens/Miaura.png'},
+    {name: 'Mochila Multiuso', price: '3,99', category: 'capa', image: '../imagens/Mochila Multiuso.png'},
+    {name: 'Mochila Zipper', price: '3,99', category: 'capa', image: '../imagens/Mochila Zipper.png'},
+    {name: 'Varinha Arquimágica', price: '3,99', category: 'capa', image: '../imagens/Varinha Arquimágica.png'},
+    {name: 'Mochila do Aluno Esperto', price: '3,99', category: 'capa', image: '../imagens/Mochila do Aluno Esperto.png'},
+    {name: 'Mochila do Aluno Rebelde', price: '3,99', category: 'capa', image: '../imagens/Mochila do Aluno Rebelde.png'},
+    {name: 'Talheres do Comilão', price: '3,99', category: 'capa', image: '../imagens/Talheres do Comilão.png'},
+    {name: 'Caudas Estilosas', price: '4,99', category: 'capa', image: '../imagens/Caudas Estilosas.png'},
+    {name: 'Asas de Tronos', price: '3,99', category: 'capa', image: '../imagens/Asas de Tronos.png'},
+    {name: 'Asas Douradas da Justiça', price: '3,99', category: 'capa', image: '../imagens/Asas Douradas da Justiça.png'},
+    {name: 'Asas Negras do Arcanjo', price: '3,99', category: 'capa', image: '../imagens/Asas Negras do Arcanjo.png'},
+    // Itens equipamento aqui
     {name: '+12 Capa Mística[Kades] Cura 1 Catol 1 Fator 1', price: '29,99', category: 'equipamento', image: '../imagens/Capa Mística.png'},
-        <!-- CATEGORIA CONSUMÍVEL -->
+    // Itens consumível aqui
     {name: '[PACK 150 UND] Poção de Guyak', price: '24,99', category: 'consumível', image: '../imagens/Poção de Guyak.png'},
 ];
 
@@ -323,7 +418,7 @@ function filterCategory(cat, btn) {
     currentCategory = cat;
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentPage = 1; // Resetar a página
+    currentPage = 1;
     applyFilters();
 }
 
@@ -384,7 +479,6 @@ function changePage(direction) {
     applyFilters();
 }
 
-// Função para abrir o modal
 function abrirModal(btn) {
     const card = btn.closest('.card');
     const productName = card.querySelector('h3').innerText;
@@ -400,7 +494,6 @@ function abrirModal(btn) {
     modal.style.display = 'flex';
 }
 
-// Função para fechar o modal
 function fecharModal() {
     modal.style.display = 'none';
 }
@@ -409,7 +502,7 @@ function comprar(p, v) {
     window.open(`https://wa.me/5524999561861?text=${encodeURIComponent('Quero comprar ' + p + ' por R$ ' + v)}`, '_blank');
 }
 
-renderProducts(products); // Inicializa a página com os produtos
+renderProducts(products);
 </script>
 
 </body>

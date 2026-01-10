@@ -14,7 +14,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{
 font-family:Arial,sans-serif;
-/* Fundo customizável */
 background: url('https://cdn.suwalls.com/wallpapers/games/ragnarok-online-characters-54301-1920x1080.jpg') no-repeat center center fixed;
 background-size: cover;
 color:#fff;
@@ -55,7 +54,6 @@ color:#fff;
 font-weight:bold;
 padding:10px 24px;
 border-radius:8px;
-/* Gradiente azul nos botões */
 background:linear-gradient(145deg,#0d6efd,#004bbd);
 display:flex;
 align-items:center;
@@ -79,21 +77,25 @@ text-align:center;
 flex-direction:column;
 }
 
+@keyframes heroGlow {
+  0%,100% { text-shadow: 0 0 6px #00f, 0 0 12px #0ff, 0 0 18px #0ff; }
+  50% { text-shadow: 0 0 12px #0ff, 0 0 24px #0ff, 0 0 36px #00f; }
+}
+
 .hero-text h1{
 font-family:'Montserrat',sans-serif;
 font-size:4rem;
 letter-spacing:6px;
-/* Cor sólida azul profissional */
-color:#0d6efd;
-text-shadow:0 0 12px rgba(0,102,255,.5);
+color:#000; /* Texto preto */
+animation: heroGlow 2s infinite;
 }
 
 .hero-text p{
 margin-top:16px;
 font-size:1.6rem;
 font-weight:bold;
-color:#eaf6ff;
-text-shadow: 0 0 6px rgba(0,153,255,.4);
+color:#000; /* Texto preto */
+animation: heroGlow 2s infinite;
 }
 
 /* PROMOÇÕES */
@@ -187,10 +189,15 @@ flex-direction:column;
 justify-content:center;
 }
 
+@keyframes streamerGlow {
+  0%,100% { text-shadow: 0 0 6px #0ff, 0 0 12px #0ff, 0 0 18px #00f; }
+  50% { text-shadow: 0 0 12px #0ff, 0 0 24px #0ff, 0 0 36px #0ff; }
+}
+
 .streamer-info h3{
 margin-bottom:6px;
-color:#eaf6ff;
-text-shadow:0 0 6px rgba(0,153,255,.6);
+color:#fff; /* Texto branco */
+animation: streamerGlow 2s infinite;
 }
 
 .streamer-img{
@@ -200,11 +207,6 @@ background-position:center;
 background-size:cover;
 border-radius:8px;
 }
-
-/* Banners dos streamers */
-.streamer-card.noturno .streamer-img{background-image:url('data:image/jpeg;base64,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');}
-.streamer-card.yuuki .streamer-img{background-image:url('https://yt3.ggpht.com/HHWdONr-IcXN5epDTQo_OSED37Sl-zJkQ0GSpz7i0XLF1vVAVZHKwIN4PLLHfmTJA2hLRxni=s176-c-k-c0x00ffffff-no-rj-mo');}
-.streamer-card.jullie .streamer-img{background-image:url('https://img.freepik.com/premium-photo/fps-game-room-girls-with-gaming-keyboard-mouse-bean-bag-trending-background-room-decorative_1020495-180647.jpg');}
 
 /* SOCIAL */
 .social-links{
@@ -247,7 +249,7 @@ box-shadow:0 0 12px rgba(83,252,24,.7);
 
 .social-links a:hover{transform:scale(1.2);}
 
-/* WHATSAPP - azul igual aos botões */
+/* WHATSAPP */
 .whatsapp-button{
 position:fixed;
 bottom:20px;
@@ -318,6 +320,37 @@ text-align:center;
 padding:20px;
 color:#aaa;
 }
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px){
+  header{padding:12px 30px;}
+  nav ul{gap:16px;}
+  .hero-text h1{font-size:3rem;}
+  .hero-text p{font-size:1.4rem;}
+  .promo-card{width:280px;height:140px;}
+  .streamer-card{width:300px;height:140px;}
+  .streamer-info{width:60%;padding:15px;}
+  .streamer-img{width:40%; height:auto;}
+}
+
+@media (max-width: 768px){
+  header{padding:12px 20px;flex-direction:column;gap:10px;}
+  nav ul{flex-direction:column;gap:12px;}
+  .hero-text h1{font-size:2.5rem;}
+  .hero-text p{font-size:1.2rem;}
+  .promo-card{width:220px;height:130px;}
+  .streamer-card{width:100%;flex-direction:column;height:auto;}
+  .streamer-info{width:100%;text-align:center;padding:12px;}
+  .streamer-img{width:100%;height:180px;margin-top:10px;border-radius:12px;}
+}
+
+@media (max-width: 480px){
+  .hero-text h1{font-size:2rem;}
+  .hero-text p{font-size:1rem;}
+  .promo-card{width:180px;height:120px;}
+  .streamer-img{height:150px;}
+  .whatsapp-widget{width:220px;}
+}
 </style>
 </head>
 
@@ -343,48 +376,48 @@ color:#aaa;
 
 <section class="promo-section">
 <div class="promo-cards">
-<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i> Tempo limitado</span><img src="promo1.jpg"></div>
-<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i> Tempo limitado</span><img src="promo2.jpg"></div>
-<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i> Tempo limitado</span><img src="promo3.jpg"></div>
+<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i>limitado</span><img src="promo1.jpg"></div>
+<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i>limitado</span><img src="promo2.jpg"></div>
+<div class="promo-card"><span class="promo-timer"><i class="far fa-clock"></i></span><img src="promo3.jpg"></div>
 </div>
 </section>
 
 <section class="streamer-cards">
-<div class="streamer-card noturno">
-<div class="streamer-info">
-<h3>Noturnolll</h3>
-<div class="social-links">
-<a href="https://www.twitch.tv/noturnolll" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
-<a href="https://www.youtube.com/@noturnoragnarok" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
-<a href="https://kick.com/noturnolll" class="kick" target="_blank">K</a>
-</div>
-</div>
-<div class="streamer-img"></div>
-</div>
+  <div class="streamer-card noturno">
+    <div class="streamer-info">
+      <h3>Noturnolll</h3>
+      <div class="social-links">
+        <a href="https://www.twitch.tv/noturnolll" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
+        <a href="https://www.youtube.com/@noturnoragnarok" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://kick.com/noturnolll" class="kick" target="_blank">K</a>
+      </div>
+    </div>
+    <div class="streamer-img" style="background-image: url('https://i.pinimg.com/1200x/e2/a0/ee/e2a0eeaf03f853385cdee1a62ae52779.jpg');"></div>
+  </div>
 
-<div class="streamer-card yuuki">
-<div class="streamer-info">
-<h3>YuukiiBr</h3>
-<div class="social-links">
-<a href="https://www.twitch.tv/yuukiibr" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
-<a href="https://www.youtube.com/YuukiGamerBr" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
-<a href="https://kick.com/yuukiibr" class="kick" target="_blank">K</a>
-</div>
-</div>
-<div class="streamer-img"></div>
-</div>
+  <div class="streamer-card yuuki">
+    <div class="streamer-info">
+      <h3>YuukiiBr</h3>
+      <div class="social-links">
+        <a href="https://www.twitch.tv/yuukiibr" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
+        <a href="https://www.youtube.com/YuukiGamerBr" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://kick.com/yuukiibr" class="kick" target="_blank">K</a>
+      </div>
+    </div>
+    <div class="streamer-img" style="background-image: url('https://yt3.googleusercontent.com/HHWdONr-IcXN5epDTQo_OSED37Sl-zJkQ0GSpz7i0XLF1vVAVZHKwIN4PLLHfmTJA2hLRxni=s160-c-k-c0x00ffffff-no-rj');"></div>
+  </div>
 
-<div class="streamer-card jullie">
-<div class="streamer-info">
-<h3>Julliezinha</h3>
-<div class="social-links">
-<a href="https://www.twitch.tv/julliezinha" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
-<a href="https://www.youtube.com/@Julliezinhafloquinho" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
-<a href="https://kick.com/meowmeowzinha" class="kick" target="_blank">K</a>
-</div>
-</div>
-<div class="streamer-img"></div>
-</div>
+  <div class="streamer-card jullie">
+    <div class="streamer-info">
+      <h3>Julliezinha</h3>
+      <div class="social-links">
+        <a href="https://www.twitch.tv/julliezinha" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
+        <a href="https://www.youtube.com/@Julliezinhafloquinho" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://kick.com/meowmeowzinha" class="kick" target="_blank">K</a>
+      </div>
+    </div>
+    <div class="streamer-img" style="background-image: url('https://img.freepik.com/premium-photo/fps-game-room-girls-with-gaming-keyboard-mouse-bean-bag-trending-background-room-decorative_1020495-180647.jpg');"></div>
+  </div>
 </section>
 
 <div class="whatsapp-button" onclick="toggleChat()">

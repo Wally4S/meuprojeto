@@ -359,6 +359,30 @@ footer a:hover{text-decoration:underline;}
     50% { box-shadow: 0 0 18px rgba(13,110,253,1), 0 0 28px rgba(0,102,255,0.7); }
     100% { box-shadow: 0 0 12px rgba(13,110,253,0.7), 0 0 20px rgba(0,102,255,0.5); }
 }
+
+/* RESPONSIVIDADE TABLET E CELULAR */
+@media (max-width: 1024px){
+    header{padding:12px 30px;}
+    header h1{font-size:2.5rem;}
+    .reference-form{margin:120px 20px 60px; max-width:480px; padding:25px;}
+    .reference-card{width:420px; padding:18px;}
+}
+@media (max-width: 768px){
+    header h1{font-size:2rem;}
+    header p{font-size:1rem;}
+    .reference-form{max-width:90%; padding:20px; margin:100px auto 40px;}
+    .reference-card{width:90%; min-height:180px; padding:15px;}
+    .reference-text img.icon{width:40px; height:40px;}
+    .next-button{padding:8px 18px; top:8px; right:15px;}
+}
+@media (max-width: 480px){
+    header h1{font-size:1.5rem;}
+    .reference-form h2{font-size:1.4rem;}
+    .reference-form input, .reference-form textarea, .reference-form button{font-size:0.95rem; padding:12px;}
+    .reference-card{width:100%; min-height:160px; padding:12px;}
+    .reference-text img.icon{width:35px; height:35px;}
+    .next-button{padding:6px 14px; top:6px; right:12px;}
+}
 </style>
 </head>
 
@@ -471,7 +495,6 @@ function showReference() {
 
 function nextReference(){ currentIndex=(currentIndex<references.length-1)?currentIndex+1:0; showReference(); }
 
-// Atualiza contador total de referências
 function updateTotalCounter(){
     totalCounter.innerText = `Referências: ${references.length}`;
 }
@@ -509,7 +532,6 @@ form.addEventListener('submit', async e=>{
 
 loadReferences();
 
-// HEADER SOME AO ROLAR
 let lastScroll = 0;
 const header = document.querySelector('header');
 window.addEventListener('scroll',()=>{
@@ -522,7 +544,6 @@ window.addEventListener('scroll',()=>{
   lastScroll=currentScroll;
 });
 
-// FUNÇÃO WIDGET WHATSAPP
 function toggleChat(){
     const chat=document.querySelector('.whatsapp-widget');
     chat.style.display=chat.style.display==='block'?'none':'block';
