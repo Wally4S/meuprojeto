@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Guias de Classes | Ragnarok</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0d1117,#1a1f2b);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* HEADER */
+header{
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,153,255,.25);
+  padding:16px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{color:#00b7ff;font-size:22px}
+
+nav a{
+  padding:8px 16px;
+  margin-left:14px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:8px;
+  background:linear-gradient(45deg,#0099ff,#00d4ff);
+  color:#000;
+  transition:.3s;
+}
+
+nav a:hover{
+  transform:scale(1.05);
+}
+
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.container h2{text-align:center;font-size:32px}
+.container p{text-align:center;color:#ccc;margin:10px 0 40px}
+
+/* GRID */
+.guias-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+/* CARD */
+.guia-card{
+  background:rgba(255,255,255,.05);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(0,153,255,.15);
+  transition:.35s;
+}
+
+.guia-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 45px rgba(0,153,255,.45);
+}
+
+.guia-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.guia-content{
+  padding:18px;
+}
+
+.guia-content span{
+  font-size:12px;
+  color:#00b7ff;
+  font-weight:bold;
+}
+
+.guia-content h3{
+  margin:10px 0;
+  font-size:20px;
+}
+
+.guia-content p{
+  font-size:14px;
+  color:#bbb;
+  margin-bottom:15px;
+}
+
+.guia-content button{
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  background:linear-gradient(45deg,#0099ff,#00d4ff);
+  transition:.3s;
+}
+
+.guia-content button:hover{
+  transform:scale(1.06);
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal.active{display:flex}
+
+.modal-box{
+  background:#0f172a;
+  border-radius:22px;
+  max-width:900px;
+  width:95%;
+  max-height:90vh;
+  overflow-y:auto;
+  box-shadow:0 0 60px rgba(0,153,255,.55);
+  animation:fade .3s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.modal-header{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:22px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.modal-header img{
+  width:140px;
+  border-radius:14px;
+}
+
+.modal-header h3{
+  font-size:28px;
+}
+
+.close{
+  margin-left:auto;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.modal-body{
+  padding:22px;
+}
+
+.modal-body h4{
+  margin-top:18px;
+  color:#00b7ff;
+  font-size:18px;
+}
+
+.modal-body p{
+  margin-top:6px;
+  color:#ccc;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  margin:60px 0 20px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Guias de Classes</h1>
+<nav>
+<a href="/">♻️Início</a>
+<a href="/produtos/">🛒Loja</a>
+<a href="/guias/">🗂️Guias</a>
+</nav>
+</header>
+
+<main class="container">
+<h2>Classes Finais</h2>
+<p>Guias completos para o endgame</p>
+
+<div class="guias-grid">
+
+<script>
+const classes = [
+["Rune Knight","rune-knight","STR • VIT • DEX","Espadas, armaduras pesadas","Dragon Breath, Runas","Excelente em PvE e MVP"],
+["Royal Guard","royal-guard","VIT • STR","Escudos, lanças","Sacrifice, Reflect","Tank supremo"],
+["Ranger","ranger","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
+["Maestro","maestro","DEX • INT","Instrumentos","Severe Rainstorm","Suporte + DPS"],
+["Mechanic","mechanic","STR • VIT","Machados","Mado Gear","MVP killer"],
+["Genetic","genetic","INT • DEX","Frascos","Cart Cannon","Burst damage"],
+["Archbishop","archbishop","INT • VIT","Cajados","Heal, Buffs","Suporte essencial"],
+["Shura","shura","STR • DEX","Manoplas","Asura Strike","Explosão de dano"],
+["Guillotine Cross","guillotine-cross","AGI • STR","Adagas","Cross Impact","DPS rápido"],
+["Shadow Chaser","shadow-chaser","DEX • AGI","Arcos","Triangle Shot","PvP tático"],
+["Warlock","warlock","INT • DEX","Cajados","Comet","DPS mágico"],
+["Sorcerer","sorcerer","INT • VIT","Livros","Spell Fist","Controle elemental"],
+["Apprentice","apprentice","INT • DEX","Diversos","Build livre","Classe especial"],
+["Nightwatch","nightwatch","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
+["Reservado","reservado","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
+["Reservado","reservado","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
+];
+
+document.write(classes.map(c=>`
+<div class="guia-card">
+  <img src="img/classes/${c[1]}.png" alt="${c[0]}">
+  <div class="guia-content">
+    <span>CLASSE FINAL</span>
+    <h3>${c[0]}</h3>
+    <p>Guia completo da classe ${c[0]}.</p>
+    <button onclick="openModal('${c[0]}','img/classes/${c[1]}.png','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
+      Ver Guia
+    </button>
+  </div>
+</div>
+`).join(""));
+</script>
+
+</div>
+</main>
+
+<footer>
+© 2026 • Guias Ragnarok
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <img id="modalImg">
+      <h3 id="modalTitle"></h3>
+      <span class="close" onclick="closeModal()">✖</span>
+    </div>
+    <div class="modal-body">
+      <h4>Atributos</h4><p id="modalAttr"></p>
+      <h4>Equipamentos</h4><p id="modalEq"></p>
+      <h4>Habilidades</h4><p id="modalSkill"></p>
+      <h4>Dicas</h4><p id="modalTips"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalImg = document.getElementById("modalImg");
+const modalAttr = document.getElementById("modalAttr");
+const modalEq = document.getElementById("modalEq");
+const modalSkill = document.getElementById("modalSkill");
+const modalTips = document.getElementById("modalTips");
+
+function openModal(t,i,a,e,s,d){
+  modal.classList.add("active");
+  modalTitle.textContent = t;
+  modalImg.src = i;
+  modalAttr.textContent = a;
+  modalEq.textContent = e;
+  modalSkill.textContent = s;
+  modalTips.textContent = d;
+}
+
+function closeModal(){
+  modal.classList.remove("active");
+}
+
+modal.addEventListener("click", e=>{
+  if(e.target === modal) closeModal();
+});
+</script>
+
+</body>
+</html>
