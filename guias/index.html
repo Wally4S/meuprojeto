@@ -25,11 +25,7 @@ header{
   justify-content:space-between;
   align-items:center;
 }
-
-header h1{
-  color:#00b7ff;
-  font-size:22px;
-}
+header h1{color:#00b7ff;font-size:22px}
 
 nav a{
   padding:8px 16px;
@@ -41,10 +37,7 @@ nav a{
   color:#000;
   transition:.3s;
 }
-
-nav a:hover{
-  transform:scale(1.05);
-}
+nav a:hover{transform:scale(1.05)}
 
 /* CONTAINER */
 .container{
@@ -52,17 +45,8 @@ nav a:hover{
   margin:40px auto;
   padding:0 20px;
 }
-
-.container h2{
-  text-align:center;
-  font-size:32px;
-}
-
-.container p{
-  text-align:center;
-  color:#ccc;
-  margin:10px 0 40px;
-}
+.container h2{text-align:center;font-size:32px}
+.container p{text-align:center;color:#ccc;margin:10px 0 40px}
 
 /* GRID */
 .guias-grid{
@@ -84,12 +68,10 @@ nav a:hover{
   display:flex;
   flex-direction:column;
 }
-
 .guia-card:hover{
   transform:translateY(-8px);
   box-shadow:0 0 45px rgba(0,153,255,.5);
 }
-
 .guia-card img{
   width:100%;
   height:220px;
@@ -104,23 +86,9 @@ nav a:hover{
   flex-direction:column;
   flex:1;
 }
-
-.guia-content span{
-  font-size:12px;
-  color:#00b7ff;
-  font-weight:bold;
-}
-
-.guia-content h3{
-  margin:10px 0;
-  font-size:20px;
-}
-
-.guia-content p{
-  font-size:14px;
-  color:#bbb;
-  margin-bottom:15px;
-}
+.guia-content span{font-size:12px;color:#00b7ff;font-weight:bold}
+.guia-content h3{margin:10px 0;font-size:20px}
+.guia-content p{font-size:14px;color:#bbb;margin-bottom:15px}
 
 .guia-content button{
   margin-top:auto;
@@ -132,87 +100,107 @@ nav a:hover{
   background:linear-gradient(45deg,#0099ff,#00d4ff);
   transition:.3s;
 }
-
-.guia-content button:hover{
-  transform:scale(1.06);
-}
+.guia-content button:hover{transform:scale(1.06)}
 
 /* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.9);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:999;
 }
-
-.modal.active{
-  display:flex;
-}
+.modal.active{display:flex}
 
 .modal-box{
-  background:#0f172a;
-  border-radius:22px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  border-radius:24px;
   max-width:900px;
   width:95%;
   max-height:90vh;
   overflow-y:auto;
-  box-shadow:0 0 60px rgba(0,153,255,.55);
-  animation:fade .3s ease;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:scale(.95)}
-  to{opacity:1;transform:scale(1)}
+  box-shadow:0 0 80px rgba(0,153,255,.65);
+  border:1px solid rgba(0,153,255,.4);
 }
 
 .modal-header{
   display:flex;
   align-items:center;
   gap:20px;
-  padding:22px;
+  padding:24px;
   border-bottom:1px solid rgba(255,255,255,.1);
 }
-
 .modal-header img{
   width:140px;
-  border-radius:14px;
+  border-radius:16px;
 }
-
 .modal-header h3{
-  font-size:28px;
+  font-size:30px;
+  color:#00d4ff;
 }
-
 .close{
   margin-left:auto;
   font-size:26px;
   cursor:pointer;
 }
 
+/* MODAL BODY */
 .modal-body{
-  padding:22px;
+  padding:24px;
+  display:grid;
+  gap:18px;
 }
 
-.modal-body h4{
-  margin-top:18px;
+.modal-section{
+  background:rgba(255,255,255,.04);
+  border-radius:16px;
+  padding:16px 18px;
+  border:1px solid rgba(0,153,255,.25);
+}
+
+.modal-section h4{
   color:#00b7ff;
-  font-size:18px;
+  margin-bottom:10px;
+  font-size:17px;
 }
 
-.modal-body p{
-  margin-top:6px;
-  color:#ccc;
-  line-height:1.6;
+/* LISTA RPG (ATRIBUTOS / EQUIPAMENTOS / HABILIDADES) */
+.rpg-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
 }
+
+.rpg-list li{
+  padding:10px 14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#0b1220,#111827);
+  border:1px solid rgba(0,153,255,.35);
+  font-weight:bold;
+  color:#e5f6ff;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:.25s;
+}
+
+.rpg-list li:hover{
+  transform:translateX(6px);
+  box-shadow:0 0 18px rgba(0,153,255,.45);
+}
+
+/* LINKS */
+.modal-body a{
+  color:#00d4ff;
+  font-weight:bold;
+  text-decoration:none;
+}
+.modal-body a:hover{text-decoration:underline}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  margin:60px 0 20px;
-  color:#777;
-}
+footer{text-align:center;margin:60px 0 20px;color:#777}
 </style>
 </head>
 
@@ -221,22 +209,19 @@ footer{
 <header>
   <h1>Guias de Classes</h1>
   <nav>
-    <a href="/">♻️Início</a>
-    <a href="/produtos/">🛒Loja</a>
-    <a href="/guias/">📂Guias</a>
+    <a href="/">♻️ Início</a>
+    <a href="/produtos/">🛒 Loja</a>
+    <a href="/guias/">📂 Guias</a>
   </nav>
 </header>
 
 <main class="container">
   <h2>Guias e Dicas</h2>
-  <p>Guias Basicos</p>
-
+  <p>Guias Básicos</p>
   <div class="guias-grid" id="guias"></div>
 </main>
 
-<footer>
-© 2026 • Guias ROO
-</footer>
+<footer>© 2026 • Guias ROO</footer>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
@@ -246,49 +231,161 @@ footer{
       <h3 id="modalTitle"></h3>
       <span class="close" onclick="closeModal()">✖</span>
     </div>
+
     <div class="modal-body">
-      <h4>Atributos Recomendados</h4><p id="modalAttr"></p>
-      <h4>Equipamentos Recomendados</h4><p id="modalEq"></p>
-      <h4>Habilidades Principais</h4><p id="modalSkill"></p>
-      <h4>Link de Guias</h4><p id="modalTips"></p>
+      <div class="modal-section">
+        <h4>🧬 ATRIBUTOS RECOMENDADOS</h4>
+        <ul id="modalAttr" class="rpg-list"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>🛡️ EQUIPAMENTOS RECOMENDADOS</h4>
+        <ul id="modalEq" class="rpg-list"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>⚔️ PRINCIPAIS HABILIDADES</h4>
+        <ul id="modalSkill" class="rpg-list"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>🔗 CRÉDITOS DO GUIA</h4>
+        <p id="modalTips"></p>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
+/*
+========================================================================
+COMO EDITAR UMA CLASSE (APENAS TEXTO, SEPARADO POR VÍRGULA)
+========================================================================
+[0] Nome da Classe
+[1] Caminho da Imagem
+[2] ATRIBUTOS  -> "STR, AGI, VIT, INT, DEX, LUK"
+[3] ITENS     -> "Capacete, Armadura, Arma, Escudo, Acessório"
+[4] SKILLS    -> "Habilidade 1, Habilidade 2, Habilidade 3"
+[5] CRÉDITOS  -> Link (http) ou texto normal
+========================================================================
+*/
+
 const classes = [
-  ["Rune Knight","/img/classes/rune-knight.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Dragon Breath, Runas","link aki"],
-  ["Royal Guard","/img/classes/royal-guard.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Sacrifice, Reflect","link aki"],
-  ["Ranger","/img/classes/ranger.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Arrow Storm","link aki"],
-  ["Maestro","/img/classes/maestro.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Mechanic","/img/classes/mechanic.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Genetic","/img/classes/genetic.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Archbishop","/img/classes/archbishop.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Shura","/img/classes/shura.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Guillotine Cross","/img/classes/guillotine-cross.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Shadow Chaser","/img/classes/shadow-chaser.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Warlock","/img/classes/warlock.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Sorcerer","/img/classes/sorcerer.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Grand Summoner","/img/classes/grand-summoner.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
-  ["Nightwatch","/img/classes/nightwatch.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  [
+    "Rune Knight",
+    "/img/classes/rune-knight.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Royal Guard",
+    "/img/classes/royal-guard.png",
+    "DEX, AGI, VIT, LUK",
+    "Capacete, Armadura Leve, Arco, Flechas, Acessório",
+    "Arrow Storm, Aimed Bolt, Fear Breeze",
+    "link aki"
+  ],
+  [
+    "Ranger",
+    "/img/classes/ranger.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Maestro",
+    "/img/classes/maestro.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Mechanic",
+    "/img/classes/mechanic.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Genetic",
+    "/img/classes/genetic.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Archbishop",
+    "/img/classes/archbishop.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Shura",
+    "/img/classes/shura.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Guillotine Cross",
+    "/img/classes/guillotine-cross.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Shadow Chaser",
+    "/img/classes/shadow-chaser.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Warlock",
+    "/img/classes/warlock.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Sorcerer",
+    "/img/classes/sorcerer.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Grand Summoner",
+    "/img/classes/grand-summoner.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
+  [
+    "Nightwatch",
+    "/img/classes/nightwatch.png",
+    "STR, AGI, VIT, INT, DEX, LUK",
+    "Capacete, Armadura, Espada, Escudo, Acessório",
+    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "Link aki"
+  ],
 ];
 
 const guias = document.getElementById("guias");
-
-guias.innerHTML = classes.map(c => `
-  <div class="guia-card">
-    <img src="${c[1]}" alt="${c[0]}">
-    <div class="guia-content">
-      <span>CLASSE FINAL</span>
-      <h3>${c[0]}</h3>
-      <p>Guia completo da classe ${c[0]}.</p>
-      <button onclick="openModal('${c[0]}','${c[1]}','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
-        Ver Guia
-      </button>
-    </div>
-  </div>
-`).join("");
-
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
 const modalImg = document.getElementById("modalImg");
@@ -297,23 +394,42 @@ const modalEq = document.getElementById("modalEq");
 const modalSkill = document.getElementById("modalSkill");
 const modalTips = document.getElementById("modalTips");
 
+guias.innerHTML = classes.map(c => `
+  <div class="guia-card">
+    <img src="${c[1]}" alt="${c[0]}">
+    <div class="guia-content">
+      <span>CLASSE</span>
+      <h3>${c[0]}</h3>
+      <p>Guia da Classe ${c[0]}.</p>
+      <button onclick="openModal('${c[0]}','${c[1]}','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
+        Ver Guia
+      </button>
+    </div>
+  </div>
+`).join("");
+
+function buildList(target, text, icon){
+  target.innerHTML = text.split(",").map(item =>
+    `<li>${icon} ${item.trim()}</li>`
+  ).join("");
+}
+
 function openModal(t,i,a,e,s,d){
   modal.classList.add("active");
   modalTitle.textContent = t;
   modalImg.src = i;
-  modalAttr.textContent = a;
-  modalEq.textContent = e;
-  modalSkill.textContent = s;
-  modalTips.textContent = d;
+
+  buildList(modalAttr, a, "🧬");
+  buildList(modalEq, e, "🛡️");
+  buildList(modalSkill, s, "⚔️");
+
+  modalTips.innerHTML = d.startsWith("http")
+    ? `<a href="${d}" target="_blank">Acessar guia</a>`
+    : d;
 }
 
-function closeModal(){
-  modal.classList.remove("active");
-}
-
-modal.addEventListener("click", e=>{
-  if(e.target === modal) closeModal();
-});
+function closeModal(){modal.classList.remove("active")}
+modal.addEventListener("click", e=>{if(e.target===modal)closeModal()});
 </script>
 
 </body>
