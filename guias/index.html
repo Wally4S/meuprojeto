@@ -42,7 +42,9 @@ nav a{
   transition:.3s;
 }
 
-nav a:hover{transform:scale(1.05)}
+nav a:hover{
+  transform:scale(1.05);
+}
 
 /* CONTAINER */
 .container{
@@ -51,8 +53,16 @@ nav a:hover{transform:scale(1.05)}
   padding:0 20px;
 }
 
-.container h2{text-align:center;font-size:32px}
-.container p{text-align:center;color:#ccc;margin:10px 0 40px}
+.container h2{
+  text-align:center;
+  font-size:32px;
+}
+
+.container p{
+  text-align:center;
+  color:#ccc;
+  margin:10px 0 40px;
+}
 
 /* GRID */
 .guias-grid{
@@ -95,9 +105,22 @@ nav a:hover{transform:scale(1.05)}
   flex:1;
 }
 
-.guia-content span{font-size:12px;color:#00b7ff;font-weight:bold}
-.guia-content h3{margin:10px 0;font-size:20px}
-.guia-content p{font-size:14px;color:#bbb;margin-bottom:15px}
+.guia-content span{
+  font-size:12px;
+  color:#00b7ff;
+  font-weight:bold;
+}
+
+.guia-content h3{
+  margin:10px 0;
+  font-size:20px;
+}
+
+.guia-content p{
+  font-size:14px;
+  color:#bbb;
+  margin-bottom:15px;
+}
 
 .guia-content button{
   margin-top:auto;
@@ -110,7 +133,9 @@ nav a:hover{transform:scale(1.05)}
   transition:.3s;
 }
 
-.guia-content button:hover{transform:scale(1.06)}
+.guia-content button:hover{
+  transform:scale(1.06);
+}
 
 /* MODAL */
 .modal{
@@ -122,7 +147,10 @@ nav a:hover{transform:scale(1.05)}
   justify-content:center;
   z-index:999;
 }
-.modal.active{display:flex}
+
+.modal.active{
+  display:flex;
+}
 
 .modal-box{
   background:#0f172a;
@@ -132,6 +160,12 @@ nav a:hover{transform:scale(1.05)}
   max-height:90vh;
   overflow-y:auto;
   box-shadow:0 0 60px rgba(0,153,255,.55);
+  animation:fade .3s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1;transform:scale(1)}
 }
 
 .modal-header{
@@ -142,15 +176,43 @@ nav a:hover{transform:scale(1.05)}
   border-bottom:1px solid rgba(255,255,255,.1);
 }
 
-.modal-header img{width:140px;border-radius:14px}
-.modal-header h3{font-size:28px}
-.close{margin-left:auto;font-size:26px;cursor:pointer}
+.modal-header img{
+  width:140px;
+  border-radius:14px;
+}
 
-.modal-body{padding:22px}
-.modal-body h4{margin-top:18px;color:#00b7ff;font-size:18px}
-.modal-body p{margin-top:6px;color:#ccc;line-height:1.6}
+.modal-header h3{
+  font-size:28px;
+}
 
-footer{text-align:center;margin:60px 0 20px;color:#777}
+.close{
+  margin-left:auto;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.modal-body{
+  padding:22px;
+}
+
+.modal-body h4{
+  margin-top:18px;
+  color:#00b7ff;
+  font-size:18px;
+}
+
+.modal-body p{
+  margin-top:6px;
+  color:#ccc;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  margin:60px 0 20px;
+  color:#777;
+}
 </style>
 </head>
 
@@ -168,10 +230,13 @@ footer{text-align:center;margin:60px 0 20px;color:#777}
 <main class="container">
   <h2>Classes Finais</h2>
   <p>Guias completos para o endgame</p>
+
   <div class="guias-grid" id="guias"></div>
 </main>
 
-<footer>© 2026 • Guias Ragnarok</footer>
+<footer>
+© 2026 • Guias Ragnarok
+</footer>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
