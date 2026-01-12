@@ -26,7 +26,10 @@ header{
   align-items:center;
 }
 
-header h1{color:#00b7ff;font-size:22px}
+header h1{
+  color:#00b7ff;
+  font-size:22px;
+}
 
 nav a{
   padding:8px 16px;
@@ -39,7 +42,9 @@ nav a{
   transition:.3s;
 }
 
-nav a:hover{transform:scale(1.05)}
+nav a:hover{
+  transform:scale(1.05);
+}
 
 /* CONTAINER */
 .container{
@@ -48,37 +53,57 @@ nav a:hover{transform:scale(1.05)}
   padding:0 20px;
 }
 
-.container h2{text-align:center;font-size:32px}
-.container p{text-align:center;color:#ccc;margin:10px 0 40px}
+.container h2{
+  text-align:center;
+  font-size:32px;
+}
+
+.container p{
+  text-align:center;
+  color:#ccc;
+  margin:10px 0 40px;
+}
 
 /* GRID */
 .guias-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:26px;
 }
 
 /* CARD */
 .guia-card{
+  max-width:320px;
+  margin:auto;
   background:rgba(255,255,255,.05);
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 20px rgba(0,153,255,.15);
+  border:1px solid rgba(0,153,255,.25);
+  box-shadow:0 0 22px rgba(0,153,255,.2);
   transition:.35s;
+  display:flex;
+  flex-direction:column;
 }
 
 .guia-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 45px rgba(0,153,255,.45);
+  transform:translateY(-8px);
+  box-shadow:0 0 45px rgba(0,153,255,.5);
 }
 
 .guia-card img{
   width:100%;
-  height:240px;
-  object-fit:cover;
+  height:220px;
+  object-fit:contain;
+  background:#020617;
 }
 
-.guia-content{padding:18px}
+/* CONTENT */
+.guia-content{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 
 .guia-content span{
   font-size:12px;
@@ -98,6 +123,7 @@ nav a:hover{transform:scale(1.05)}
 }
 
 .guia-content button{
+  margin-top:auto;
   padding:10px 18px;
   border:none;
   border-radius:10px;
@@ -107,7 +133,9 @@ nav a:hover{transform:scale(1.05)}
   transition:.3s;
 }
 
-.guia-content button:hover{transform:scale(1.06)}
+.guia-content button:hover{
+  transform:scale(1.06);
+}
 
 /* MODAL */
 .modal{
@@ -120,7 +148,9 @@ nav a:hover{transform:scale(1.05)}
   z-index:999;
 }
 
-.modal.active{display:flex}
+.modal.active{
+  display:flex;
+}
 
 .modal-box{
   background:#0f172a;
@@ -130,6 +160,12 @@ nav a:hover{transform:scale(1.05)}
   max-height:90vh;
   overflow-y:auto;
   box-shadow:0 0 60px rgba(0,153,255,.55);
+  animation:fade .3s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1;transform:scale(1)}
 }
 
 .modal-header{
@@ -145,20 +181,33 @@ nav a:hover{transform:scale(1.05)}
   border-radius:14px;
 }
 
+.modal-header h3{
+  font-size:28px;
+}
+
 .close{
   margin-left:auto;
   font-size:26px;
   cursor:pointer;
 }
 
-.modal-body{padding:22px}
+.modal-body{
+  padding:22px;
+}
 
 .modal-body h4{
   margin-top:18px;
   color:#00b7ff;
+  font-size:18px;
 }
-.modal-body p{color:#ccc}
 
+.modal-body p{
+  margin-top:6px;
+  color:#ccc;
+  line-height:1.6;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   margin:60px 0 20px;
@@ -170,22 +219,24 @@ footer{
 <body>
 
 <header>
-<h1>Guias de Classes</h1>
-<nav>
-  <a href="../index.html">♻️ Início</a>
-  <a href="../produtos/index.html">🛒 Loja</a>
-  <a href="./">🗂️ Guias</a>
-</nav>
+  <h1>Guias de Classes</h1>
+  <nav>
+    <a href="/">Início</a>
+    <a href="/produtos/">Loja</a>
+    <a href="/guias/">Guias</a>
+  </nav>
 </header>
 
 <main class="container">
-<h2>Classes Finais</h2>
-<p>Guias completos para o endgame</p>
+  <h2>Classes Finais</h2>
+  <p>Guias completos para o endgame</p>
 
-<div class="guias-grid" id="grid"></div>
+  <div class="guias-grid" id="guias"></div>
 </main>
 
-<footer>© 2026 • Guias Ragnarok</footer>
+<footer>
+© 2026 • Guias Ragnarok
+</footer>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
@@ -206,47 +257,27 @@ footer{
 
 <script>
 const classes = [
-  ["Rune Knight","rune-knight","STR • VIT • DEX","Espadas, armaduras pesadas","Dragon Breath, Runas","Excelente em PvE e MVP"],
-  ["Royal Guard","royal-guard","VIT • STR","Escudos, lanças","Sacrifice, Reflect","Tank supremo"],
-  ["Ranger","ranger","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
-  ["Maestro","maestro","DEX • INT","Instrumentos","Severe Rainstorm","Suporte + DPS"],
-  ["Mechanic","mechanic","STR • VIT","Machados","Mado Gear","MVP killer"],
-  ["Genetic","genetic","INT • DEX","Frascos","Cart Cannon","Burst damage"],
-  ["Archbishop","archbishop","INT • VIT","Cajados","Heal, Buffs","Suporte essencial"],
-  ["Shura","shura","STR • DEX","Manoplas","Asura Strike","Explosão de dano"],
-  ["Guillotine Cross","guillotine-cross","AGI • STR","Adagas","Cross Impact","DPS rápido"],
-  ["Shadow Chaser","shadow-chaser","DEX • AGI","Arcos","Triangle Shot","PvP tático"],
-  ["Warlock","warlock","INT • DEX","Cajados","Comet","DPS mágico"],
-  ["Sorcerer","sorcerer","INT • VIT","Livros","Spell Fist","Controle elemental"],
-  ["Apprentice","apprentice","INT • DEX","Diversos","Build livre","Classe especial"],
-  ["Nightwatch","nightwatch","DEX • AGI","Armas de fogo","Rapid Fire","Long range"]
+["Rune Knight","rune-knight","STR • VIT • DEX","Espadas e armaduras pesadas","Dragon Breath, Runas","Excelente em PvE e MVP"],
+["Royal Guard","royal-guard","VIT • STR","Escudos e lanças","Sacrifice, Reflect","Tank supremo"],
+["Ranger","ranger","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
+["Warlock","warlock","INT • DEX","Cajados","Comet","DPS mágico"]
 ];
 
-document.write(
-  classes.map(c => `
-    <div class="guia-card">
-      <img src="img/classes/${c[1]}.png" alt="${c[0]}">
+const guias = document.getElementById("guias");
 
-      <div class="guia-content">
-        <span>CLASSE FINAL</span>
-        <h3>${c[0]}</h3>
-        <p>Guia completo da classe ${c[0]}.</p>
-
-        <button onclick="openModal(
-          '${c[0]}',
-          'img/classes/${c[1]}.png',
-          '${c[2]}',
-          '${c[3]}',
-          '${c[4]}',
-          '${c[5]}'
-        )">
-          Ver Guia
-        </button>
-      </div>
+guias.innerHTML = classes.map(c => `
+  <div class="guia-card">
+    <img src="./img/classes/${c[1]}.png" alt="${c[0]}">
+    <div class="guia-content">
+      <span>CLASSE FINAL</span>
+      <h3>${c[0]}</h3>
+      <p>Guia completo da classe ${c[0]}.</p>
+      <button onclick="openModal('${c[0]}','./img/classes/${c[1]}.png','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
+        Ver Guia
+      </button>
     </div>
-  `).join("")
-);
-</script>
+  </div>
+`).join("");
 
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
