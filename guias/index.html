@@ -221,15 +221,15 @@ footer{
 <header>
   <h1>Guias de Classes</h1>
   <nav>
-    <a href="/">Início</a>
-    <a href="/produtos/">Loja</a>
-    <a href="/guias/">Guias</a>
+    <a href="/">♻️Início</a>
+    <a href="/produtos/">🛒Loja</a>
+    <a href="/guias/">📂Guias</a>
   </nav>
 </header>
 
 <main class="container">
-  <h2>Classes Finais</h2>
-  <p>Guias completos para o endgame</p>
+  <h2>Guias e Dicas</h2>
+  <p>Guias Basicos</p>
 
   <div class="guias-grid" id="guias"></div>
 </main>
@@ -247,20 +247,30 @@ footer{
       <span class="close" onclick="closeModal()">✖</span>
     </div>
     <div class="modal-body">
-      <h4>Atributos</h4><p id="modalAttr"></p>
-      <h4>Equipamentos</h4><p id="modalEq"></p>
-      <h4>Habilidades</h4><p id="modalSkill"></p>
-      <h4>Dicas</h4><p id="modalTips"></p>
+      <h4>Atributos Recomendados</h4><p id="modalAttr"></p>
+      <h4>Equipamentos Recomendados</h4><p id="modalEq"></p>
+      <h4>Habilidades Principais</h4><p id="modalSkill"></p>
+      <h4>Link de Guias</h4><p id="modalTips"></p>
     </div>
   </div>
 </div>
 
 <script>
 const classes = [
-  ["Rune Knight","/img/classes/rune-knight.png","STR • VIT • DEX","Espadas e armaduras pesadas","Dragon Breath, Runas","Excelente em PvE e MVP"],
-  ["Royal Guard","/img/classes/royal-guard.png","VIT • STR","Escudos e lanças","Sacrifice, Reflect","Tank supremo"],
-  ["Ranger","/img/classes/ranger.png","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
-  ["Warlock","/img/classes/warlock.png","INT • DEX","Cajados","Comet","DPS mágico"]
+  ["Rune Knight","/img/classes/rune-knight.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Dragon Breath, Runas","link aki"],
+  ["Royal Guard","/img/classes/royal-guard.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Sacrifice, Reflect","link aki"],
+  ["Ranger","/img/classes/ranger.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Arrow Storm","link aki"],
+  ["Maestro","/img/classes/maestro.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Mechanic","/img/classes/mechanic.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Genetic","/img/classes/genetic.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Archbishop","/img/classes/archbishop.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Shura","/img/classes/shura.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Guillotine Cross","/img/classes/guillotine-cross.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Shadow Chaser","/img/classes/shadow-chaser.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Warlock","/img/classes/warlock.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Sorcerer","/img/classes/sorcerer.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Grand Summoner","/img/classes/grand-summoner.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
+  ["Nightwatch","/img/classes/nightwatch.png","STR • AGI • VIT • INT • DEX • LUK","itens recomendados","Comet","link aki"],
 ];
 
 const guias = document.getElementById("guias");
