@@ -206,39 +206,47 @@ footer{
 
 <script>
 const classes = [
-["Rune Knight","rune-knight","STR • VIT • DEX","Espadas","Dragon Breath","PvE/MVP"],
-["Royal Guard","royal-guard","VIT • STR","Escudos","Reflect","Tank"],
-["Ranger","ranger","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
-["Maestro","maestro","DEX • INT","Instrumentos","Severe Rainstorm","Suporte + DPS"],
-["Mechanic","mechanic","STR • VIT","Machados","Mado Gear","MVP killer"],
-["Genetic","genetic","INT • DEX","Frascos","Cart Cannon","Burst damage"],
-["Archbishop","archbishop","INT • VIT","Cajados","Heal, Buffs","Suporte essencial"],
-["Shura","shura","STR • DEX","Manoplas","Asura Strike","Explosão de dano"],
-["Guillotine Cross","guillotine-cross","AGI • STR","Adagas","Cross Impact","DPS rápido"],
-["Shadow Chaser","shadow-chaser","DEX • AGI","Arcos","Triangle Shot","PvP tático"],
-["Warlock","warlock","INT • DEX","Cajados","Comet","DPS mágico"],
-["Sorcerer","sorcerer","INT • VIT","Livros","Spell Fist","Controle elemental"],
-["Apprentice","apprentice","INT • DEX","Diversos","Build livre","Classe especial"],
-["Nightwatch","nightwatch","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
-["Reservado","reservado","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
-["Reservado","reservado","DEX • AGI","Armas de fogo","Rapid Fire","Long range"],
+  ["Rune Knight","rune-knight","STR • VIT • DEX","Espadas, armaduras pesadas","Dragon Breath, Runas","Excelente em PvE e MVP"],
+  ["Royal Guard","royal-guard","VIT • STR","Escudos, lanças","Sacrifice, Reflect","Tank supremo"],
+  ["Ranger","ranger","DEX • AGI","Arcos","Arrow Storm","Farm rápido"],
+  ["Maestro","maestro","DEX • INT","Instrumentos","Severe Rainstorm","Suporte + DPS"],
+  ["Mechanic","mechanic","STR • VIT","Machados","Mado Gear","MVP killer"],
+  ["Genetic","genetic","INT • DEX","Frascos","Cart Cannon","Burst damage"],
+  ["Archbishop","archbishop","INT • VIT","Cajados","Heal, Buffs","Suporte essencial"],
+  ["Shura","shura","STR • DEX","Manoplas","Asura Strike","Explosão de dano"],
+  ["Guillotine Cross","guillotine-cross","AGI • STR","Adagas","Cross Impact","DPS rápido"],
+  ["Shadow Chaser","shadow-chaser","DEX • AGI","Arcos","Triangle Shot","PvP tático"],
+  ["Warlock","warlock","INT • DEX","Cajados","Comet","DPS mágico"],
+  ["Sorcerer","sorcerer","INT • VIT","Livros","Spell Fist","Controle elemental"],
+  ["Apprentice","apprentice","INT • DEX","Diversos","Build livre","Classe especial"],
+  ["Nightwatch","nightwatch","DEX • AGI","Armas de fogo","Rapid Fire","Long range"]
 ];
 
-const grid = document.getElementById("grid");
+document.write(
+  classes.map(c => `
+    <div class="guia-card">
+      <img src="img/classes/${c[1]}.png" alt="${c[0]}">
 
-grid.innerHTML = classes.map(c=>`
-  <div class="guia-card">
-    <img src="img/classes/${c[1]}.png" alt="${c[0]}">
-    <div class="guia-content">
-      <span>CLASSE FINAL</span>
-      <h3>${c[0]}</h3>
-      <p>Guia completo da classe ${c[0]}.</p>
-      <button onclick="openModal('${c[0]}','img/classes/${c[1]}.png','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
-        Ver Guia
-      </button>
+      <div class="guia-content">
+        <span>CLASSE FINAL</span>
+        <h3>${c[0]}</h3>
+        <p>Guia completo da classe ${c[0]}.</p>
+
+        <button onclick="openModal(
+          '${c[0]}',
+          'img/classes/${c[1]}.png',
+          '${c[2]}',
+          '${c[3]}',
+          '${c[4]}',
+          '${c[5]}'
+        )">
+          Ver Guia
+        </button>
+      </div>
     </div>
-  </div>
-`).join("");
+  `).join("")
+);
+</script>
 
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
