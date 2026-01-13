@@ -37,7 +37,103 @@ box-sizing:border-box;
 transition: top 0.4s;
 }
 
+.logo-container{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
 .logo img{height:65px}
+
+/* Botões WhatsApp e Linktree no header */
+.header-buttons{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* Botão WhatsApp */
+.whatsapp-button{
+background:linear-gradient(145deg,#0d6efd,#004bbd);
+color:#fff;
+padding:9px 14px;
+border-radius:9px;
+font-weight:bold;
+display:flex;
+align-items:center;
+gap:6px;
+box-shadow:0 0 18px rgba(0,102,255,.9);
+cursor:pointer;
+transition:.3s;
+text-decoration:none;
+font-size:0.9rem;
+}
+
+.whatsapp-button:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(0,102,255,1);
+}
+
+/* Botão Linktree */
+.linktree-toggle{
+background: linear-gradient(145deg,#0d6efd,#004bbd);
+color:white;
+padding:9px 14px;
+border-radius:9px;
+font-weight:bold;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:6px;
+box-shadow:0 0 18px rgba(0,75,189,0.5);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+font-size:0.9rem;
+text-decoration:none;
+}
+
+.linktree-toggle:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(0,75,189,0.7);
+}
+
+/* Modal da caixinha */
+.linktree-modal {
+display: none;
+position: absolute;
+top:50px;
+left:0;
+background: linear-gradient(180deg,#0f172a,#020617);
+color: white;
+padding: 16px 20px;
+border-radius: 9px;
+width: 220px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+z-index: 999;
+}
+
+/* Modal ativo */
+.linktree-modal.active {
+display: block;
+}
+
+/* Botão dentro da modal */
+.linktree-modal a {
+display: block;
+margin-top: 12px;
+background: linear-gradient(145deg,#0d6efd,#004bbd);
+color: white;
+text-align: center;
+padding: 10px 12px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: bold;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linktree-modal a:hover {
+transform: scale(1.05);
+box-shadow: 0 6px 16px rgba(0,75,189,0.6);
+}
 
 /* MENU */
 nav ul{
@@ -86,7 +182,7 @@ flex-direction:column;
 font-family:'Montserrat',sans-serif;
 font-size:4rem;
 letter-spacing:6px;
-color:#000; /* Texto preto */
+color:#000;
 animation: heroGlow 2s infinite;
 }
 
@@ -94,9 +190,11 @@ animation: heroGlow 2s infinite;
 margin-top:16px;
 font-size:1.6rem;
 font-weight:bold;
-color:#000; /* Texto preto */
+color:#000;
 animation: heroGlow 2s infinite;
 }
+
+/* resto do CSS permanece igual (promoções, streamers, social, footer, responsividade) */
 
 /* PROMOÇÕES */
 .promo-section{
@@ -196,7 +294,7 @@ justify-content:center;
 
 .streamer-info h3{
 margin-bottom:6px;
-color:#fff; /* Texto branco */
+color:#fff;
 animation: streamerGlow 2s infinite;
 }
 
@@ -249,72 +347,6 @@ box-shadow:0 0 12px rgba(83,252,24,.7);
 
 .social-links a:hover{transform:scale(1.2);}
 
-/* WHATSAPP */
-.whatsapp-button{
-position:fixed;
-bottom:20px;
-right:20px;
-background:linear-gradient(145deg,#0d6efd,#004bbd);
-color:#fff;
-padding:12px 18px;
-border-radius:18px;
-font-weight:bold;
-display:flex;
-align-items:center;
-gap:10px;
-box-shadow:0 0 18px rgba(0,102,255,.9);
-cursor:pointer;
-z-index:9999;
-transition:.3s;
-
-}
-
-.whatsapp-button:hover{
-transform:scale(1.08);
-box-shadow:0 0 35px rgba(0,102,255,1);
-}
-
-.whatsapp-widget{
-position:fixed;
-bottom:80px;
-right:20px;
-width:280px;
-background:linear-gradient(145deg,#07161f,#02080c);
-color:#fff;
-border-radius:12px;
-box-shadow:0 0 25px rgba(0,153,255,.6);
-display:none;
-overflow:hidden;
-z-index:9999;
-}
-
-.whatsapp-header{
-background:linear-gradient(145deg,#0d6efd,#004bbd);
-color:#fff;
-padding:12px 15px;
-display:flex;
-justify-content:space-between;
-font-weight:bold;
-box-shadow:0 0 12px rgba(0,153,255,.5);
-}
-
-.whatsapp-body{
-padding:18px;
-text-align:center;
-}
-
-.whatsapp-start{
-display:inline-block;
-background:linear-gradient(145deg,#0d6efd,#004bbd);
-color:#fff;
-padding:10px 16px;
-border-radius:8px;
-margin-top:12px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 0 14px rgba(0,102,255,.7);
-}
-
 /* FOOTER */
 footer{
 text-align:center;
@@ -324,33 +356,31 @@ color:#aaa;
 
 /* RESPONSIVIDADE */
 @media (max-width: 1024px){
-  header{padding:12px 30px;}
-  nav ul{gap:16px;}
-  .hero-text h1{font-size:3rem;}
-  .hero-text p{font-size:1.4rem;}
-  .promo-card{width:280px;height:140px;}
-  .streamer-card{width:300px;height:140px;}
-  .streamer-info{width:60%;padding:15px;}
-  .streamer-img{width:40%; height:auto;}
+header{padding:12px 30px;}
+nav ul{gap:16px;}
+.hero-text h1{font-size:3rem;}
+.hero-text p{font-size:1.4rem;}
+.promo-card{width:280px;height:140px;}
+.streamer-card{width:300px;height:140px;}
+.streamer-info{width:60%;padding:15px;}
+.streamer-img{width:40%; height:auto;}
 }
 
 @media (max-width: 768px){
-  header{padding:12px 20px;flex-direction:column;gap:10px;}
-  nav ul{flex-direction:column;gap:12px;}
-  .hero-text h1{font-size:2.5rem;}
-  .hero-text p{font-size:1.2rem;}
-  .promo-card{width:220px;height:130px;}
-  .streamer-card{width:100%;flex-direction:column;height:auto;}
-  .streamer-info{width:100%;text-align:center;padding:12px;}
-  .streamer-img{width:100%;height:180px;margin-top:10px;border-radius:12px;}
+header{padding:12px 20px;flex-direction:column;gap:10px;}
+nav ul{flex-direction:column;gap:12px;}
+.hero-text h1{font-size:2.5rem;}
+.hero-text p{font-size:1.2rem;}
+.promo-card{width:220px;height:130px;}
+.streamer-card{width:100%;flex-direction:column;height:auto;}
+.streamer-info{width:100%;text-align:center;padding:12px;}
+.streamer-img{width:100%;height:180px;margin-top:10px;border-radius:12px;}
+.header-buttons{margin-top:10px;}
 }
 
 @media (max-width: 480px){
-  .hero-text h1{font-size:2rem;}
-  .hero-text p{font-size:1rem;}
-  .promo-card{width:180px;height:120px;}
-  .streamer-img{height:150px;}
-  .whatsapp-widget{width:220px;}
+.hero-text h1{font-size:2rem;}
+.hero-text p{font-size:1rem;}
 }
 </style>
 </head>
@@ -358,7 +388,15 @@ color:#aaa;
 <body>
 
 <header>
+<div class="logo-container">
 <div class="logo"><img src="logo.png"></div>
+<div class="header-buttons">
+<a href="https://wa.me/5524999561861" target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<div class="linktree-toggle" onclick="document.querySelector('.linktree-modal').classList.toggle('active')">
+<i class="fas fa-link"></i> Linktree
+</div>
+</div>
+</div>
 <nav>
 <ul>
 <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
@@ -422,31 +460,44 @@ color:#aaa;
   </div>
 </section>
 
-<div class="whatsapp-button" onclick="toggleChat()">
-<i class="fab fa-whatsapp"> </i> WhatsApp
+<!-- Modal Linktree -->
+<div class="linktree-modal">
+<div style="
+  background: linear-gradient(145deg,#0d6efd,#004bbd);
+  margin: -16px -20px 12px -20px;
+  padding: 10px 14px;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+">
+Linktree
+<span style="cursor:pointer;" onclick="document.querySelector('.linktree-modal').classList.remove('active')">✕</span>
 </div>
-
-<div class="whatsapp-widget">
-<div class="whatsapp-header">
-WhatsApp
-<span onclick="toggleChat()">×</span>
-</div>
-<div class="whatsapp-body">
-<p><br>💬Iniciar Conversa</p>
-<a href="https://wa.me/5524999561861" target="_blank" class="whatsapp-start">
-Iniciar conversa
-</a>
+<div style="font-size:14px;">
+<br>💠Confira nossos links
+<a href="https://linktr.ee/4S.Store" target="_blank" style="
+display:block;
+margin-top:12px;
+background: linear-gradient(145deg,#0d6efd,#004bbd);
+color:#fff;
+text-align:center;
+padding:10px 12px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+">Abrir Linktree</a>
 </div>
 </div>
 
 <footer>© 2026 4S Store • </footer>
 
 <script>
-// Toggle WhatsApp
-function toggleChat(){
-const chat=document.querySelector('.whatsapp-widget');
-chat.style.display=chat.style.display==='block'?'none':'block';
-}
+// Toggle Linktree
+document.querySelector('.linktree-toggle').addEventListener('click', function(){
+document.querySelector('.linktree-modal').classList.toggle('active');
+});
 
 // Header desaparecer ao rolar
 let lastScroll = 0;
@@ -462,123 +513,6 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 </script>
-<!-- Botão Linktree com modal -->
-<style>
-/* Botão flutuante */
-.linktree-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: linear-gradient(145deg,#0d6efd,#004bbd);
-  color: white;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 6px 18px rgba(0,75,189,0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.linktree-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,75,189,0.7);
-}
-
-/* Modal da caixinha */
-.linktree-modal {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
-  background: linear-gradient(180deg,#0f172a,#020617);
-  color: white;
-  padding: 16px 20px;
-  border-radius: 14px;
-  width: 220px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  z-index: 999;
-}
-
-/* Modal ativo */
-.linktree-modal.active {
-  display: block;
-}
-
-/* Botão dentro da modal */
-.linktree-modal a {
-  display: block;
-  margin-top: 12px;
-  background: linear-gradient(145deg,#0d6efd,#004bbd);
-  color: white;
-  text-align: center;
-  padding: 10px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.linktree-modal a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0,75,189,0.6);
-}
-</style>
-
-<!-- Botão Linktree -->
-<div class="linktree-widget">
-  <div class="linktree-toggle"
-       onclick="document.querySelector('.linktree-modal').classList.toggle('active')">
-    <i class="fas fa-link"></i>
-    <span>Linktree</span>
-  </div>
-
-  <div class="linktree-modal" style="overflow:hidden;">
-    
-    <!-- FAIXA SUPERIOR (BORDA A BORDA) -->
-    <div style="
-      background: linear-gradient(145deg,#0d6efd,#004bbd);
-      margin: -16px -24px 12px -24px;
-      padding: 10px 14px;
-      font-weight: bold;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    ">
-      Linktree
-      <span style="cursor:pointer;"
-        onclick="document.querySelector('.linktree-modal').classList.remove('active')">
-        ✕
-      </span>
-    </div>
-
-    <!-- CONTEÚDO -->
-    <div style="font-size:14px;">
-      <br>💠Confira nossos links
-      <a href="https://linktr.ee/4S.Store"
-         target="_blank"
-         style="
-           display:block;
-           margin-top:12px;
-           background: linear-gradient(145deg,#0d6efd,#004bbd);
-           color:#fff;
-           text-align:center;
-           padding:10px 12px;
-           border-radius:10px;
-           text-decoration:none;
-           font-weight:bold;
-         ">
-        Abrir Linktree
-      </a>
-    </div>
-  </div>
-</div>
-
 
 </body>
 </html>

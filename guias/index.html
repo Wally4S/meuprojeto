@@ -15,31 +15,74 @@ body{
   min-height:100vh;
 }
 
-/* HEADER */
-header{
+/* ================= HEADER ================= */
+.header{
   background:rgba(0,0,0,.6);
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(0,153,255,.25);
-  padding:16px 32px;
+  padding:16px 24px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
-header h1{color:#00b7ff;font-size:22px}
 
-nav a{
-  padding:8px 16px;
-  margin-left:14px;
+.header h1{
+  color:#00b7ff;
+  font-size:22px;
+}
+
+/* BOTÕES DO HEADER */
+.header-actions{
+  display:flex;
+  gap:12px;
+}
+
+.action-btn{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  border:none;
   text-decoration:none;
-  font-weight:bold;
-  border-radius:8px;
-  background:linear-gradient(45deg,#0099ff,#00d4ff);
-  color:#000;
-  transition:.3s;
+  color:#fff;
+  transition:.25s ease;
 }
-nav a:hover{transform:scale(1.05)}
 
-/* CONTAINER */
+/* WHATSAPP */
+.action-btn.whatsapp{
+  background:linear-gradient(135deg,#25d366,#1ebe5d);
+  box-shadow:0 0 12px rgba(37,211,102,.6);
+}
+.action-btn.whatsapp:hover{
+  transform:scale(1.12);
+  box-shadow:0 0 24px rgba(37,211,102,.9);
+}
+
+/* LINKTREE */
+.action-btn.linktree{
+  background:linear-gradient(145deg,#0d6efd,#004bbd);
+  box-shadow:0 0 12px rgba(13,110,253,.6);
+}
+.action-btn.linktree:hover{
+  transform:scale(1.12);
+  box-shadow:0 0 24px rgba(13,110,253,.9);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .header{
+    flex-direction:column;
+    gap:12px;
+  }
+}
+
+/* ================= CONTAINER ================= */
 .container{
   max-width:1300px;
   margin:40px auto;
@@ -57,21 +100,18 @@ nav a:hover{transform:scale(1.05)}
 
 /* CARD */
 .guia-card{
-  max-width:320px;
-  margin:auto;
-  background:rgba(255,255,255,.05);
-  border-radius:18px;
-  overflow:hidden;
+  background:linear-gradient(180deg,#0b1220,#020617);
+  border-radius:20px;
   border:1px solid rgba(0,153,255,.25);
-  box-shadow:0 0 22px rgba(0,153,255,.2);
+  box-shadow:0 0 22px rgba(0,153,255,.25);
   transition:.35s;
-  display:flex;
-  flex-direction:column;
+  overflow:hidden;
 }
 .guia-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 45px rgba(0,153,255,.5);
+  transform:translateY(-6px);
+  box-shadow:0 0 40px rgba(0,153,255,.5);
 }
+
 .guia-card img{
   width:100%;
   height:220px;
@@ -79,16 +119,29 @@ nav a:hover{transform:scale(1.05)}
   background:#020617;
 }
 
-/* CONTENT */
 .guia-content{
   padding:18px;
   display:flex;
   flex-direction:column;
-  flex:1;
 }
-.guia-content span{font-size:12px;color:#00b7ff;font-weight:bold}
-.guia-content h3{margin:10px 0;font-size:20px}
-.guia-content p{font-size:14px;color:#bbb;margin-bottom:15px}
+
+.guia-content span{
+  font-size:12px;
+  color:#00b7ff;
+  font-weight:bold;
+}
+
+.guia-content h3{
+  margin:10px 0;
+  font-size:20px;
+  font-weight:900;
+}
+
+.guia-content p{
+  font-size:14px;
+  color:#bbb;
+  margin-bottom:14px;
+}
 
 .guia-content button{
   margin-top:auto;
@@ -100,11 +153,9 @@ nav a:hover{transform:scale(1.05)}
   background:linear-gradient(45deg,#0099ff,#00d4ff);
   transition:.3s;
 }
-.guia-content button:hover{transform:scale(1.06)}
+.guia-content button:hover{transform:scale(1.07)}
 
-/* =========================
-   MODAL
-   ========================= */
+/* ================= MODAL ================= */
 .modal{
   position:fixed;
   inset:0;
@@ -123,31 +174,10 @@ nav a:hover{transform:scale(1.05)}
   width:95%;
   max-height:90vh;
   overflow-y:auto;
-  box-shadow:0 0 80px rgba(0,153,255,.65);
   border:1px solid rgba(0,153,255,.4);
-
-  scroll-behavior:smooth;
-  scrollbar-width:thin;
-  scrollbar-color:#00b7ff #020617;
+  box-shadow:0 0 60px rgba(0,153,255,.6);
 }
 
-/* Scroll Chrome / Edge / Safari */
-.modal-box::-webkit-scrollbar{
-  width:8px;
-}
-.modal-box::-webkit-scrollbar-track{
-  background:#020617;
-  border-radius:10px;
-}
-.modal-box::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,#0099ff,#00d4ff);
-  border-radius:10px;
-}
-.modal-box::-webkit-scrollbar-thumb:hover{
-  background:linear-gradient(180deg,#00d4ff,#0099ff);
-}
-
-/* HEADER */
 .modal-header{
   display:flex;
   align-items:center;
@@ -155,34 +185,26 @@ nav a:hover{transform:scale(1.05)}
   padding:24px;
   border-bottom:1px solid rgba(255,255,255,.1);
 }
+
 .modal-header img{
   width:140px;
   border-radius:16px;
 }
 
-/* NOME DA CLASSE */
 .modal-header h3{
   font-size:30px;
   font-weight:900;
-  letter-spacing:0.6px;
-
   background:linear-gradient(90deg,#00d4ff,#38bdf8,#00b7ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-
-  text-shadow:
-    0 0 10px rgba(0,212,255,.35),
-    0 0 20px rgba(0,153,255,.15);
 }
 
 .close{
   margin-left:auto;
   font-size:26px;
   cursor:pointer;
-  text-shadow:0 0 8px rgba(255,255,255,.25);
 }
 
-/* BODY */
 .modal-body{
   padding:24px;
   display:grid;
@@ -192,18 +214,15 @@ nav a:hover{transform:scale(1.05)}
 .modal-section{
   background:rgba(255,255,255,.04);
   border-radius:16px;
-  padding:16px 18px;
+  padding:16px;
   border:1px solid rgba(0,153,255,.25);
 }
 
 .modal-section h4{
   color:#00b7ff;
   margin-bottom:10px;
-  font-size:17px;
-  text-shadow:0 0 10px rgba(0,183,255,.35);
 }
 
-/* LISTAS */
 .rpg-list{
   list-style:none;
   display:grid;
@@ -216,135 +235,20 @@ nav a:hover{transform:scale(1.05)}
   background:linear-gradient(135deg,#0b1220,#111827);
   border:1px solid rgba(0,153,255,.35);
   font-weight:bold;
-  color:#e5f6ff;
   display:flex;
-  align-items:center;
   gap:10px;
-  transition:.25s;
-  text-shadow:0 0 6px rgba(229,246,255,.25);
 }
 
-.rpg-list li:hover{
-  transform:translateX(6px);
-  box-shadow:0 0 18px rgba(0,153,255,.45);
-}
-
-/* DESTAQUE */
 .rpg-highlight{
   color:#22c55e;
   font-weight:900;
-  margin-left:4px;
-  text-shadow:0 0 8px rgba(34,197,94,.45);
 }
 
-/* =========================
-   CARD DA PÁGINA (SUAVE)
-   ========================= */
-
-.guia-card{
-  position:relative;
-  border-radius:20px;
-  border:1px solid rgba(0,153,255,.22);
-  background:linear-gradient(180deg,#0b1220,#020617);
-  box-shadow:
-    0 8px 22px rgba(0,0,0,.45),
-    inset 0 0 20px rgba(0,153,255,.04);
-  transition:.3s ease;
+footer{
+  text-align:center;
+  margin:60px 0 20px;
+  color:#777;
 }
-
-/* brilho leve e elegante */
-.guia-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:20px;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(0,153,255,.18),
-    transparent
-  );
-  opacity:0;
-  transition:.35s;
-  pointer-events:none;
-}
-
-.guia-card:hover::before{
-  opacity:1;
-}
-
-/* elevação suave */
-.guia-card:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 14px 36px rgba(0,0,0,.55),
-    0 0 26px rgba(0,153,255,.25);
-}
-
-/* imagem */
-.guia-card img{
-  border-radius:14px;
-  transition:.3s;
-}
-
-.guia-card:hover img{
-  filter:drop-shadow(0 0 14px rgba(0,153,255,.35));
-}
-
-/* título */
-.guia-content h3{
-  font-weight:900;
-  letter-spacing:.4px;
-  text-shadow:0 0 6px rgba(0,153,255,.25);
-  transition:.3s;
-}
-
-.guia-card:hover .guia-content h3{
-  text-shadow:
-    0 0 12px rgba(0,212,255,.45),
-    0 0 20px rgba(0,153,255,.25);
-}
-
-/* texto */
-.guia-content p{
-  color:#cfefff;
-  text-shadow:0 0 4px rgba(207,239,255,.15);
-}
-
-/* botão */
-.guia-content button{
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 0 12px rgba(0,153,255,.25);
-  transition:.3s;
-}
-
-.guia-content button:hover{
-  box-shadow:0 0 22px rgba(0,153,255,.45);
-}
-
-.guia-content button::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.45),
-    transparent
-  );
-  transform:translateX(-120%);
-  transition:.6s;
-}
-
-.guia-content button:hover::after{
-  transform:translateX(120%);
-}
-
-
-
-/* FOOTER */
-footer{text-align:center;margin:60px 0 20px;color:#777}
 </style>
 </head>
 
@@ -353,151 +257,17 @@ footer{text-align:center;margin:60px 0 20px;color:#777}
 <header class="header">
   <h1>Guias</h1>
 
-  <nav class="nav-menu">
-    <a href="/">♻️ Início</a>
-    <a href="/produtos/">🛒 Loja</a>
-    <a href="/guias/">📂 Guias</a>
-  </nav>
+  <div class="header-actions">
+    <a href="https://wa.me/5599999999999" target="_blank" class="action-btn whatsapp">📞</a>
+    <button class="action-btn linktree" onclick="openLinktree()">🌳</button>
+  </div>
 </header>
 
-<style>
-  .header{
-    padding:16px;
-    text-align:center;
-  }
-
-  .nav-menu{
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    margin-top:12px;
-    flex-wrap:wrap;
-  }
-
-  .nav-menu a{
-    padding:12px 18px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:600;
-    color:#fff;
-    white-space:nowrap;
-
-    /* COR + DESTAQUE */
-    background:linear-gradient(135deg,#38bdf8,#6366f1);
-    box-shadow:
-      0 6px 15px rgba(56,189,248,.35),
-      0 0 12px rgba(99,102,241,.35);
-
-    transition:.25s ease;
-  }
-
-  .nav-menu a:hover{
-    transform:translateY(-2px);
-    box-shadow:
-      0 10px 25px rgba(56,189,248,.5),
-      0 0 20px rgba(99,102,241,.6);
-  }
-
-  /* MOBILE */
-  @media (max-width:600px){
-    .nav-menu{
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-    }
-
-    .nav-menu a{
-      width:100%;
-      max-width:260px;
-      text-align:center;
-    }
-  }
-</style>
-
-
 <main class="container">
-  <h2 class="guias-title">Guias e Dicas</h2>
-
-  <p class="guias-subtitle">GUIAS BÁSICOS</p>
-
+  <h2>Guias e Dicas</h2>
+  <p>GUIAS BÁSICOS</p>
   <div class="guias-grid" id="guias"></div>
 </main>
-
-<style>
-  .guias-title{
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow:
-      0 0 10px rgba(99,102,241,.6),
-      0 0 25px rgba(99,102,241,.4);
-  }
-
-  .guias-subtitle{
-    position: relative;
-    margin-top: 6px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #e0f2fe;
-
-    /* glow forte e visível */
-    text-shadow:
-      0 0 8px rgba(56,189,248,.9),
-      0 0 18px rgba(56,189,248,.8),
-      0 0 35px rgba(56,189,248,.6);
-
-    animation: neonPulse 2.5s ease-in-out infinite;
-  }
-
-  /* linha animada abaixo */
-  .guias-subtitle::after{
-    content:'';
-    position:absolute;
-    left:50%;
-    bottom:-10px;
-    width:120px;
-    height:3px;
-    transform:translateX(-50%);
-    background:linear-gradient(
-      90deg,
-      transparent,
-      #38bdf8,
-      #6366f1,
-      #38bdf8,
-      transparent
-    );
-    border-radius:10px;
-    box-shadow:
-      0 0 10px #38bdf8,
-      0 0 25px #6366f1;
-
-    animation: lineMove 2s linear infinite;
-  }
-
-  @keyframes neonPulse{
-    0%,100%{
-      text-shadow:
-        0 0 6px rgba(56,189,248,.6),
-        0 0 18px rgba(56,189,248,.5),
-        0 0 30px rgba(56,189,248,.4);
-    }
-    50%{
-      text-shadow:
-        0 0 12px rgba(56,189,248,1),
-        0 0 28px rgba(56,189,248,.9),
-        0 0 55px rgba(56,189,248,.8);
-    }
-  }
-
-  @keyframes lineMove{
-    0%{opacity:.4}
-    50%{opacity:1}
-    100%{opacity:.4}
-  }
-</style>
-
 
 <footer>© 2026 • Guias ROO</footer>
 
@@ -509,202 +279,27 @@ footer{text-align:center;margin:60px 0 20px;color:#777}
       <h3 id="modalTitle"></h3>
       <span class="close" onclick="closeModal()">✖</span>
     </div>
-
     <div class="modal-body">
       <div class="modal-section">
-        <h4>🧬 ATRIBUTOS RECOMENDADOS</h4>
+        <h4>ATRIBUTOS</h4>
         <ul id="modalAttr" class="rpg-list"></ul>
       </div>
-
       <div class="modal-section">
-        <h4>🛡️ EQUIPAMENTOS RECOMENDADOS</h4>
+        <h4>EQUIPAMENTOS</h4>
         <ul id="modalEq" class="rpg-list"></ul>
       </div>
-
       <div class="modal-section">
-        <h4>⚔️ PRINCIPAIS HABILIDADES</h4>
+        <h4>HABILIDADES</h4>
         <ul id="modalSkill" class="rpg-list"></ul>
-      </div>
-
-      <div class="modal-section">
-        <h4>🔗 CRÉDITOS DO GUIA</h4>
-        <p id="modalTips"></p>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-const classes = [
-  [
-    "Rune Knight",
-    "/img/classes/rune-knight.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],
-  [
-    "Royal Guard",
-    "/img/classes/royal-guard.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],
-  [
-    "Ranger",
-    "/img/classes/ranger.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Maestro",
-    "/img/classes/maestro.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Mechanic",
-    "/img/classes/mechanic.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Genetic",
-    "/img/classes/genetic.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Arch Bishop",
-    "/img/classes/archbishop.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Shura",
-    "/img/classes/shura.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Guillotine Cross",
-    "/img/classes/guillotine-cross.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Shadow Chaser",
-    "/img/classes/shadow-chaser.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Warlock",
-    "/img/classes/warlock.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Sorcerer",
-    "/img/classes/sorcerer.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Grand Summoner",
-    "/img/classes/grand-summoner.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],[
-    "Nightwatch",
-    "/img/classes/nightwatch.png",
-    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
-    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
-    "HAB 1: x, HAB 3: x, HAB 3: x",
-    "Link aki"
-  ],
-  
-];
-
-const guias = document.getElementById("guias");
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalImg = document.getElementById("modalImg");
-const modalAttr = document.getElementById("modalAttr");
-const modalEq = document.getElementById("modalEq");
-const modalSkill = document.getElementById("modalSkill");
-const modalTips = document.getElementById("modalTips");
-
-guias.innerHTML = classes.map(c => `
-  <div class="guia-card">
-    <img src="${c[1]}">
-    <div class="guia-content">
-      <span>CLASSE</span>
-      <h3>${c[0]}</h3>
-      <p>Guia da Classe ${c[0]}.</p>
-      <button onclick="openModal('${c[0]}','${c[1]}','${c[2]}','${c[3]}','${c[4]}','${c[5]}')">
-        Ver Guia
-      </button>
-    </div>
-  </div>
-`).join("");
-
-function getIconByName(name){
-  name = name.toLowerCase();
-  if(name.includes("str")) return "💪";
-  if(name.includes("agi")) return "🏃";
-  if(name.includes("vit")) return "🩸";
-  if(name.includes("int")) return "🧠";
-  if(name.includes("dex")) return "🎯";
-  if(name.includes("luk")) return "🍀";
-  if(name.includes("capacete")) return "👒";
-  if(name.includes("capa")) return "🧛‍♀️";
-  if(name.includes("armadura")) return "🥋";
-  if(name.includes("escudo")) return "🛡️";
-  if(name.includes("acessório")) return "💍";
-  if(name.includes("arma") || name.includes("espada") || name.includes("arco")) return "⚔️";
-  if(name.includes("bota")) return "🥾";
-  if(name.includes("dragon")) return "🔥";
-  if(name.includes("bolt")) return "⚡";
-  return "🔹";
+function openLinktree(){
+  alert("Aqui você pode abrir seu modal ou link do Linktree");
 }
-
-function buildList(target, text){
-  target.innerHTML = text.split(",").map(item=>{
-    const part = item.trim().split(":");
-    const icon = getIconByName(part[0]);
-    return part.length > 1
-      ? `<li>${icon} ${part[0]}:<span class="rpg-highlight">${part[1]}</span></li>`
-      : `<li>${icon} ${item.trim()}</li>`;
-  }).join("");
-}
-
-function openModal(t,i,a,e,s,d){
-  modal.classList.add("active");
-  modalTitle.textContent = t;
-  modalImg.src = i;
-  buildList(modalAttr, a);
-  buildList(modalEq, e);
-  buildList(modalSkill, s);
-  modalTips.textContent = d;
-}
-
-function closeModal(){modal.classList.remove("active")}
-modal.addEventListener("click", e=>{if(e.target===modal)closeModal()});
 </script>
 
 </body>
