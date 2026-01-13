@@ -166,7 +166,7 @@ nav a:hover{transform:scale(1.05)}
   font-size:17px;
 }
 
-/* LISTA RPG (ATRIBUTOS / EQUIPAMENTOS / HABILIDADES) */
+/* LISTAS */
 .rpg-list{
   list-style:none;
   display:grid;
@@ -191,13 +191,12 @@ nav a:hover{transform:scale(1.05)}
   box-shadow:0 0 18px rgba(0,153,255,.45);
 }
 
-/* LINKS */
-.modal-body a{
-  color:#00d4ff;
-  font-weight:bold;
-  text-decoration:none;
+/* DESTAQUE APÓS ":" */
+.rpg-highlight{
+  color:#22c55e;
+  font-weight:900;
+  margin-left:4px;
 }
-.modal-body a:hover{text-decoration:underline}
 
 /* FOOTER */
 footer{text-align:center;margin:60px 0 20px;color:#777}
@@ -257,132 +256,109 @@ footer{text-align:center;margin:60px 0 20px;color:#777}
 </div>
 
 <script>
-/*
-========================================================================
-COMO EDITAR UMA CLASSE (APENAS TEXTO, SEPARADO POR VÍRGULA)
-========================================================================
-[0] Nome da Classe
-[1] Caminho da Imagem
-[2] ATRIBUTOS  -> "STR, AGI, VIT, INT, DEX, LUK"
-[3] ITENS     -> "Capacete, Armadura, Arma, Escudo, Acessório"
-[4] SKILLS    -> "Habilidade 1, Habilidade 2, Habilidade 3"
-[5] CRÉDITOS  -> Link (http) ou texto normal
-========================================================================
-*/
-
 const classes = [
   [
     "Rune Knight",
     "/img/classes/rune-knight.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
   ],
   [
     "Royal Guard",
     "/img/classes/royal-guard.png",
-    "DEX, AGI, VIT, LUK",
-    "Capacete, Armadura Leve, Arco, Flechas, Acessório",
-    "Arrow Storm, Aimed Bolt, Fear Breeze",
-    "link aki"
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
+    "Link aki"
   ],
   [
     "Ranger",
     "/img/classes/ranger.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Maestro",
     "/img/classes/maestro.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Mechanic",
     "/img/classes/mechanic.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Genetic",
     "/img/classes/genetic.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
-    "Archbishop",
+  ],[
+    "Arch Bishop",
     "/img/classes/archbishop.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Shura",
     "/img/classes/shura.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Guillotine Cross",
     "/img/classes/guillotine-cross.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Shadow Chaser",
     "/img/classes/shadow-chaser.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Warlock",
     "/img/classes/warlock.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Sorcerer",
     "/img/classes/sorcerer.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Grand Summoner",
     "/img/classes/grand-summoner.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
-  ],
-  [
+  ],[
     "Nightwatch",
     "/img/classes/nightwatch.png",
-    "STR, AGI, VIT, INT, DEX, LUK",
-    "Capacete, Armadura, Espada, Escudo, Acessório",
-    "Dragon Breath, Ignition Break, Bash, Aura Blade",
+    "STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1",
+    "ARMA: x, CAPACETE: x, ARMADURA: x, CAPA: x, BOTA: x, ESCUDO: x, ACESSÓRIO: x",
+    "HAB 1: x, HAB 3: x, HAB 3: x",
     "Link aki"
   ],
+  
 ];
 
 const guias = document.getElementById("guias");
@@ -396,7 +372,7 @@ const modalTips = document.getElementById("modalTips");
 
 guias.innerHTML = classes.map(c => `
   <div class="guia-card">
-    <img src="${c[1]}" alt="${c[0]}">
+    <img src="${c[1]}">
     <div class="guia-content">
       <span>CLASSE</span>
       <h3>${c[0]}</h3>
@@ -408,24 +384,44 @@ guias.innerHTML = classes.map(c => `
   </div>
 `).join("");
 
-function buildList(target, text, icon){
-  target.innerHTML = text.split(",").map(item =>
-    `<li>${icon} ${item.trim()}</li>`
-  ).join("");
+function getIconByName(name){
+  name = name.toLowerCase();
+  if(name.includes("str")) return "💪";
+  if(name.includes("agi")) return "🏃";
+  if(name.includes("vit")) return "🛡️";
+  if(name.includes("int")) return "🧠";
+  if(name.includes("dex")) return "🎯";
+  if(name.includes("luk")) return "🍀";
+  if(name.includes("capacete")) return "👒";
+  if(name.includes("capa")) return "🧛‍♀️";
+  if(name.includes("armadura")) return "🥋";
+  if(name.includes("escudo")) return "🛡️";
+  if(name.includes("acessório")) return "💍";
+  if(name.includes("arma") || name.includes("espada") || name.includes("arco")) return "⚔️";
+  if(name.includes("bota")) return "🥾";
+  if(name.includes("dragon")) return "🔥";
+  if(name.includes("bolt")) return "⚡";
+  return "🔹";
+}
+
+function buildList(target, text){
+  target.innerHTML = text.split(",").map(item=>{
+    const part = item.trim().split(":");
+    const icon = getIconByName(part[0]);
+    return part.length > 1
+      ? `<li>${icon} ${part[0]}:<span class="rpg-highlight">${part[1]}</span></li>`
+      : `<li>${icon} ${item.trim()}</li>`;
+  }).join("");
 }
 
 function openModal(t,i,a,e,s,d){
   modal.classList.add("active");
   modalTitle.textContent = t;
   modalImg.src = i;
-
-  buildList(modalAttr, a, "🧬");
-  buildList(modalEq, e, "🛡️");
-  buildList(modalSkill, s, "⚔️");
-
-  modalTips.innerHTML = d.startsWith("http")
-    ? `<a href="${d}" target="_blank">Acessar guia</a>`
-    : d;
+  buildList(modalAttr, a);
+  buildList(modalEq, e);
+  buildList(modalSkill, s);
+  modalTips.textContent = d;
 }
 
 function closeModal(){modal.classList.remove("active")}
