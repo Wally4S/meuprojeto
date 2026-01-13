@@ -532,6 +532,20 @@ function toggleChat(){
     chat.style.display=chat.style.display==='block'?'none':'block';
 }
 </script>
-
+<script>
+window.addEventListener('load', () => {
+  document.body.animate(
+    [
+      { opacity: 0, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ],
+    {
+      duration: 700,
+      easing: 'ease-out',
+      fill: 'forwards'
+    }
+  );
+});
+</script>
 </body>
 </html>

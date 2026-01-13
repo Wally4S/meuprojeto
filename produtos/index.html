@@ -866,6 +866,21 @@ function finalizarCompra(){
 
 </body>
 </html>
+<script>
+window.addEventListener('load', () => {
+  document.body.animate(
+    [
+      { opacity: 0, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ],
+    {
+      duration: 700,
+      easing: 'ease-out',
+      fill: 'forwards'
+    }
+  );
+});
+</script>
 
 </body>
 </html>

@@ -482,6 +482,32 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 </script>
-
+<script>
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const delta = window.scrollY - lastY;
+  document.body.style.transform = `translateY(${delta * -0.04}px)`;
+  clearTimeout(window._t);
+  window._t = setTimeout(() => {
+    document.body.style.transform = 'translateY(0)';
+  }, 80);
+  lastY = window.scrollY;
+});
+</script>
+<script>
+window.addEventListener('load', () => {
+  document.body.animate(
+    [
+      { opacity: 0, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ],
+    {
+      duration: 700,
+      easing: 'ease-out',
+      fill: 'forwards'
+    }
+  );
+});
+</script>
 </body>
 </html>

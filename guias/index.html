@@ -706,6 +706,20 @@ function openModal(t,i,a,e,s,d){
 function closeModal(){modal.classList.remove("active")}
 modal.addEventListener("click", e=>{if(e.target===modal)closeModal()});
 </script>
-
+<script>
+window.addEventListener('load', () => {
+  document.body.animate(
+    [
+      { opacity: 0, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ],
+    {
+      duration: 700,
+      easing: 'ease-out',
+      fill: 'forwards'
+    }
+  );
+});
+</script>
 </body>
 </html>
