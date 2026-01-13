@@ -34,13 +34,13 @@ background:transparent;
 backdrop-filter:none;
 z-index:999;
 box-sizing:border-box;
-transition: top 0.4s;
+transition: top 0.2s;
 }
 
 .logo-container{
 display:flex;
 align-items:center;
-gap:12px;
+gap:9px;
 }
 
 .logo img{height:65px}
@@ -54,46 +54,46 @@ gap:10px;
 
 /* Botão WhatsApp */
 .whatsapp-button{
-background:linear-gradient(145deg,#0d6efd,#004bbd);
-color:#fff;
+background: linear-gradient(145deg, #0d6efd, #004bbd); /* degradê azul */
+color: white;
 padding:10px 15px;
 border-radius:9px;
 font-weight:bold;
 display:flex;
 align-items:center;
-gap:6px;
-box-shadow:0 0 18px rgba(0,102,255,.9);
+gap:8px;
+box-shadow:0 4px 12px rgba(0,75,189,0.5);
 cursor:pointer;
-transition:.3s;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
 text-decoration:none;
 font-size:0.9rem;
 }
 
 .whatsapp-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(0,102,255,1);
+transform:scale(1.08);
+box-shadow:0 6 20px rgba(0,75,189,0.7);
 }
 
 /* Botão Linktree */
-.linktree-toggle{
-background: linear-gradient(145deg,#0d6efd,#004bbd);
-color:white;
-padding:10px 15px;
-border-radius:9px;
-font-weight:bold;
-cursor:pointer;
-display:flex;
-align-items:center;
-gap:6px;
-box-shadow:0 0 18px rgba(0,75,189,0.5);
-transition: transform 0.2s ease, box-shadow 0.2s ease;
-font-size:0.9rem;
-text-decoration:none;
+.linktree-toggle {
+  background: linear-gradient(145deg, #0d6efd, #004bbd); /* degradê azul */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 9px; /* mais arredondado estilo WhatsApp */
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none; /* remove sublinhado */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 75, 189, 0.5); /* sombra leve */
 }
 
-.linktree-toggle:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(0,75,189,0.7);
+.linktree-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 75, 189, 0.7); /* sombra maior no hover */
 }
 
 /* Modal da caixinha */
@@ -460,24 +460,6 @@ nav ul{flex-direction:column;gap:12px;}
     <div class="streamer-img" style="background-image: url('https://img.freepik.com/premium-photo/fps-game-room-girls-with-gaming-keyboard-mouse-bean-bag-trending-background-room-decorative_1020495-180647.jpg');"></div>
   </div>
 </section>
-<span style="cursor:pointer;" onclick="document.querySelector('.linktree-modal').classList.remove('active')">✕</span>
-</div>
-<div style="font-size:14px;">
-<br>💠Confira nossos links
-<a href="https://linktr.ee/4S.Store" target="_blank" style="
-display:block;
-margin-top:12px;
-background: linear-gradient(145deg,#0d6efd,#004bbd);
-color:#fff;
-text-align:center;
-padding:10px 12px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-">Abrir Linktree</a>
-</div>
-</div>
-
 <footer>© 2026 4S Store • </footer>
 
 <script>
