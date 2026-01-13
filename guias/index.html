@@ -350,20 +350,154 @@ footer{text-align:center;margin:60px 0 20px;color:#777}
 
 <body>
 
-<header>
-  <h1>Guias de Classes</h1>
-  <nav>
+<header class="header">
+  <h1>Guias</h1>
+
+  <nav class="nav-menu">
     <a href="/">♻️ Início</a>
     <a href="/produtos/">🛒 Loja</a>
     <a href="/guias/">📂 Guias</a>
   </nav>
 </header>
 
+<style>
+  .header{
+    padding:16px;
+    text-align:center;
+  }
+
+  .nav-menu{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+
+  .nav-menu a{
+    padding:12px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    color:#fff;
+    white-space:nowrap;
+
+    /* COR + DESTAQUE */
+    background:linear-gradient(135deg,#38bdf8,#6366f1);
+    box-shadow:
+      0 6px 15px rgba(56,189,248,.35),
+      0 0 12px rgba(99,102,241,.35);
+
+    transition:.25s ease;
+  }
+
+  .nav-menu a:hover{
+    transform:translateY(-2px);
+    box-shadow:
+      0 10px 25px rgba(56,189,248,.5),
+      0 0 20px rgba(99,102,241,.6);
+  }
+
+  /* MOBILE */
+  @media (max-width:600px){
+    .nav-menu{
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+
+    .nav-menu a{
+      width:100%;
+      max-width:260px;
+      text-align:center;
+    }
+  }
+</style>
+
+
 <main class="container">
-  <h2>Guias e Dicas</h2>
-  <p>Guias Básicos</p>
+  <h2 class="guias-title">Guias e Dicas</h2>
+
+  <p class="guias-subtitle">GUIAS BÁSICOS</p>
+
   <div class="guias-grid" id="guias"></div>
 </main>
+
+<style>
+  .guias-title{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow:
+      0 0 10px rgba(99,102,241,.6),
+      0 0 25px rgba(99,102,241,.4);
+  }
+
+  .guias-subtitle{
+    position: relative;
+    margin-top: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e0f2fe;
+
+    /* glow forte e visível */
+    text-shadow:
+      0 0 8px rgba(56,189,248,.9),
+      0 0 18px rgba(56,189,248,.8),
+      0 0 35px rgba(56,189,248,.6);
+
+    animation: neonPulse 2.5s ease-in-out infinite;
+  }
+
+  /* linha animada abaixo */
+  .guias-subtitle::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    width:120px;
+    height:3px;
+    transform:translateX(-50%);
+    background:linear-gradient(
+      90deg,
+      transparent,
+      #38bdf8,
+      #6366f1,
+      #38bdf8,
+      transparent
+    );
+    border-radius:10px;
+    box-shadow:
+      0 0 10px #38bdf8,
+      0 0 25px #6366f1;
+
+    animation: lineMove 2s linear infinite;
+  }
+
+  @keyframes neonPulse{
+    0%,100%{
+      text-shadow:
+        0 0 6px rgba(56,189,248,.6),
+        0 0 18px rgba(56,189,248,.5),
+        0 0 30px rgba(56,189,248,.4);
+    }
+    50%{
+      text-shadow:
+        0 0 12px rgba(56,189,248,1),
+        0 0 28px rgba(56,189,248,.9),
+        0 0 55px rgba(56,189,248,.8);
+    }
+  }
+
+  @keyframes lineMove{
+    0%{opacity:.4}
+    50%{opacity:1}
+    100%{opacity:.4}
+  }
+</style>
+
 
 <footer>© 2026 • Guias ROO</footer>
 
