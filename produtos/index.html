@@ -881,6 +881,41 @@ window.addEventListener('load', () => {
   );
 });
 </script>
+<script>
+(() => {
+  // seleciona todos os links internos
+  const links = document.querySelectorAll('a[href^="./"], a[href^="/"], a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+
+      // ignora links externos
+      if(href.startsWith("http")) return;
+
+      e.preventDefault();
+
+      // animação de saída
+      document.body.animate(
+        [
+          { opacity: 1, transform: 'translateY(0)' },
+          { opacity: 0, transform: 'translateY(4px)' }
+        ],
+        {
+          duration: 400,
+          easing: 'ease-in',
+          fill: 'forwards'
+        }
+      );
+
+      // espera a animação e navega
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
