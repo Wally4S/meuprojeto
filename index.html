@@ -427,6 +427,7 @@ nav ul{flex-direction:column;gap:12px;}
   <div class="streamer-card noturno">
     <div class="streamer-info">
       <h3>Noturnolll</h3>
+      <span class="streamer-status">🔴 Offline</span></h3>
       <div class="social-links">
         <a href="https://www.twitch.tv/noturnolll" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
         <a href="https://www.youtube.com/@noturnoragnarok" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -439,6 +440,7 @@ nav ul{flex-direction:column;gap:12px;}
   <div class="streamer-card yuuki">
     <div class="streamer-info">
       <h3>YuukiiBr</h3>
+      <span class="streamer-status">🔴 Offline</span></h3>
       <div class="social-links">
         <a href="https://www.twitch.tv/yuukiibr" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
         <a href="https://www.youtube.com/YuukiGamerBr" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -451,6 +453,7 @@ nav ul{flex-direction:column;gap:12px;}
   <div class="streamer-card jullie">
     <div class="streamer-info">
       <h3>Julliezinha</h3>
+      <span class="streamer-status">🔴 Offline</span></h3>
       <div class="social-links">
         <a href="https://www.twitch.tv/julliezinha" class="twitch" target="_blank"><i class="fab fa-twitch"></i></a>
         <a href="https://www.youtube.com/@Julliezinhafloquinho" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -543,6 +546,48 @@ window.addEventListener('load', () => {
     });
   });
 })();
+</script>
+<script>
+// Pega todos os links dos streamers
+document.querySelectorAll('.social-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const statusSpan = link.closest('.streamer-info').querySelector('.streamer-status');
+    if(statusSpan){
+      statusSpan.textContent = '🟢 Online'; // muda o status visual
+      statusSpan.style.color = 'limegreen';
+    }
+  });
+});
+</script>
+<script>
+// Função para mudar status de um streamer
+function setStreamerOnline(streamerClass) {
+  const card = document.querySelector(`.streamer-card.${streamerClass}`);
+  if(!card) return;
+  const statusSpan = card.querySelector('.streamer-status');
+  if(statusSpan){
+    statusSpan.textContent = '🟢 Online';
+    statusSpan.style.color = 'limegreen';
+  }
+}
+
+// Função para resetar status de um streamer
+function setStreamerOffline(streamerClass) {
+  const card = document.querySelector(`.streamer-card.${streamerClass}`);
+  if(!card) return;
+  const statusSpan = card.querySelector('.streamer-status');
+  if(statusSpan){
+    statusSpan.textContent = '🔴 Offline';
+    statusSpan.style.color = 'red';
+  }
+}
+
+// Exemplo de como usar:
+// Mudar Noturnolll para online
+// setStreamerOnline('noturno');
+
+// Mudar YuukiiBr para offline
+// setStreamerOffline('yuuki');
 </script>
 
 </body>
