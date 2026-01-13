@@ -102,7 +102,9 @@ nav a:hover{transform:scale(1.05)}
 }
 .guia-content button:hover{transform:scale(1.06)}
 
-/* MODAL */
+/* =========================
+   MODAL
+   ========================= */
 .modal{
   position:fixed;
   inset:0;
@@ -123,8 +125,29 @@ nav a:hover{transform:scale(1.05)}
   overflow-y:auto;
   box-shadow:0 0 80px rgba(0,153,255,.65);
   border:1px solid rgba(0,153,255,.4);
+
+  scroll-behavior:smooth;
+  scrollbar-width:thin;
+  scrollbar-color:#00b7ff #020617;
 }
 
+/* Scroll Chrome / Edge / Safari */
+.modal-box::-webkit-scrollbar{
+  width:8px;
+}
+.modal-box::-webkit-scrollbar-track{
+  background:#020617;
+  border-radius:10px;
+}
+.modal-box::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#0099ff,#00d4ff);
+  border-radius:10px;
+}
+.modal-box::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg,#00d4ff,#0099ff);
+}
+
+/* HEADER */
 .modal-header{
   display:flex;
   align-items:center;
@@ -136,17 +159,30 @@ nav a:hover{transform:scale(1.05)}
   width:140px;
   border-radius:16px;
 }
+
+/* NOME DA CLASSE */
 .modal-header h3{
   font-size:30px;
-  color:#00d4ff;
+  font-weight:900;
+  letter-spacing:0.6px;
+
+  background:linear-gradient(90deg,#00d4ff,#38bdf8,#00b7ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 10px rgba(0,212,255,.35),
+    0 0 20px rgba(0,153,255,.15);
 }
+
 .close{
   margin-left:auto;
   font-size:26px;
   cursor:pointer;
+  text-shadow:0 0 8px rgba(255,255,255,.25);
 }
 
-/* MODAL BODY */
+/* BODY */
 .modal-body{
   padding:24px;
   display:grid;
@@ -164,6 +200,7 @@ nav a:hover{transform:scale(1.05)}
   color:#00b7ff;
   margin-bottom:10px;
   font-size:17px;
+  text-shadow:0 0 10px rgba(0,183,255,.35);
 }
 
 /* LISTAS */
@@ -184,6 +221,7 @@ nav a:hover{transform:scale(1.05)}
   align-items:center;
   gap:10px;
   transition:.25s;
+  text-shadow:0 0 6px rgba(229,246,255,.25);
 }
 
 .rpg-list li:hover{
@@ -191,12 +229,119 @@ nav a:hover{transform:scale(1.05)}
   box-shadow:0 0 18px rgba(0,153,255,.45);
 }
 
-/* DESTAQUE APÓS ":" */
+/* DESTAQUE */
 .rpg-highlight{
   color:#22c55e;
   font-weight:900;
   margin-left:4px;
+  text-shadow:0 0 8px rgba(34,197,94,.45);
 }
+
+/* =========================
+   CARD DA PÁGINA (SUAVE)
+   ========================= */
+
+.guia-card{
+  position:relative;
+  border-radius:20px;
+  border:1px solid rgba(0,153,255,.22);
+  background:linear-gradient(180deg,#0b1220,#020617);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.45),
+    inset 0 0 20px rgba(0,153,255,.04);
+  transition:.3s ease;
+}
+
+/* brilho leve e elegante */
+.guia-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,153,255,.18),
+    transparent
+  );
+  opacity:0;
+  transition:.35s;
+  pointer-events:none;
+}
+
+.guia-card:hover::before{
+  opacity:1;
+}
+
+/* elevação suave */
+.guia-card:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 14px 36px rgba(0,0,0,.55),
+    0 0 26px rgba(0,153,255,.25);
+}
+
+/* imagem */
+.guia-card img{
+  border-radius:14px;
+  transition:.3s;
+}
+
+.guia-card:hover img{
+  filter:drop-shadow(0 0 14px rgba(0,153,255,.35));
+}
+
+/* título */
+.guia-content h3{
+  font-weight:900;
+  letter-spacing:.4px;
+  text-shadow:0 0 6px rgba(0,153,255,.25);
+  transition:.3s;
+}
+
+.guia-card:hover .guia-content h3{
+  text-shadow:
+    0 0 12px rgba(0,212,255,.45),
+    0 0 20px rgba(0,153,255,.25);
+}
+
+/* texto */
+.guia-content p{
+  color:#cfefff;
+  text-shadow:0 0 4px rgba(207,239,255,.15);
+}
+
+/* botão */
+.guia-content button{
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 12px rgba(0,153,255,.25);
+  transition:.3s;
+}
+
+.guia-content button:hover{
+  box-shadow:0 0 22px rgba(0,153,255,.45);
+}
+
+.guia-content button::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent
+  );
+  transform:translateX(-120%);
+  transition:.6s;
+}
+
+.guia-content button:hover::after{
+  transform:translateX(120%);
+}
+
+
 
 /* FOOTER */
 footer{text-align:center;margin:60px 0 20px;color:#777}
