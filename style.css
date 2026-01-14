@@ -263,3 +263,78 @@ footer {
     .promocoes { padding: 30px 10px; }
     .hero { height: 400px; }
 }
+/* BACKDROP */
+.admin-backdrop{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:999;
+  opacity:0;
+  transition:opacity 0.3s;
+}
+
+/* CONTAINER DO PAINEL */
+.admin-content{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  background:#0f172a;
+  padding:30px 40px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.7);
+  color:white;
+  text-align:center;
+  z-index:1000;
+  opacity:0;
+  transition:all 0.4s ease;
+}
+
+/* ATIVO (quando abrir) */
+#admin-panel.show .admin-backdrop{
+  opacity:1;
+}
+
+#admin-panel.show .admin-content{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+/* BOTOES DENTRO DO PAINEL */
+.admin-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:20px 0;
+}
+
+.admin-buttons button{
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(145deg,#0d6efd,#004bbd);
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-buttons button:hover{
+  transform:scale(1.05);
+  box-shadow:0 4px 12px rgba(0,75,189,0.5);
+}
+
+#close-admin-btn{
+  padding:6px 12px;
+  border:none;
+  border-radius:6px;
+  background:red;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:transform 0.2s;
+}
+
+#close-admin-btn:hover{
+  transform:scale(1.05);
+}
