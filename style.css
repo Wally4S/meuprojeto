@@ -338,3 +338,12 @@ footer {
 #close-admin-btn:hover{
   transform:scale(1.05);
 }
+/* Esconde o widget do carrinho */
+#cart, 
+#cart-widget, 
+.cart, 
+.cart-widget, 
+.shopping-cart, 
+.widget-cart {
+    display: none !important;
+}

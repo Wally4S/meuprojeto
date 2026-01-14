@@ -666,28 +666,125 @@ body{
     border-radius:50%;
 }
 
-/* ===== PAINEL ===== */
+/* ===== PAINEL PROFISSIONAL ===== */
 .cart-panel{
     position:fixed;
-    top:0;
-    right:-100%;
-    width:340px;
-    height:100%;
+    top:10px; /* deixa um pequeno espaço do topo */
+    right:-350px; /* posição inicial fora da tela */
+    width:320px; /* painel compacto */
+    max-width:90%; /* responsivo em telas pequenas */
+    height:auto; /* altura ajusta ao conteúdo */
+    max-height:90%; /* não ocupa toda a tela */
     background:linear-gradient(145deg,#0b1c26,#02080c);
-    box-shadow:-5px 0 25px rgba(0,153,255,.5);
-    transition:.4s;
+    box-shadow:0 10px 30px rgba(0,153,255,.5); /* sombra moderna */
+    border-radius:12px 0 0 12px; /* bordas arredondadas apenas na abertura */
+    transition:right 0.4s ease, box-shadow 0.4s ease; /* abertura suave */
     z-index:1001;
     display:flex;
     flex-direction:column;
+    overflow:hidden;
+    backdrop-filter:blur(6px); /* efeito blur sutil por trás */
 }
-.cart-panel.open{right:0}
+
+/* quando aberto */
+.cart-panel.open{
+    right:10px;
+    box-shadow:0 15px 35px rgba(0,153,255,.6);
+}
 
 .cart-header{
-    padding:1rem;
-    font-size:1.4rem;
+    padding:.8rem 1rem;
+    font-size:1.3rem;
+    font-weight:700;
     text-align:center;
+    color:#fff;
     border-bottom:1px solid rgba(0,153,255,.3);
+    background:rgba(0,0,0,0.2); /* efeito de destaque sutil */
 }
+
+/* ===== ITENS ===== */
+.cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:1rem;
+    max-height:calc(100vh - 80px); /* evita ultrapassar a tela */
+    scrollbar-width:thin;
+    scrollbar-color:#00c6ff transparent;
+}
+
+/* estilos modernos do scroll */
+.cart-items::-webkit-scrollbar{
+    width:6px;
+}
+.cart-items::-webkit-scrollbar-thumb{
+    background:linear-gradient(145deg,#00c6ff,#0072ff);
+    border-radius:10px;
+}
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    padding:8px;
+    margin-bottom:10px;
+    background:linear-gradient(145deg,#07161f,#02080c);
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,153,255,.25);
+    transition:transform 0.2s ease;
+}
+.cart-item:hover{
+    transform:scale(1.03);
+}
+
+.cart-img{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,153,255,.4);
+}
+
+.cart-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.cart-info span{
+    color:#ffd84d;
+    font-weight:bold;
+    font-size:.85rem;
+}
+
+.cart-actions{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.cart-actions button{
+    background:linear-gradient(145deg,#0099ff,#005fa3);
+    border:none;
+    border-radius:6px;
+    padding:4px 8px;
+    color:#fff;
+    cursor:pointer;
+    font-size:.85rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cart-actions button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 12px rgba(0,153,255,.6);
+}
+
+.cart-actions .remove{
+    background:linear-gradient(145deg,#ff1744,#b00020);
+}
+.cart-actions .remove:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 12px rgba(255,23,68,.6);
+}
+
 
 /* ===== ITENS ===== */
 .cart-items{
@@ -916,6 +1013,99 @@ window.addEventListener('load', () => {
   });
 })();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   // Seleciona o header
+const header = document.querySelector("header");
+if (!header) return;
+
+// Cria o botão do carrinho
+const btn = document.createElement("button");
+btn.id = "headerCarrinho";
+btn.style.display = "inline-flex";
+btn.style.alignItems = "center";
+btn.style.padding = "6px 12px";
+btn.style.background = "linear-gradient(145deg,#00c6ff,#0072ff)";
+btn.style.border = "none";
+btn.style.borderRadius = "8px";
+btn.style.color = "#fff";
+btn.style.fontSize = "14px";
+btn.style.cursor = "pointer";
+btn.style.boxShadow = "0 0 10px rgba(0,153,255,.5)";
+btn.style.transition = "transform 0.2s ease";
+btn.onmouseover = () => btn.style.transform = "scale(1.05)";
+btn.onmouseout = () => btn.style.transform = "scale(1)";
+
+// HTML interno do botão com span do número (vermelho com glow)
+btn.innerHTML = `🛒 Carrinho <span id="cartCount" style="
+    display:inline-block;
+    background:transparent;
+    color:#ff1744;       /* número vermelho */
+    font-size:1.2rem;
+    font-weight:bold;
+    width:auto;
+    height:auto;
+    line-height:1;
+    text-align:center;
+    margin-left:6px;
+    text-shadow: 0 0 4px #ff1744, 0 0 8px #ff4d6d, 0 0 12px #ff7990;
+">0</span>`;
+
+// Estilo do botão
+btn.style.display = "inline-flex";
+btn.style.alignItems = "center";
+btn.style.justifyContent = "center";
+btn.style.height = "38px";
+btn.style.padding = "0 8px";
+btn.style.background = "linear-gradient(145deg,#00c6ff,#0072ff)";
+btn.style.border = "none";
+btn.style.borderRadius = "6px";
+btn.style.color = "#fff";
+btn.style.fontSize = "14px";
+btn.style.cursor = "pointer";
+btn.style.boxShadow = "0 0 10px rgba(0,153,255,.5)";
+btn.style.transition = "transform 0.2s ease";
+
+// Hover
+btn.onmouseover = () => btn.style.transform = "scale(1.05)";
+btn.onmouseout = () => btn.style.transform = "scale(1)";
+
+// Ao clicar abre o painel do carrinho
+btn.addEventListener("click", function() {
+    const cartPanel = document.querySelector(".cart-panel");
+    if (cartPanel) {
+        cartPanel.classList.add("open");
+    }
+});
+
+// Insere o botão após a lupa
+const lupa = header.querySelector(".search-btn, #searchInput"); 
+if (lupa && lupa.parentNode) {
+    lupa.insertAdjacentElement("afterend", btn);
+}
+
+// Função para atualizar contador
+function atualizarCartCount(qtde){
+    const count = document.getElementById("cartCount");
+    if(count) count.textContent = qtde;
+}
+
+// Exemplo: atualiza para 3 itens
+atualizarCartCount(0);
+
+});
+</script>
+<!-- Esconde o widget do carrinho -->
+<style>
+#cart, 
+#cart-widget, 
+.cart, 
+.cart-widget, 
+.shopping-cart, 
+.widget-cart {
+    display: none !important;
+}
+</style>
 
 </body>
 </html>
